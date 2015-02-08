@@ -89,6 +89,7 @@
     <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
     <li><a href="blog/" target="_blank">Blog</a></li>
     <li><a href="story/index.htm?../experiments/" target="_blank">Experiments</a></li>
+    <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
 </ul>
 
 <hr />

@@ -9,3 +9,8 @@ html/07-bootstrap-tabs.html                        (7) Bootstrap Tabs
 html/08-bootstrap-schedule.html                    (8) Carousels - Class Schedule
 html/09-bootstrap-elements.html                    (9) Bootstrap Elements and Semantics
 html/10-bootstrap-horoscopes.html                  (10) Accordion - Daily Horoscope
+html/11-jq-image-slideshow.html                    (11) jQuery Events - Image Slideshow
+html/12-jq-animate.html                            (12) jQuery Animations
+html/13-jq-unfold.html                             (13) jQuery Slide - Product Unveil
+html/14-jq-ajax.html                               (14) jQuery AJAX and Regex - Movie of the Day
+html/15-jq-autocomplete.html                       (15) jQuery Autocomplete - U.S. State Search

@@ -42,14 +42,33 @@
 
         <!-- Documentation -->
         <h2>Documentation</h2>
-        <h3>Title</h3>
+        <h3>jQuery Events</h3>
         <p>
-            ...
+            The mouse click event on the current pictures fires up a function which checks the current image name. Based of this information, it toggles between images until it has reached the last one. At this point, the first image comes up again. This process continues. Image name is check using the appropriate object's 'indexOf' method. '<object>.src.replace' function is used to replace the image source.
         </p>
 
         <!-- Code section : BEGIN -->
         <code class="code-item">
-           ...
+            $(".imgBox").click(function()<br />
+            {<br />
+            var imgSrc = this.src;<br />
+            if(imgSrc.indexOf("darwin1") > -1)<br />
+            {<br />
+            this.src = this.src.replace("darwin1", "darwin2");<br />
+            }<br />
+            else if(imgSrc.indexOf("darwin2") > -1)<br />
+            {<br />
+            this.src = this.src.replace("darwin2", "earth");<br />
+            }<br />
+            else if(imgSrc.indexOf("earth") > -1)<br />
+            {<br />
+            this.src = this.src.replace("earth", "autumn");<br />
+            }<br />
+            else if(imgSrc.indexOf("autumn") > -1)<br />
+            {<br />
+            this.src = this.src.replace("autumn", "darwin1");<br />
+            }<br />
+            });
         </code>
         <!-- Code section : END -->
 

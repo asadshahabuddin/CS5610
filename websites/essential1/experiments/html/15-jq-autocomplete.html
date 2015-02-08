@@ -43,14 +43,27 @@
 
         <!-- Documentation -->
         <h2>Documentation</h2>
-        <h3>Title</h3>
+        <h3>Auto completion</h3>
         <p>
-            ...
+            An array is used to store the names of all U.S. States. When a user types a search token (one character and up), the 'autocomplete' method is called and searches the array to find all entries containing/matching the search token. These hits are presented in the form of a drop down list, from which an may be selected to populate the auto-complete field.
         </p>
 
         <!-- Code section : BEGIN -->
         <code class="code-item">
-           ...
+            $(function()<br />
+            {<br />
+            var validStates = [<br />
+            "Alabama",<br />
+            "Alaska",<br />
+            ...<br />
+            "Wisconsin",<br />
+            "Wyoming"<br />
+            ];<br />
+            <br />
+            $("#states").autocomplete(<br />
+            {<br />
+            source: validStates <br />
+            });
         </code>
         <!-- Code section : END -->
 
@@ -59,13 +72,13 @@
         <!-- Source file(s) -->
         <h2>Source files</h2>
         <a href="../../fileview/Default.aspx?~/experiments/html/15-jq-autocomplete.html">HTML</a>
-        <a href="../../fileview/Default.aspx?~/experiments/html/15-jq-autocomplete.css">HTML</a>
+        <a href="../../fileview/Default.aspx?~/experiments/css/15-jq-autocomplete.css">CSS</a>
         <a href="../../fileview/Default.aspx?~/experiments/js/15-jq-autocomplete.js">JavaScript</a>
 
         <!-- Reference(s) -->
         <h2>References</h2>
         <ul>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla Developer Network</a></li>
+            <li><a href="http://jqueryui.com/">jQuery UI</a></li>
         </ul>
 
         <br /><br />

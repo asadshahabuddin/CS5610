@@ -44,14 +44,41 @@
 
         <!-- Documentation -->
         <h2>Documentation</h2>
-        <h3>Title</h3>
+        <h3>jQuery AJAX and Regex</h3>
         <p>
-            ...
+            AJAX and Regular Expressions do the heavy lifting on this page. An AJAX call is made to My API Films on the click on 'imdbBtn' button. The data type expected in response is set to JSONP and a sequence of actions performed on receiving the desired response. The response object is output to the browser's console followed by the retrieval of an equivalent plain-text string using 'JSON.stringify' method. Regular expressions are created and used to extract the film's name, plot and poster. The resulting strings are formatted by the one of the CSS scripts included in the HTML page and eventually displayed front and center.
         </p>
 
         <!-- Code section : BEGIN -->
         <code class="code-item">
-           ...
+            $(".imdbBtn").click(function()<br />
+            {<br />
+            $.ajax(<br />
+            {<br />
+            url: "...",<br />
+            dataType: "jsonp",<br />
+            success: function(response)<br />
+            {<br />
+            console.log(response);<br />
+            var responseStr = JSON.stringify(response);<br />
+            <br />
+            /* Create relevant regular expressions objects */<br />
+            var titlePattern = new RegExp("title(.{3})(?=((?:[^\"])+))");<br />
+            var posterPattern = new RegExp("urlPoster(.{3})(?=((?:[^\"])+))");<br />
+            var plotPattern = new RegExp("plot(.{3})(?=((?:[^\"])+))");<br />
+            <br />
+            /* Get relavent fields as strings */<br />
+            var title = responseStr.match(titlePattern);<br />
+            var poster = responseStr.match(posterPattern);<br />
+            var plot = responseStr.match(plotPattern);<br />
+            <br />
+            /* Update approapriate fields in the web page */<br />
+            $(".filmTitle").text(title[2]);<br />
+            $(".filmPoster").attr("src", poster[2]);<br />
+            $(".filmPlot").text(plot[2]);<br />
+            }<br />
+            });<br />
+            });
         </code>
         <!-- Code section : END -->
 
