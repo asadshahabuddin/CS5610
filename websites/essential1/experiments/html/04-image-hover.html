@@ -1,0 +1,74 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 04-image-hover.html
+    Details: Change the image on mouse hover.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Image Hover | CS 5610</title>
+
+        <!-- Stylesheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/02-profile.css" />
+        <link rel="stylesheet" type="text/css" href="../css/04-image-hover.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+        <!-- Header section : BEGIN -->
+    	<header>
+            <h1>CSS Image Swap</h1>
+        </header>
+        <!-- Header section : END -->
+
+        <!-- Objective -->
+        <h2>Objective</h2>
+        <p>
+            CSS has been used to implement image swap. The image area shows a picture in its initial state, which swaps to something else on a mouse hover event. When the mouse moves out of the image area, the initial picture comes into place once again.
+        </p>
+
+        <p>
+            Hover your mouse over the image.
+        </p>
+
+        <!-- Image -->
+        <img class="imageArea" />
+
+        <!-- Documentation -->
+        <h2>Documentation</h2>
+        <h3>Image alternate on a mouse hover event</h3>
+        <code class="code-item">
+            .imageArea<br />
+            {<br />
+                background-image: url("darwin1.jpg");<br />
+                height: 300px;<br />
+                width: 400px;<br />
+            }<br />
+            <br />
+            .imageArea:hover<br />
+            {<br />
+                background-image: url("darwin2.jpg");<br />
+                height: 320px;<br />
+                width: 320px;<br />
+            }
+        </code>
+
+        <!-- Source file(s) -->
+        <h2>Source files</h2>
+        <a href="../../fileview/Default.aspx?~/experiments/html/04-image-hover.html">HTML</a>
+        <a href="../../fileview/Default.aspx?~/experiments/css/04-image-hover.css">CSS</a>
+        
+        <!-- Reference(s) -->
+        <h2>References</h2>
+        <ul>
+            <li>Mozilla Developer Network</li>
+        </ul>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 04-image-hover.html -->

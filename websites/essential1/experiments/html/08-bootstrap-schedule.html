@@ -1,0 +1,163 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 08-bootstrap-schedule.html
+    Details: Class schedule page presented using Carousels in Bootstrap.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8">
+        <title>My Schedule | CS 5610</title>
+            
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/08-bootstrap-schedule.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+        <div class="container">
+            <!-- Header section : BEGIN -->
+            <header>
+                <h1>Class Schedule</h1>
+            </header>
+            <!-- Header section : END -->
+
+            <!-- Objective -->
+            <h2>Description</h2>
+            <p>
+                Schedule of classes for the Spring 2015 Semester has been presented in a carousel-based interface defined in the Bootstrap framework. Each slide/carousel-item presents the schedule for a specific subject. The course name is used as the background text for a slide, with the main area composed of all other information associated with the highlighted subject. The last slide represents an empty slot. Navigation is made using arrow keys to the left and right or the bubbles at the bottom of a slide. In addition to these, automatic transition occurs after a fixed interval.
+            </p>
+
+            <hr />
+            
+            <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>   
+                
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <h2 class="carousel-blurb">Web Development</h2>
+                        <div class="carousel-caption">
+                            <h3>Jose G. Annunziato</h3>
+                            <p>
+                                Wednesdays and Fridays at 11:45 am<br />
+                                Location: West Village H 110<br />
+                                Associated Term: Spring 2015 Semester<br />
+                                CRN: 35342<br />
+                                Status: Web Registered on Nov 16, 2014<br />
+                                Credits: 4.000<br />
+                                Campus: Boston, Main<br />
+                            </p>
+                        </div>
+                    </div>
+                   
+                    <div class="item">
+                        <h2 class="carousel-blurb">Parallel Data Processing in MapReduce</h2>
+                        <div class="carousel-caption">
+                            <h3>Jan Vitek</h3>
+                            <p>
+                                Wednesdays at 6:00 pm<br />
+                                Location: Behrakis Health Sciences Center 220<br />
+                                Associated Term: Spring 2015 Semester<br />
+                                CRN: 36748<br />
+                                Status: Web Registered on Jan 19, 2015<br />
+                                Credits: 4.000<br />
+                                Level: Graduate<br />
+                                Campus: Boston, Main<br />
+                            </p>
+                        </div>
+                    </div>
+            
+                    <div class="item">
+                        <h2 class="carousel-blurb">Empty Slot</h2>
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Carousel navigation -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2>Documentation</h2>
+            <h3>Carousels</h3>
+            <p>
+                A carousel is created using the specified 'carousel' and 'slide' classes. An interval has been provided to indicate the time elapsed before slide transition takes place on its own. Slides are added using the 'carousel-inner' class containing individual item divisions ('div' tags). Controls are defined by utilizing the 'data-slide' property and in-built glyphicons are used to represent the actual control items.
+            </p>
+
+            <!-- Code section : BEGIN -->
+            <code class="code-item">
+                &lt;div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel"&gt;<br />
+                &lt;!-- Carousel indicators --&gt;<br />
+                &lt;ol class="carousel-indicators"&gt;<br />
+                &lt;li data-target="#myCarousel" data-slide-to="0" class="active"&gt;&lt;/li&gt;<br />
+                &lt;li data-target="#myCarousel" data-slide-to="1"&gt;&lt;/li&gt;<br />
+                &lt;li data-target="#myCarousel" data-slide-to="2"&gt;&lt;/li&gt;<br />
+                &lt;/ol&gt;<br />
+                <br />
+                &lt;!-- Carousel items --&gt;<br />
+                &lt;div class="carousel-inner"&gt;<br />
+                &lt;div class="active item"&gt;<br />
+                &lt;h2 class="carousel-blurb"&gt;Web Development&lt;/h2&gt;<br />
+                &lt;div class="carousel-caption"&gt;<br />
+                &lt;h3&gt;Jose G. Annunziato&lt;/h3&gt;<br />
+                &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+            </code>
+            <!-- Code section : END -->
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2>Source files</h2>
+            <a href="../../fileview/Default.aspx?~/experiments/html/08-bootstrap-schedule.html">HTML</a>
+            <a href="../../fileview/Default.aspx?~/experiments/css/08-bootstrap-schedule.css">CSS</a>
+
+            <!-- Reference(s) -->
+            <h2>References</h2>
+            <ul>
+                <li>Bootstrap.com</li>
+            </ul>
+
+            <br /><br />
+
+            <!-- Footer section : BEGIN -->
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="owner">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+            <!-- Footer section : END -->
+        </div>
+
+        <!-- Scripts for jQuery and Bootstrap -->
+        <!-- Inclusion has been deferred to the end of 'body' to speed up page-load times -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 08-bootstrap-schedule.html -->

@@ -1,0 +1,12 @@
+/*
+    Author: Asad Shahabuddin
+    File: index.css
+    Details: Generic style sheet.
+*/
+
+body
+{
+	font-family: "Arial";
+	margin-left: 20px;
+	margin-right: 20px;
+}

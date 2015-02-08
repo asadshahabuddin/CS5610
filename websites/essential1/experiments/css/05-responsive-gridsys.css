@@ -1,0 +1,27 @@
+/*
+    Author: Asad Shahabuddin
+    File: 05-responsive-gridsys.css
+    Details: Style sheet for a responsive grid system.
+*/
+
+.post-head
+{
+    color: #000066;
+    text-align: center;
+}
+
+.post-item
+{
+    border: 2px solid;
+    border-radius: 25px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.code-item-container
+{
+    text-align: left;
+}

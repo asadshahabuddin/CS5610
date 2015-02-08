@@ -1,0 +1,308 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 10-bootstrap-horoscopes.html
+    Details: A daily horoscope page based on Bootstrap Accordion.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8">
+        <title>Daily Horoscopes | CS 5610</title>
+            
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/08-bootstrap-schedule.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+        <div class="container">
+            <!-- Header section : BEGIN -->
+            <header>
+                <h1>Daily Horoscopes</h1>
+            </header>
+            <!-- Header section : END -->
+
+            <!-- Objective -->
+            <h2>Description</h2>
+            <p>
+                Accordian menus are used to create a daily horoscope page in the form of a navigation list. Clicking on a horoscope title opens up the description which is a complete horoscope summary for the day. The accordian widget results in lucid collapsible components. The first element is open by default. Clicking on another title opens up the corresponding description and closes the other, whereas clicking on the same title again closes all the components. Panels are used to create the overall interface.
+            </p>
+
+            <hr />
+
+            <!-- Horoscope section : BEGIN -->
+            <div class="panel-group" id="accordion">
+                <!-- Aries accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#aries">Aries</a>
+                        </h4>
+                    </div>
+                    <div id="aries" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>
+                                A rush of intense love and romantic passion for a special someone might turn your mind toward marriage, Aries. The wedding of a friend may contribute to these thoughts. Your partner may still have doubts about moving to the next level of commitment, even though there's no question that he or she truly loves you. Be patient and hold your tongue. You will know when the time is right.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Aries accordion : END -->
+
+                <!-- Taurus accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#taurus">Taurus</a>
+                        </h4>
+                    </div>
+                    <div id="taurus" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Today you could experience a strong desire to clear your psyche of past traumas that limit you, Taurus. You may decide to register for a seminar or workshop of some kind. If you sign up today, all signs are that you will not only attain the results you want but you will also meet some interesting new people. Among them could be a potential love partner. Go for it, and have fun.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Taurus accordion : END -->
+
+                <!-- Gemini accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#gemini">Gemini</a>
+                        </h4>
+                    </div>
+                    <div id="gemini" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Love, passion, romance, and marriage - your mind will focus on these matters all day even if there's no special person in your life right now, Gemini. If you are involved, don't be surprised if talk of a long-term commitment creeps into your conversations with your beloved. If you aren't involved, someone new and exciting could appear on the scene. When you go out, make sure you look your best.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gemini accordion : END -->
+
+                <!-- Cancer accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#cancer">Cancer</a>
+                        </h4>
+                    </div>
+                    <div id="cancer" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                The approach of a very special visitor might cause you to thoroughly clean your house, Cancer. Afterward, you could look for new and interesting ways to dress it up with some new plants, throw pillows, or other decorative touches. This can be tiresome, but definitely worthwhile. When your friend arrives, he or she will feel at home. Work hard and then make yourself look great.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cancer accordion : END -->
+
+                <!-- Leo accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#leo">Leo</a>
+                        </h4>
+                    </div>
+                    <div id="leo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Romantic novels and movies could be more appealing than usual today, Leo. You're in an especially intense mindset. If you're involved, your relationship could be near the point where it has to move ahead or end. Chances are it will move ahead. If you aren't attached, your loving nature will attract more than one potential partner into your aura. Be prepared, and expect the unexpected.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Leo accordion : END -->
+
+                <!-- Virgo accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#virgo">Virgo</a>
+                        </h4>
+                    </div>
+                    <div id="virgo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Your financial situation could get a strong boost today, Virgo. This might be due to a contract you've just signed, perhaps involving some work you will do on your own rather than for an employer. The project may have strong personal significance. The creative arts could be involved, as well as technology. Be prepared for a busy month, but it will be a great one. Go for the gold!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Virgo accordion : END -->
+
+                <!-- Libra accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#libra">Libra</a>
+                        </h4>
+                    </div>
+                    <div id="libra" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Today you may decide to study healing, Libra. You could read about alternative methods regarding diet, herbs, aromatherapy, massage, or acupuncture. You might decide to learn some hands-on methods. Whether or not you ever practice any of these professionally, learning about them should transform your life for the better on both physical and emotional levels. Make the most of it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Libra accordion : END -->
+
+                <!-- Scorpio accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#scorpio">Scorpio</a>
+                        </h4>
+                    </div>
+                    <div id="scorpio" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Today you might decide to sign up for an advanced course of some kind, Scorpio. This might include world religions or perhaps meditation. Stay out of bookstores, both physical and online. You might spend a fortune on books on your chosen subject. The effect of this is likely to be more profound than a simple accumulation of knowledge. Prepare to be transformed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scorpio accordion : END -->
+
+                <!-- Sagittarius accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#sagittarius">Sagittarius</a>
+                        </h4>
+                    </div>
+                    <div id="sagittarius" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                A group of friends may invite you to attend a festival or workshop involving the creative arts or metaphysical studies, or perhaps both, Sagittarius. You might resist at first, but once you get there you will find the subject and instructor captivating. Afterward, you won't want to talk about it. You will be too preoccupied with your thoughts. Write them down. You will want to remember them later.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sagittarius accordion : END -->
+
+                <!-- Capricorn accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#capricorn">Capricorn</a>
+                        </h4>
+                    </div>
+                    <div id="capricorn" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                If you've considered a career in healing, psychic, or spiritual studies or the creative arts, Capricorn, today the opportunity to make that dream a reality could come your way. A close friend could open the door for you. Your own psychic and artistic abilities should be operating at a very high level, so don't be intimidated. You're good at what you do and are likely to remain so.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Capricorn accordion : END -->
+
+                <!-- Aquarius accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#aquarius">Aquarius</a>
+                        </h4>
+                    </div>
+                    <div id="aquarius" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Romance could be on your mind today, Aquarius. This could be due to a recent wonderful encounter with a love partner. Since then, listening to romantic music may have enhanced your feelings. You will want to schedule another meeting, but you might hold back because you don't want to seem pushy. Go ahead and call your friend. You might be pleasantly surprised by the response.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Aquarius accordion : END -->
+
+                <!-- Pisces accordion : BEGIN -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#pisces">Pisces</a>
+                        </h4>
+                    </div>
+                    <div id="pisces" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                A very beautiful, romantic dream could inspire exalted artistic activities today, Pisces. You might want to paint, draw, write, compose music, sew, or cook up a new recipe. Whatever you do, you won't do it simply for your own amusement. You will want to show your work to others and seek their opinions and approval. Your business acumen could be as active as your artistic side.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pisces accordion : END -->
+            </div>
+            <!-- Horoscope section : BEGIN -->
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2>Documentation</h2>
+            <h3>Accordian and Collapsible Components</h3>
+            <p>
+                Panels and panel groups are used to encapsulate collapsible components, with the 'panel-group' id set to 'accordion' to fetch the suitable Bootstrap component. Collapsible data toggles are used to ensure that clicking on a navigation title toggles the collapsible property of that accordion. A division tag set to 'in' class remains open by default. Clicking on another item opens it up and closes others.
+            </p>
+
+            <!-- Code section : BEGIN -->
+            <code class="code-item">
+                &lt;div class="panel-group" id="accordion"&gt;<br />
+                &lt;div class="panel panel-default"&gt;<br />
+                &lt;div class="panel-heading"&gt;<br />
+                &lt;h4 class="panel-title"&gt;<br />
+                &lt;a data-toggle="collapse" data-parent="#accordion" href="#aries"&gt;Aries&lt;/a&gt;<br />
+                &lt;/h4&gt;<br />
+                &lt;/div&gt;<br />
+                &lt;div id="aries" class="panel-collapse collapse in"&gt;<br />
+                &lt;div class="panel-body"&gt;<br />
+                &lt;p&gt;<br />
+                ...<br />
+                &lt;/p&gt;<br />
+                &lt;/div&gt;<br />&lt;/div&gt;<br />&lt;/div&gt;<br />&lt;/div&gt;
+            </code>
+            <!-- Code section : END -->
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2>Source files</h2>
+            <a href="../../fileview/Default.aspx?~/experiments/html/10-bootstrap-horoscopes.html">HTML</a>
+
+            <!-- Reference(s) -->
+            <h2>References</h2>
+            <ul>
+                <li>Bootstrap.com</li>
+            </ul>
+
+            <br /><br />
+
+            <!-- Footer section : BEGIN -->
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="owner">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+            <!-- Footer section : END -->
+        </div>
+
+        <!-- Scripts for jQuery and Bootstrap -->
+        <!-- Inclusion has been deferred to the end of 'body' to speed up page-load times -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
+<!-- End of 10-bootstrap-horoscopes.html -->

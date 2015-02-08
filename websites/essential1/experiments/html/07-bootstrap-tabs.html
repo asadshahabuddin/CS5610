@@ -1,0 +1,125 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 07-bootstrap-tabs.html
+    Details: A resposive and tabbed page based on the Bootstrap framework.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html>
+    <!-- Head section : BEGIN -->
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Bootstrap Tabs | CS 5610</title>
+        <meta name="viewport"  content="width=device-width, initial-scale=1" />
+
+        <!-- Stylesheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/07-bootstrap-tabs.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+        <div class="container">
+            <div class="masthead">
+            	<!-- Header information : BEGIN -->
+                <header>
+                    <h1>Web Development</h3>
+                </header>
+                <!-- Header information : END -->
+                
+                <!-- Section toggles -->
+                <ul class="nav nav-justified">
+                    <li><a data-toggle="tab" href="#desSection">Description</a></li>
+                    <li class="active"><a data-toggle="tab" href="#homeSection">Home</a></li>
+                    <li><a data-toggle="tab" href="#docSection">Documentation</a></li>
+                    <li><a data-toggle="tab" href="#srcSection">Source files</a></li>
+                    <li><a data-toggle="tab" href="#refSection">References</a></li>
+                </ul>
+            </div>
+            <!-- Page header and navigation bar : END -->
+
+            <!-- Navigation tab contents : BEGIN -->
+            <div class="tab-content">
+                <!-- Description section : BEGIN -->
+                <div class="tab-pane fade" id="desSection">
+                    <h3 class="section-title">Description</h3>
+                    <p>
+                       This page illustrates the use of Twitter's Bootstrap framework to create a tabbed interface. Every tab leads to a separate section with the corresponding content. The 'nav' class and 'tab data-toggle' property has been used used to achieve the desired effect. There are a total of five sections (tabs) on this page and cliking on them leads to the desired section. A custom CSS file is referenced in addition to the Bootstrap CSS files, which in turn defines the properties to provide background and other style sheet information for the navigation bar.
+                    </p>
+                </div>
+                <!-- Description section : END -->
+
+                <!-- Home section : BEGIN -->
+                <div class="tab-pane fade in active" id="homeSection">
+                    <h3 class="section-title">Home</h3>
+                    <p>
+                        Discusses Web development for sites that are dynamic, data driven, and interactive. Focuses on the software development issues of integrating multiple languages, assorted data technologies, and Web interaction. Considers ASP.NET, C#, HTTP, HTML, CSS, XML, XSLT, JavaScript, AJAX, RSS/Atom, SQL, and Web services. Each student must deploy individually designed Web experiments that illustrate the Web technologies and at least one major integrative Web site project. Students may work in teams with the permission of the instructor. Each student or team must also create extensive documentation of their goals, plans, design decisions, accomplishments, and user guidelines. All source files must be open and be automatically served by a sources server. Prereq. Restricted to students in the College of Computer and Information Science.<br />
+                        <br />
+                        4.000 Credit hours
+                        <br />
+                        4.000 Lecture hours
+                    </p>
+                </div>
+                <!-- Home section : END -->
+
+                <!-- Documentation section : BEGIN -->
+                <div class="tab-pane fade" id="docSection">
+                    <h3 class="section-title">Documentation</h3>
+                    <p>
+                        The first part of the highlighted code is used to create tabs using the 'nav' class and 'tab data-toggle' property. Clicking on a tab leads to its section referenced using the 'a href' property. The second block of code represents the actual tabbed section with the corresponding contents. Each section is represented by its own 'div' tag referencing the 'tab-pane' class. Section heading uses the 'section-title' class and the active section is denoted using the 'active' class in its division tag.
+                    </p>
+
+                    <!-- Code subsection : BEGIN -->
+                    <code>
+                        &lt;ul class="nav nav-justified"&gt;<br />
+                        &lt;li&gt;&lt;a data-toggle="tab" href="#desSection"&gt;Description&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li class="active"&gt;&lt;a data-toggle="tab" href="#homeSection"&gt;Home&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li&gt;&lt;a data-toggle="tab" href="#docSection"&gt;Documentation&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li&gt;&lt;a data-toggle="tab" href="#srcSection"&gt;Source files&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li&gt;&lt;a data-toggle="tab" href="#refSection"&gt;References&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;/ul&gt;<br />
+                        <br />
+                        &lt;div class="tab-content"&gt;<br />
+                        &lt;div class="tab-pane fade" id="desSection"&gt;<br />
+                        &lt;h3 class="section-title"&gt;Description&lt;/h3&gt;<br />
+                        &lt;p&gt;<br />
+                        ...<br />
+                        &lt;/p&gt;<br />
+                        &lt;/div&gt;
+                    </code>
+                    <!-- Code subsection : END -->
+                </div>
+                <!-- Documentation section : END -->
+
+                <!-- Source files section : BEGIN -->
+                <div class="tab-pane fade" id="srcSection">
+                    <h3 class="section-title">Source files</h3>
+                    <ol>
+                        <li><a href="../../fileview/Default.aspx?~/experiments/html/07-bootstrap-tabs.html">HTML</a></li>
+                        <li><a href="../../fileview/Default.aspx?~/experiments/css/07-bootstrap-tabs.css">CSS</a></li>
+                    </ol>
+                </div>
+                <!-- Source files section : END -->
+
+                <!-- References section : BEGIN -->
+                <div class="tab-pane fade" id="refSection">
+                    <h3 class="section-title">References</h3>
+                    <ul>
+                        <li>Bootstrap.com</li>
+                    </ul>
+                </div>
+                <!-- References Section : END -->
+            </div>
+        </div>
+
+        <!-- Scripts for jQuery and Bootstrap -->
+        <!-- Inclusion has been deferred to the end of 'body' to speed up page-load times -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 07-bootstrap-tabs.html -->

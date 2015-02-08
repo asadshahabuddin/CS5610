@@ -1,0 +1,19 @@
+/*
+    Author: Asad Shahabuddin
+    File: 13-jq-unfold.css
+    Details: Style sheet for '13-jq-unfold.html'.
+*/
+
+.flipBox
+{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    width: 165px;
+}
+
+.contentBox
+{
+    display: none;
+}

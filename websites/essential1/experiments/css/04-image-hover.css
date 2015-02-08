@@ -1,0 +1,19 @@
+/*
+    Author: Asad Shahabuddin
+    File: 04-image-hover.css
+    Details: Style sheet for the homepage script.
+*/
+
+.imageArea
+{
+    background-image: url("../images/darwin1.jpg");
+    height: 300px;
+    width: 400px;
+}
+
+.imageArea:hover
+{
+    background-image: url("../images/darwin2.jpg");
+    height: 320px;
+    width: 320px;
+}

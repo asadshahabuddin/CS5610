@@ -1,0 +1,54 @@
+/*
+    Author: Asad Shahabuddin
+    File: 02-profile.css
+    Details: Style sheet for the profile page.
+*/
+
+body
+{
+	font-family: "Arial";
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li
+{
+    float: left;
+}
+
+.nav-item:link, .nav-item:visited
+{
+    display: block;
+    width: 350px;
+    color: #FFFFFF;
+    background-color: #6699FF;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-item:hover, .nav-item:active
+{
+	color: black;
+    background-color: #99CCFF;
+}
+
+.owner
+{
+	font-weight: bold;
+}
+
+.code-item
+{
+    color: crimson;
+    font-family: "Courier New";
+}

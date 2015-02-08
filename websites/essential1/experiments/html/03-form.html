@@ -1,0 +1,144 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 03-form.html
+    Details: HTML Form.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Sample Form | CS 5610</title>
+
+        <!-- Stylesheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/02-profile.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+        <!-- Header section : BEGIN -->
+        <header>
+            <h1>Personal Information form</h1>
+        </header>
+        <!-- Header section : END -->
+
+        <!-- Objective -->
+        <h2>Objective</h2>
+        <p>
+            A form that collects personal information and submits it to a confirmation page. The concept of HTML forms has is explored with various input types in the mix - text, tel, radio, datetime-local, list, url and checkbox. A 'submit' button is used to submit the form.
+        </p>
+
+        <hr />
+
+        <!-- Form section : BEGIN -->
+        <form action="03-1-confirmation.html">
+            First name<br />
+            <input type="text" name="firstname" /><br />
+            <br />
+
+            Last name<br />
+            <input type="text" name="lastname" /><br />
+            <br />
+            
+            E-mail<br />
+            <input type="email" name="email" /><br />
+            <br />
+
+            Phone<br />
+            <input type="tel" name="phone"><br />
+            <br />
+            
+            Gender<br />
+            <input type="radio" name="sex" value="female" checked>Female<br />
+            <input type="radio" name="sex" value="male">Male<br />
+            <br />
+
+            Birthday and Time<br />
+            <input type="datetime-local" name="birthdaytime"><br />
+            <br />
+
+            School<br />
+            <input list="schools" name="school" /><br />
+            <datalist id="schools">
+                <option value="Arizona State University" />
+                <option value="Boston College" />
+                <option value="Boston University" />
+                <option value="Emmanuel College" />
+                <option value="Harvard University" />
+                <option value="Massachusetts Institute of Technology" />
+                <option value="Northeastern University" />
+                <option value="Northwestern University" />
+                <option value="Wentworth University" />
+                <option value="Worchester Institute of Technology" />
+            </datalist>
+            <br />
+
+            Website<br />
+            <input type="url" name="website"><br />
+            <br />
+
+            Ethnicity and Race (Pick all that apply)<br />
+            <input type="checkbox" name="enr" value="hispanic">Hispanic/Latino<br />
+            <input type="checkbox" name="enr" value="asian">Asian<br />
+            <input type="checkbox" name="enr" value="elf">Elf<br />
+            <input type="checkbox" name="enr" value="nord">Nord<br />
+            <input type="checkbox" name="enr" value="white">White<br />
+            <br />
+
+            <input type="submit" value="Submit">
+
+        </form>
+        <!-- Form section : END -->
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2>Documentation</h2>
+        <h3>Data submission using a form and various input types</h3>
+        <code class="code-item">
+            &lt;form action="03-1-confirmation.html"&gt;<br />
+            First name&lt;br /&gt;<br />
+            &lt;input type="text" name="firstname" /&gt;&lt;br /&gt;<br />
+            &lt;br /&gt;<br />
+            <br />
+            E-mail&lt;br /&gt;<br />
+            &lt;input type="text" name="email" /&gt;&lt;br /&gt;<br />
+            &lt;br /&gt;<br />
+            <br />
+            Gender&lt;br /&gt;<br />
+            &lt;input type="radio" name="sex" value="female" checked&gt;Female&lt;br /&gt;<br />
+            &lt;input type="radio" name="sex" value="male"&gt;Male&lt;br /&gt;<br />
+            &lt;br /&gt;<br />
+            <br />
+            Birthday and Time&lt;br /&gt;<br />
+            &lt;input type="datetime-local" name="birthdaytime"&gt;&lt;br /&gt;<br />
+            &lt;br /&gt;<br />
+            ...<br />
+            <br />
+            ...<br />
+            &lt;input type="submit" value="Submit"&gt;<br />
+            <br />
+            &lt;/form&gt;<br />
+        </code>
+        <br />
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2>Source files</h2>
+        <a href="../../fileview/Default.aspx?~/experiments/html/03-form.html">HTML (Form page)</a>
+        <a href="../../fileview/Default.aspx?~/experiments/html/03-1-confirmation.html">HTML (Submission page)</a>
+        
+        <!-- Reference(s) -->
+        <h2>References</h2>
+        <ul>
+            <li>Mozilla Developer Network</li>
+        </ul>
+
+        <br /><br />
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 03-form.html -->

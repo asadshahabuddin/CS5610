@@ -1,0 +1,14 @@
+/*
+    Author: Asad Shahabuddin
+    File: 12-jq-image-slideshow.css
+    Details: Style sheet for '12-jq-animate.html'.
+*/
+
+.contentBox
+{
+    background: black;
+    color: white;
+    font-weight: bold;
+    height: 100px;
+    width: 200px;
+}

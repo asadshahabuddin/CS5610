@@ -1,0 +1,11 @@
+../story/whatisnext.htm?../experiments/            What is Next?
+html/01-profile.html                               (1) Basic HTML - My Profile
+html/02-profile.html                               (2) CSS Semantics and Navigation Bar - My Formatted Profile
+html/03-form.html                                  (3) HTML Forms
+html/04-image-hover.html                           (4) Image Swap on Mouse Hover Event
+html/05-responsive-gridsys.html                    (5) Responsive Design - Automatic Layout Rendering
+html/06-bootstrap-navbar.html                      (6) Bootstrap Navigation Bar - Responsive Design
+html/07-bootstrap-tabs.html                        (7) Bootstrap Tabs
+html/08-bootstrap-schedule.html                    (8) Carousels - Class Schedule
+html/09-bootstrap-elements.html                    (9) Bootstrap Elements and Semantics
+html/10-bootstrap-horoscopes.html                  (10) Accordion - Daily Horoscope

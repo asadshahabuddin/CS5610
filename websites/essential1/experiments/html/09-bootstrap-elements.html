@@ -1,0 +1,140 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 09-bootstrap-elements.html
+    Details: Create various Bootstrap elements.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8">
+        <title>Elements | CS 5610</title>
+            
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/08-bootstrap-schedule.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+        <div class="container">
+            <!-- Header section : BEGIN -->
+            <header>
+                <h1>Elements</h1>
+            </header>
+            <!-- Header section : END -->
+
+            <!-- Objective -->
+            <h2>Description</h2>
+            <p>
+                The page is used to showcase various elements in the Bootstrap framework. This includes a progress bar and an accessibility guide composed of various kinds of labels meant for a variety of scenarios. A traffic signal guide is created using some of the label colors. The progress bar is at a 100% completion to show the page load status. Each of these elements are placed inside their own division tags and the entire body is enveloped by a 'container' division, which comes with its own specific styling.
+            </p>
+
+            <hr />
+            
+            <!-- Progress bar -->
+            <p>
+                Page loading...
+            </p>
+            <div class="progress-block">
+                <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-info" style="width: 100%">
+                       <span>100% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <!-- Labels -->
+            <h3>Accessibility Guide</h3>
+            <div class="label-block">
+                <p>
+                    <span class="label label-danger">RED</span><br />
+                    Stop at this sign. Do not move forward.
+                </p>
+                <p>
+                    <span class="label label-warning">YELLOW</span><br />
+                    Proceed slowly and with caution.
+                </p>
+                <p>
+                    <span class="label label-success">GREEN</span><br />
+                    This is your cue to march on.
+                </p>
+                <p>
+                    <span class="label label-primary">BLUE</span><br />
+                    Reserved for future use.
+                </p>
+                <p>
+                    <span class="label label-info">TURQUOISE</span><br />
+                    Reserved for future use.
+                </p>
+                <p>
+                    <span class="label label-default">GRAY</span><br />
+                    Reserved for future use.
+                </p>
+            </div>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2>Documentation</h2>
+            <h3>Progress bar and labels</h3>
+            <p>
+                The 'progress' and 'progress-striped' elements are used to created a striped version of the progress bar. Width is set to 100% to indicate that the page is completely loaded. The 'span' tag is used to write text inside the progress bar. Labels are created using the 'label' class inside a 'span' tag. In this case, 'label-danger' class is used to create a red-colored label, which can be used in appropriate scenarios, such as displaying an error message.
+            </p>
+
+            <!-- Code section : BEGIN -->
+            <code class="code-item">
+                &lt;div class="progress-block"&gt;<br />
+                &lt;div class="progress progress-striped"&gt;<br />
+                &lt;div class="progress-bar progress-bar-info" style="width: 100%"&gt;<br />
+                &lt;span&gt;100% Complete&lt;/span&gt;<br />
+                &lt;/div&gt;<br />
+                &lt;/div&gt;<br />
+                &lt;/div&gt;<br />
+                <br />
+                &lt;span class="label label-danger"&gt;RED&lt;/span&gt;&lt;br /&gt;<br />
+            </code>
+            <!-- Code section : END -->
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2>Source files</h2>
+            <a href="../../fileview/Default.aspx?~/experiments/html/09-bootstrap-elements.html">HTML</a>
+
+            <!-- Reference(s) -->
+            <h2>References</h2>
+            <ul>
+                <li>Bootstrap.com</li>
+            </ul>
+
+            <br /><br />
+
+            <!-- Footer section : BEGIN -->
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="owner">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+            <!-- Footer section : END -->
+        </div>
+
+        <!-- Scripts for jQuery and Bootstrap -->
+        <!-- Inclusion has been deferred to the end of 'body' to speed up page-load times -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 09-bootstrap-elements.html -->

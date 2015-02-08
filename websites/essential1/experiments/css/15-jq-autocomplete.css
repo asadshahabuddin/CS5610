@@ -1,0 +1,10 @@
+/*
+    Author: Asad Shahabuddin
+    File: 15-jq-autocomplete.css
+    Details: Style sheet for '15-jq-autocomplete.html'.
+*/
+
+.inputLabel, #states
+{
+    font-family: Arial;
+}

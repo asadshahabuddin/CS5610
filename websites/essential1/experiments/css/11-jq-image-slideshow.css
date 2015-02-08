@@ -1,0 +1,11 @@
+/*
+    Author: Asad Shahabuddin
+    File: 11-jq-image-slideshow.css
+    Details: Style sheet for '11-jq-image-slideshow.html'.
+*/
+
+.imgBox
+{
+    height: 400px;
+    width: 400px;
+}

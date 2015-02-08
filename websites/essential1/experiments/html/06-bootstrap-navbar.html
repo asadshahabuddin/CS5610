@@ -1,0 +1,145 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 06-bootstrap-navbar.html
+    Details: A resposive page based on the Bootstrap framework showing off a
+             navigation bar at the top.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Boostrap Introduction | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body>
+    	<!-- Page header and navigation bar : BEGIN -->
+        <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <!-- Page header -->
+                    <a class="navbar-brand" href="#">Bootstrap Basics</a>
+                </div>
+                
+                <!-- Toggle content links -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#home" target="_blank">Home</a></li>
+                        <li><a href="#about" target="_blank">About</a></li>
+                        <li><a href="#contact" target="_blank">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page header and navigation bar : END -->
+
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Description</h1>
+                <p>
+                    Twitter's Bootstrap framework has been used to create a navigation bar which is resposive to the screen size (phones, tablets, laptops and desktops) along with the rest of the page. We mainly focus on the navigation bar and its elements, utilizing Bootstrap's classes to format it and create an inverted version of the same. The items form part of a drop down list from a contextual button on the top-right in the case of a small screen and expands to a full-blown menu as it is stretched to a larger size. Other elements have also been added to make the page complete.
+                <p>
+            </div>
+
+            <div class="row">
+            	<!-- Content section : BEGIN -->
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <h2>Web Development</h2>
+                    <p>
+                        Discusses Web development for sites that are dynamic, data driven, and interactive. Focuses on the software development issues of integrating multiple languages, assorted data technologies, and Web interaction. Considers ASP.NET, C#, HTTP, HTML, CSS, XML, XSLT, JavaScript, AJAX, RSS/Atom, SQL, and Web services. Each student must deploy individually designed Web experiments that illustrate the Web technologies and at least one major integrative Web site project. Students may work in teams with the permission of the instructor. Each student or team must also create extensive documentation of their goals, plans, design decisions, accomplishments, and user guidelines. All source files must be open and be automatically served by a sources server. Prereq. Restricted to students in the College of Computer and Information Science.<br />
+                        <br />
+                        4.000 Credit hours
+                        <br />
+                        4.000 Lecture hours
+                    </p>
+                </div>
+                <!-- Content section : END -->
+
+                <!-- Documentation section : BEGIN -->
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <h2>Documentation</h2>
+                    <p>
+                        The presented code creates a default navigation bar with an inverted color scheme and it remains fixed to the top of one's browser window. The navigation buttons/elements are used to navigate to different pages and they are resposive to the screen size. The buttons are shown in their normal form on larger screens but they turn into a toggle on the top-right of this navigation bar. Clicking on the toggle gives access to the buttons.
+                    </p>
+
+                    <!-- Code subsection : BEGIN -->
+                    <code>
+                        &lt;nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation"&gt;<br />
+                            &lt;div class="container"&gt;<br />
+                                &lt;div class="navbar-header"&gt;<br />
+                                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse"&gt;<br />
+                                        &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;<br />
+                                        &lt;span class="icon-bar"&gt;&lt;/span&gt;<br />
+                                        &lt;span class="icon-bar"&gt;&lt;/span&gt;<br />
+                                        &lt;span class="icon-bar"&gt;&lt;/span&gt;<br />
+                                    &lt;/button&gt;<br />
+                                &lt;/div&gt;<br />
+                                &lt;div class="collapse navbar-collapse" id="navbarCollapse"&gt;<br />
+                                    &lt;ul class="nav navbar-nav"&gt;<br />
+                                        &lt;li class="active"&gt;&lt;a href="#home" target="_blank"&gt;Home&lt;/a&gt;&lt;/li&gt;<br />
+                                        &lt;li&gt;&lt;a href="#about" target="_blank"&gt;About&lt;/a&gt;&lt;/li&gt;<br />
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/nav&gt;<br />
+                    </code>
+                    <!-- Code subsection : END -->
+                </div>
+                <!-- Documentation subsection : END -->
+
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <!-- Source file(s) -->
+                    <h2>Source files</h2>
+                    <a href="../../fileview/Default.aspx?~/experiments/html/06-bootstrap-navbar.html">HTML</a>
+
+                    <hr />
+
+                    <!-- Reference(s) -->
+                    <h2>References</h2>
+                    <ul>
+                        <li>Boostrap.com</li>
+                        <li>Prof. Jose's class notes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!-- Footer section : BEGIN -->
+        <div class="container">
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="owner">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+        <!-- Footer section : END -->
+
+        <!-- Scripts for jQuery and Bootstrap -->
+        <!-- Inclusion has been deferred to the end of 'body' to speed up page-load times -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
+<!-- End of 06-bootstrap-navbar.html -->
