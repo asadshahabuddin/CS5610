@@ -1,0 +1,238 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 19-coterie-4.html
+    Details: Search for books using the Google Books API.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Premium Book Search | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/16-coterie.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/19-coterie-4.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="coterie-app">
+        <div class="container" ng-controller="coterie-controller">
+             <div class="masthead">
+                <!-- Header information : BEGIN -->
+                <header>
+                    <h1>Premium Book Search</h3>
+                </header>
+                <!-- Header information : END -->
+                
+                <!-- Section toggles -->
+                <ul class="nav nav-justified">
+                    <li><a data-toggle="tab" href="#desSection">Description</a></li>
+                    <li class="active"><a data-toggle="tab" href="#homeSection">Home</a></li>
+                    <li><a data-toggle="tab" href="#bkmSection">Bookmarks</a></li>
+                    <li><a data-toggle="tab" href="#docSection">Documentation</a></li>
+                    <li><a data-toggle="tab" href="#srcSection">Source files</a></li>
+                    <li><a data-toggle="tab" href="#refSection">References</a></li>
+                </ul>
+            </div>
+            <!-- Page header and navigation bar : END -->
+
+            <!-- Navigation tab contents : BEGIN -->
+            <div class="tab-content">
+                <!-- Description section : BEGIN -->
+                <div class="tab-pane fade" id="desSection">
+                    <h3 class="sectionTitle">Description</h3>
+                    <p>
+                       This single-page, multi-tabbed application is the biggest update in the series. Users can bookmark search results and view them by clicking on the 'Bookmarks' tab. Bookmarks are also shown in the form of a table and can be deleted and refreshed. Other parts of the page are moved to their respective tabs. Bootstrap library is extended to create the tabbed interface, making for a lucid and uncluttered user experience.
+                    </p>
+                </div>
+                <!-- Description section : END -->
+
+                <!-- Home section : BEGIN -->
+                <div class="tab-pane fade in active" id="homeSection">
+                    <h3 class="sectionTitle">Home</h3>
+                    <h3 class="subsectionTitle">Universal Book Search</h3>
+                    <div class="input-group">
+                        <input ng-model="searchByTitle" type ="text" class="form-control" placeholder="Search for..."/>
+                        <span class="input-group-btn">
+                            <button ng-click="searchBooks()" class="btn btn-default">Go!</button>
+                        </span>
+                    </div>
+
+                    <h3 class="subsectionTitle">Results</h3>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Authors</th>
+                                <th>Description</th>
+                                <th>Published Date</th>
+                                <th>Average Rating</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <th><input ng-model="item.title" class="form-control"/></th>
+                                <th><input ng-model="item.author" class="form-control"/></th>
+                                <th><input ng-model="item.description" class="form-control"/></th>
+                                <th><input ng-model="item.publishedDate" class="form-control"/></th>
+                                <th><input ng-model="item.averageRating" class="form-control"/></th>
+                                <th>
+                                    <button ng-click="selectItem(item)" class="btn btn-xs btn-primary">
+                                        <span class="glyphicon glyphicon-ok"/>
+                                    </button>
+                                    <button ng-click="addItem(item)" class="btn btn-xs btn-success">
+                                        <span class="glyphicon glyphicon-plus"/>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items">
+                                <td class="itemTitle">{{item.title}}</td>
+                                <td>
+                                    <span ng-repeat="author in item.authors">{{author}}<br/></span>
+                                </td>
+                                <td>
+                                    <img ng-src="{{item.imageLinks.smallThumbnail}}" class="itemThumbnail"/>
+                                    {{item.description}}
+                                </td>
+                                <td>{{item.publishedDate}}</td>
+                                <td>{{item.averageRating}}</td>
+                                <td>
+                                    <button ng-click="editItem(item)" class="btn btn-xs btn-default">
+                                        <span class="glyphicon glyphicon-pencil"/>
+                                    </button>
+                                    <button ng-click="removeItem(item)" class="btn btn-xs btn-danger">
+                                        <span class="glyphicon glyphicon-remove"/>
+                                    </button>
+                                    <button ng-click="bookmarkItem(item)" class="btn btn-xs btn-warning">
+                                        <span class="glyphicon glyphicon-star"/>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Home section : END -->
+
+                <!-- Bookmarks section : BEGIN -->
+                <div class="tab-pane fade" id="bkmSection">
+                    <h3 class="sectionTitle">Bookmarks</h3>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Authors</th>
+                                <th>Description</th>
+                                <th>Published Date</th>
+                                <th>Average Rating</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in bookmarkedItems">
+                                <td class="itemTitle">{{item.title}}</td>
+                                <td>
+                                    <span ng-repeat="author in item.authors">{{author}}<br/></span>
+                                </td>
+                                <td>
+                                    <img ng-src="{{item.imageLinks.smallThumbnail}}" class="itemThumbnail"/>
+                                    {{item.description}}
+                                </td>
+                                <td>{{item.publishedDate}}</td>
+                                <td>{{item.averageRating}}</td>
+                                <td>
+                                    <button ng-click="unbookmarkItem(item)" class="btn btn-xs btn-danger">
+                                        <span class="glyphicon glyphicon-remove"/>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Bookmarks section : END -->
+
+                <!-- Documentation section : BEGIN -->
+                <div class="tab-pane fade" id="docSection">
+                    <h3 class="sectionTitle">Documentation</h3>
+                    <p>
+                        AngularJS's magic variable and JavaScript are used to create functions to add and remove bookmarks. Favorites are added and purged by updating the associated list. Apart from this, custom CSS is applied to achieve the desired formatting for tabs, as well as hovered upon and selected items. Border and shadow attributed are also specified.
+                    </p>
+
+                    <!-- Code subsection : BEGIN -->
+                    <code>
+                        $scope.bookmarkItem = function(item)<br/>
+                        {<br/>
+                        $scope.bookmarkedItems.push(item);<br/>
+                        }<br/>
+                        <br/>
+                        $scope.unbookmarkItem = function(item)<br/>
+                        {<br/>
+                        $scope.bookmarkedItems.splice($scope.<br/>
+                        bookmarkedItems.<br/>
+                        indexOf(item), 1);<br/>
+                        }<br/>
+                        ...<br/>
+                        <br/>
+                        ...<br/>
+                        .nav-justified > li > a<br/>
+                        {<br/>
+                        border-left: 1px solid #fff;<br/>
+                        border-right: 1px solid #d5d5d5;<br/>
+                        color: #777;<br/>
+                        font-weight: bold;<br/>
+                        padding-bottom: 15px;<br/>
+                        padding-top: 15px;<br/>
+                        }<br/>
+                        <br/>
+                        .nav-justified > .active > a,<br/>
+                        .nav-justified > .active > a:hover,<br/>
+                        .nav-justified > .active > a:focus<br/>
+                        {<br/>
+                        background-color: #ddd;<br/>
+                        -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);<br/>
+                        box-shadow: inset 0 3px 7px rgba(0,0,0,.15);<br/>
+                        }
+                    </code>
+                    <!-- Code subsection : END -->
+                </div>
+                <!-- Documentation section : END -->
+
+                <!-- Source files section : BEGIN -->
+                <div class="tab-pane fade" id="srcSection">
+                    <h3 class="sectionTitle">Source files</h3>
+                    <ol>
+                        <li><a href="../../fileview/Default.aspx?~/experiments/html/19-coterie-4.html">HTML</a></li>
+                        <li><a href="../../fileview/Default.aspx?~/experiments/css/19-coterie-4.css">CSS</a></li>
+                        <li><a href="../../fileview/Default.aspx?~/experiments/js/19-coterie-4.js">JavaScript</a>
+                    </ol>
+                </div>
+                <!-- Source files section : END -->
+
+                <!-- References section : BEGIN -->
+                <div class="tab-pane fade" id="refSection">
+                    <h3 class="sectionTitle">References</h3>
+                    <ul>
+                        <li><a href="https://angularjs.org/">AngularJS</a></li>
+                        <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+                        <li>Prof. Jose's Class Notes</li>
+                    </ul>
+                </div>
+                <!-- References Section : END -->
+            </div>
+        </div>
+        
+        <!-- Script information -->
+        <!-- Inclusion has been deferred to the end of 'body' to speed up page-load times -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+        <script src="../js/19-coterie-4.js"></script>
+    </body>
+</html>
+<!-- End of 19-coterie-4.html -->

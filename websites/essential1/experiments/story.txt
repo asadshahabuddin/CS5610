@@ -14,3 +14,8 @@ html/12-jq-animate.html                            (12) jQuery Animations
 html/13-jq-unfold.html                             (13) jQuery Slide - Product Unveil
 html/14-jq-ajax.html                               (14) jQuery AJAX and Regex - Movie of the Day
 html/15-jq-autocomplete.html                       (15) jQuery Autocomplete - U.S. State Search
+html/16-coterie-1.html                             (16) Local Library
+html/17-coterie-2.html                             (17) Online Library - Google Books API
+html/18-coterie-3.html                             (18) Online Book Search - Google Books API
+html/19-coterie-4.html                             (19) Premium Book Search - Google Books API
+html/20-coterie-5.html                             (20) Premium Book Search II - Google Books API
