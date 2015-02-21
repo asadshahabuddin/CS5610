@@ -1,0 +1,42 @@
+<h2 class="sectionHeader">Details</h2>
+<h3>{{itemDetails.volumeInfo.title}}</h3>
+<img ng-src="{{itemDetails.volumeInfo.imageLinks.thumbnail}}"/>
+<br/><br/>
+<span class="asBoldSpan">Plot: </span>
+{{itemDetails.volumeInfo.description}}
+
+<hr/>
+
+<span class="asBoldSpan">Authors: </span><br/>
+<ul ng-repeat="author in itemDetails.volumeInfo.authors">
+    <li>{{author}}</li>
+</ul>
+<span class="asBoldSpan">Categories: </span><br/>
+<ul ng-repeat="category in itemDetails.volumeInfo.categories">
+    <li>{{category}}</li>
+</ul>
+<span class="asBoldSpan">Publisher: </span>
+{{itemDetails.volumeInfo.publisher}}
+<br/>
+<span class="asBoldSpan">Published Date: </span>
+{{itemDetails.volumeInfo.publishedDate}}
+<br/>
+<span class="asBoldSpan">ISBN: </span>
+{{itemDetails.volumeInfo.industryIdentifiers[0].identifier}}
+<br/>
+<span class="asBoldSpan">Pages: </span>
+{{itemDetails.volumeInfo.pageCount}}
+<br/>
+<span class="asBoldSpan">Published Date: </span>
+{{itemDetails.volumeInfo.publishedDate}}
+<br/>
+<span class="asBoldSpan">Average Rating: </span>
+{{itemDetails.volumeInfo.averageRating}}
+<br/>
+<span class="asBoldSpan">Number of Reviews: </span>
+{{itemDetails.volumeInfo.ratingCount}}
+<br/>
+<span class="asBoldSpan">Preview: </span>
+<a href="{{itemDetails.volumeInfo.previewLink}}">Google Books</a>
+
+<hr />

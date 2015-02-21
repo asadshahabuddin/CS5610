@@ -1,0 +1,32 @@
+<h2 class="sectionHeader">Bookmarks</h2>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Description</th>
+            <th>Published Date</th>
+            <th>Average Rating</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in bookmarkedItems">
+            <td class="itemTitle">{{item.title}}</td>
+            <td>
+                <span ng-repeat="author in item.authors">{{author}}<br/></span>
+            </td>
+            <td>
+                <img ng-src="{{item.imageLinks.smallThumbnail}}" class="itemThumbnail"/>
+                {{item.description}}
+            </td>
+            <td>{{item.publishedDate}}</td>
+            <td>{{item.averageRating}}</td>
+            <td>
+                <button ng-click="unbookmarkItem(item)" class="btn btn-xs btn-danger">
+                    <span class="glyphicon glyphicon-remove"/>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

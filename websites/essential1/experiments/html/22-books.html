@@ -1,0 +1,68 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 22-books.html
+    Details: Implementation of Books application using AngularJS Routing.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Books | CS 5610</title>
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/as-base.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="BooksApplication">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#books-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/home">Books</a>
+                </div>
+                <div id="books-navbar-collapse" class="navbar-collapse navbar-right collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/home">Home</a></li>
+                        <li><a href="#/bookmarks">Bookmarks</a></li>
+                        <li class="dropdown">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <header>
+                <h1>Books</h1>
+            </header>
+            
+            <div ng-view>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <!--
+        The inclusion of JavaScripts has been deferred to the end of body section
+        to speed up HTML load time.
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+        <script src="../js/22-books.js"></script>
+        <script src="../js/22-books-service.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 22-books.html -->

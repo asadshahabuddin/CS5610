@@ -1,0 +1,40 @@
+/*
+    Author: Asad Shahabuddin
+    File: as-base.css
+    Details: Base CSS file for all pages.
+    Email ID: asad808@ccs.neu.edu
+*/
+
+.asBody
+{
+    font-family: Arial;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1
+{
+	font-weight: bold;
+}
+
+.sectionHeader
+{
+    color: navy;
+}
+
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.itemThumbnail
+{
+    float: left;
+    margin-right: 20px;
+}
+
+.owner
+{
+    font-weight: bold;
+}
+/* End of as-base.css */

@@ -1,0 +1,36 @@
+<h2 class="sectionHeader">Bookmarks</h2>
+<p ng-show="bookmarkedItems.length == 0">No items have been bookmarked.<p>
+<table ng-show="bookmarkedItems.length > 0" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Description</th>
+            <th>Published Date</th>
+            <th>Average Rating</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in bookmarkedItems">
+            <td class="itemTitle">{{item.title}}</td>
+            <td>
+                <span ng-repeat="author in item.authors">{{author}}<br/></span>
+            </td>
+            <td>
+                <img ng-src="{{item.imageLinks.smallThumbnail}}" class="itemThumbnail"/>
+                {{item.description}}
+            </td>
+            <td>{{item.publishedDate}}</td>
+            <td>{{item.averageRating}}</td>
+            <td>
+                <button ng-click="unbookmarkItem(item)" class="btn btn-xs btn-danger">
+                    <span class="glyphicon glyphicon-remove"/>
+                </button>
+                <a href="#/details/{{item.industryIdentifiers[0].identifier}}" class="btn btn-xs btn-primary">
+                    <span class="glyphicon glyphicon-fullscreen"/>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
