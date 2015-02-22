@@ -1,7 +1,7 @@
 <!-- Description -->
 <h2 class="sectionHeader">Description</h2>
 <p>
-    ...
+    Bookmarks tab is visually populated with items added to a person's favorites. Bookmarked items can still be viewed in console along with graphical representation. This has been achieved by facilitating communication between multiple controllers using my AngularJS Book Factory. Items can also be removed from bookmarks with immediate content refresh to reflect it on the webpage.
 </p>
 
 <hr/>
@@ -77,25 +77,73 @@
 
 <!-- Documentation -->
 <h2 class="sectionHeader">Documentation</h2>
-<h3>Placeholder Title</h3>
+<h3>AngularJS Factory</h3>
 <p>
-    ...
+    The application's factory is defined with a number of methods to act as a global API for methods in various controllers. Search and bookmarking are provided with this factory. The return block contains various API methods exposed by my factory. Logging has been maintained for convenient debugging and sake of good practice.
 </p>
 
 <!-- Code -->
 <code class="code-item">
-    ...
+    app.factory("BookService",<br/>
+    function BookService($http)<br/>
+    {<br/>
+    var bookmarkedItems = [];<br/>
+    <br/>
+    var searchBooks = function(title, callback)<br/>
+    {<br/>
+    /* Output to console */<br/>
+    console.log("%c[echo] Searching for books with title '" + title + "'...",<br/>
+    "font-family: Courier New;");<br/>
+    <br/>
+    $http.get("https://www.googleapis.com/books/v1/volumes?q=" + title)<br/>
+    .success(callback);<br/>
+    }<br/>
+    <br/>
+    var getBookmarks = function()<br/>
+    {<br/>
+    return bookmarkedItems;<br/>
+    }<br/>
+    <br/>
+    var bookmarkItem = function(item)<br/>
+    {<br/>
+    /* Output to console */<br/>
+    console.log("%c[echo] Added item '" + item.title + "' to bookmarks",<br/>
+    "font-family: Courier New;");<br/>
+    bookmarkedItems.push(item);<br/>
+    }<br/>
+    <br/>
+    var unbookmarkItem = function(item)<br/>
+    {<br/>
+    /* Output to console */<br/>
+    console.log("%c[echo] Removed item '" + item.title + "' from bookmarks",<br/>
+    "font-family: Courier New;");<br/>
+    bookmarkedItems.splice(bookmarkedItems.indexOf(item), 1);<br/>
+    }<br/>
+    <br/>
+    return {<br/>
+    search: searchBooks,<br/>
+    bookmarks: getBookmarks,<br/>
+    addBookmark: bookmarkItem,<br/>
+    removeBookmark: unbookmarkItem<br/>
+    }<br/>
+    });
 </code>
 
 <hr />
 
 <!-- Source file(s) -->
 <h2 class="sectionHeader">Source files</h2>
-<a href="../../fileview/Default.aspx?~/experiments/html/20-books.html">HTML</a> |
-<a href="../../fileview/Default.aspx?~/experiments/js/20-books.js">JavaScript</a>
+<ul>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/22-books.html">HTML 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/home-2.html">HTML 2</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/bookmarks-2.html">HTML 3</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/css/as-base.css">CSS</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/22-books.js">JavaScript 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/22-books-service.js">JavaScript 2</a></li>
+</ul>
 
 <!-- Reference(s) -->
-<h3 class="sectionTitle">References</h3>
+<h2 class="sectionHeader">References</h2>
 <ul>
     <li><a href="https://angularjs.org/">AngularJS</a></li>
     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>

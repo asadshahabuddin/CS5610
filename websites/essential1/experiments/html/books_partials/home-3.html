@@ -1,7 +1,7 @@
 <!-- Description -->
 <h2 class="sectionHeader">Description</h2>
 <p>
-    ...
+    User experience is refined by selective rendering of interface elements based on state. When a user arrives at this page, <span class="asBoldSpan">'Results'</span> section is hidden until something is searched for. Likewise, <span class="asBoldSpan">'Bookmarks'</span> section displays a message indicating the absence of bookmarks when that situation comes to pass. On the other hand, favorite items are displayed in tabular form when there is something to display. This is done with the help of <span class="asBoldSpan">'ng-show'</span> attribute and correct conditions entered as value.
 </p>
 
 <hr/>
@@ -77,25 +77,63 @@
 
 <!-- Documentation -->
 <h2 class="sectionHeader">Documentation</h2>
-<h3>Placeholder Title</h3>
+<h3>Show/Hide Elements</h3>
 <p>
-    ...
+    I am using Bookmarks tab as an example. When the length of <span class="asBoldSpan">'bookmarkedItems'</span> object is zero, then a message is displayed to summarize the absence the bookmarks. Otherwise, favorite items are displayed in a table. Search results also show up when there is something to display. <span class="asBoldSpan">'ng-show'</span> attribute came in handy for my purpose.
 </p>
 
 <!-- Code -->
 <code class="code-item">
-    ...
+    &lt;h2 class="sectionHeader"&gt;Bookmarks&lt;/h2&gt;<br/>
+    &lt;p ng-show="bookmarkedItems.length == 0"&gt;No items have been bookmarked.&lt;p&gt;<br/>
+    &lt;table ng-show="bookmarkedItems.length &gt; 0" class="table table-striped table-hover"&gt;<br/>
+    &lt;thead&gt;<br/>
+    &lt;tr&gt;<br/>
+    &lt;th&gt;Title&lt;/th&gt;<br/>
+    &lt;th&gt;Authors&lt;/th&gt;<br/>
+    &lt;th&gt;Description&lt;/th&gt;<br/>
+    &lt;th&gt;Published Date&lt;/th&gt;<br/>
+    &lt;th&gt;Average Rating&lt;/th&gt;<br/>
+    &lt;th&gt;&nbsp;&lt;/th&gt;<br/>
+    &lt;/tr&gt;<br/>
+    &lt;/thead&gt;<br/>
+    &lt;tbody&gt;<br/>
+    &lt;tr ng-repeat="item in bookmarkedItems"&gt;<br/>
+    &lt;td class="itemTitle"&gt;{{item.title}}&lt;/td&gt;<br/>
+    &lt;td&gt;<br/>
+    &lt;span ng-repeat="author in item.authors"&gt;{{author}}&lt;br/&gt;&lt;/span&gt;<br/>
+    &lt;/td&gt;<br/>
+    &lt;td&gt;<br/>
+    &lt;img ng-src="{{item.imageLinks.smallThumbnail}}" class="itemThumbnail"/&gt;<br/>
+    {{item.description}}<br/>
+    &lt;/td&gt;<br/>
+    &lt;td&gt;{{item.publishedDate}}&lt;/td&gt;<br/>
+    &lt;td&gt;{{item.averageRating}}&lt;/td&gt;<br/>
+    &lt;td&gt;<br/>
+    &lt;button ng-click="unbookmarkItem(item)" class="btn btn-xs btn-danger"&gt;<br/>
+    &lt;span class="glyphicon glyphicon-remove"/&gt;<br/>
+    &lt;/button&gt;<br/>
+    &lt;/td&gt;<br/>
+    &lt;/tr&gt;<br/>
+    &lt;/tbody&gt;<br/>
+    &lt;/table&gt;
 </code>
 
 <hr />
 
 <!-- Source file(s) -->
 <h2 class="sectionHeader">Source files</h2>
-<a href="../../fileview/Default.aspx?~/experiments/html/20-books.html">HTML</a> |
-<a href="../../fileview/Default.aspx?~/experiments/js/20-books.js">JavaScript</a>
+<ul>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/23-books.html">HTML 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/home-3.html">HTML 2</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/bookmarks-3.html">HTML 3</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/css/as-base.css">CSS</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/23-books.js">JavaScript 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/23-books-service.js">JavaScript 2</a></li>
+</ul>
 
 <!-- Reference(s) -->
-<h3 class="sectionTitle">References</h3>
+<h2 class="sectionHeader">References</h2>
 <ul>
     <li><a href="https://angularjs.org/">AngularJS</a></li>
     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>

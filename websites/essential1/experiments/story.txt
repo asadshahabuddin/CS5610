@@ -1,13 +1,13 @@
 ../story/whatisnext.htm?../experiments/            What is Next?
-html/01-profile.html                               (1) Basic HTML - My Profile
-html/02-profile.html                               (2) CSS Semantics and Navigation Bar - My Formatted Profile
-html/03-form.html                                  (3) HTML Forms
-html/04-image-hover.html                           (4) Image Swap on Mouse Hover Event
-html/05-responsive-gridsys.html                    (5) Responsive Design - Automatic Layout Rendering
-html/06-bootstrap-navbar.html                      (6) Bootstrap Navigation Bar - Responsive Design
-html/07-bootstrap-tabs.html                        (7) Bootstrap Tabs
-html/08-bootstrap-schedule.html                    (8) Carousels - Class Schedule
-html/09-bootstrap-elements.html                    (9) Bootstrap Elements and Semantics
+html/01-profile.html                               (1)  Basic HTML - My Profile
+html/02-profile.html                               (2)  CSS Semantics and Navigation Bar - My Formatted Profile
+html/03-form.html                                  (3)  HTML Forms
+html/04-image-hover.html                           (4)  Image Swap on Mouse Hover Event
+html/05-responsive-gridsys.html                    (5)  Responsive Design - Automatic Layout Rendering
+html/06-bootstrap-navbar.html                      (6)  Bootstrap Navigation Bar - Responsive Design
+html/07-bootstrap-tabs.html                        (7)  Bootstrap Tabs
+html/08-bootstrap-schedule.html                    (8)  Carousels - Class Schedule
+html/09-bootstrap-elements.html                    (9)  Bootstrap Elements and Semantics
 html/10-bootstrap-horoscopes.html                  (10) Accordion - Daily Horoscope
 html/11-jq-image-slideshow.html                    (11) jQuery Events - Image Slideshow
 html/12-jq-animate.html                            (12) jQuery Animations
@@ -19,3 +19,8 @@ html/17-coterie-2.html                             (17) Online Library - Google 
 html/18-coterie-3.html                             (18) Online Book Search - Google Books API
 html/19-coterie-4.html                             (19) Premium Book Search - Google Books API
 html/20-coterie-5.html                             (20) Premium Book Search II - Google Books API
+html/21-books.html                                 (21) AngularJS Routing - Books
+html/22-books.html                                 (22) AngularJS Factory - Books (Bookmarks)
+html/23-books.html                                 (23) Contextual Elements - Books
+html/24-books.html                                 (24) AngularJS Services - Books (Details)
+html/25-books.html                                 (25) AngularJS Persistence - Books

@@ -132,4 +132,49 @@
 </p>
 <!-- Contents : END -->
 <!-- Entry 3 : END -->
+
+<!-- Entry 4 : BEGIN -->
+<!-- Title -->
+<h3>Completed experiments 21 through 25</h3>
+
+<!-- Contents : BEGIN -->
+<p>
+    A variety of AngularJS topics have been explored this week. I started with last week's final page as a base, and converted it to an application with AngularJS Routing to navigate between sections and display the appropriate data. This was done in a naive manner using Bootstrap's 'Tab Data Toggle' attribute-value pair last week. As the application grew larger, a factory was set up to provide common services for all controllers instead of polluting my global scope. Entire sections are shown or hidden based on context and conditions to improve the user experience, a 'Details' section added as a logical next step for the application which relies on an item's ISBN in local context to fetch all other details from Google's database on request. Finally, the issue of persistence is resolved to render a more complete and practical Book Search service.
+    <br />
+
+    <ul>
+        <li>
+            <a href="../experiments/html/21-books.html">AngularJS Routing - Books. </a>
+            <span>
+                This week's work adds on to the experiments from the week prior. The Books application utilizes Google Books API to fetch results. Last week's experiments used Bootstrap's 'Tab data toggle' to create tabs for various sections. The current experiment replaces them with AngularJS routing to maintain the paradigm of a single page application while being contextual based on search results and content tied to various links. Bookmarks added are logged in the browser's console for now. Contextual controllers and an AngularJS Book Service are used. Visual tweaks include a Bootstrap navigation bar fixed at the top of the page and embedded links. Console logging has also been bumped up and is fervently maintained going forward.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/22-books.html">AngularJS Factory - Books (Bookmarks). </a>
+            <span>
+                Bookmarks tab is visually populated with items added to a person's favorites. Bookmarked items can still be viewed in console along with graphical representation. This has been achieved by facilitating communication between multiple controllers using my AngularJS Book Factory. Items can also be removed from bookmarks with immediate content refresh to reflect it on the webpage.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/23-books.html">Contextual Elements - Books. </a>
+            <span>
+                User experience is refined by selective rendering of interface elements based on state. When a user arrives at this page, 'Results' section is hidden until something is searched for. Likewise, 'Bookmarks' section displays a message indicating the absence of bookmarks when that situation comes to pass. On the other hand, favorite items are displayed in tabular form when there is something to display. This is done with the help of 'ng-show' attribute and correct conditions entered as value.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/24-books.html">AngularJS Services - Books (Details). </a>
+            <span>
+                Details section has been added to the application. After an item is added to favorites, you may navigate to the bookmarks section where an additional button is present beside each favorite item. Clicking on it will take you to that book's details page with all sorts of relavant information including a link to preview the item in Google Books. Clicking directly on 'Details' link opens nothing since the associated URL mentioned in its route provider expects an argument - a ISBN.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/25-books.html">AngularJS Persistence - Books. </a>
+            <span>
+                All previous iterations had one common flaw - search results were not persistent. The issue is addressed in this experiment. When you move between sections and come back to the home page, the application's former state persists. Search results from your latest query will not be cleared on switching unless another search is executed. This is especially important if you plan to switch between the three sections, navigate back to home and add a couple of additional bookmarks. Factory's API has been extended to serve my purpose and conclude the series for this week.
+            </span>
+        </li>
+    </ul>
+</p>
+<!-- Contents : END -->
+<!-- Entry 4 : END -->
 <!-- End of demoentry.htm -->

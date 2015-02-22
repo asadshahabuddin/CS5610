@@ -1,7 +1,7 @@
 <!-- Description -->
 <h2 class="sectionHeader">Description</h2>
 <p>
-    ...
+    Details section has been added to the application. After an item is added to favorites, you may navigate to the bookmarks section where an additional button is present beside each favorite item. Clicking on it will take you to that book's details page with all sorts of relavant information including a link to preview the item in Google Books. Clicking directly on <span class="asBoldSpan">'Details'</span> link opens nothing since the associated URL mentioned in its route provider expects an argument - a ISBN.
 </p>
 
 <hr/>
@@ -77,25 +77,61 @@
 
 <!-- Documentation -->
 <h2 class="sectionHeader">Documentation</h2>
-<h3>Placeholder Title</h3>
+<h3>Book Details</h3>
 <p>
-    ...
+    AngularJS Routing has a number of services associated with it, one of which is <span class="asBoldSpan">'routeParams'</span>. The ISBN passed to Details Controller is fetched using the aforementioned service, which in turn is passed to the factory. The factory queries Google's database to fetch item details by ISBN. These details are parsed and stylized to construct a Details page. Relevant sections of code for the controller and factory are given below respectively.
 </p>
 
 <!-- Code -->
 <code class="code-item">
-    ...
+    /* Details Controller */<br/>
+    app.controller("DetailsController",<br/>
+    function($scope, $routeParams, BookService)<br/>
+    {<br/>
+    /* Output to console */<br/>
+    console.log("%c[echo] Details Controller has been initialized",<br/>
+    "font-family: Courier New;");<br/>
+    console.log("%c[echo] Fetch details for book with ISBN " + $routeParams.isbn,<br/>
+    "font-family: Courier New;");<br/>
+    <br/>
+    BookService.details($routeParams.isbn,<br/>
+    function(response)<br/>
+    {<br/>
+    $scope.itemDetails = response.items[0];<br/>
+    <br/>
+    /* Output to console */<br/>
+    console.log("%c[echo] Search returned successfully",<br/>
+    "color: green; font-family: Courier New;");<br/>
+    console.log("%cItemDetails>",<br/>
+    "font-family: Courier New; font-weight: bold;");<br/>
+    console.log($scope.itemDetails);<br/>
+    });<br/>
+    });<br/>
+    <br/>
+    /* AngularJS Factory for Books */<br/>
+    var queryDetails = function(isbn, callback)<br/>
+    {<br/>
+    $http.get("https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn)<br/>
+    .success(callback);<br/>
+    }
 </code>
 
 <hr />
 
 <!-- Source file(s) -->
 <h2 class="sectionHeader">Source files</h2>
-<a href="../../fileview/Default.aspx?~/experiments/html/20-books.html">HTML</a> |
-<a href="../../fileview/Default.aspx?~/experiments/js/20-books.js">JavaScript</a>
+<ul>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/24-books.html">HTML 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/home-4.html">HTML 2</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/bookmarks-4.html">HTML 3</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/details-4.html">HTML 4</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/css/as-base.css">CSS</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/24-books.js">JavaScript 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/24-books-service.js">JavaScript 2</a></li>
+</ul>
 
 <!-- Reference(s) -->
-<h3 class="sectionTitle">References</h3>
+<h2 class="sectionHeader">References</h2>
 <ul>
     <li><a href="https://angularjs.org/">AngularJS</a></li>
     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>

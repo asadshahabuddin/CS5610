@@ -1,7 +1,7 @@
 <!-- Description -->
 <h2 class="sectionHeader">Description</h2>
 <p>
-    ...
+    All previous iterations had one common flaw - search results were not persistent. The issue is addressed in this experiment. When you move between sections and come back to the home page, the application's former state persists. Search results from your latest query will not be cleared on switching unless another search is executed. This is especially important if you plan to switch between the three sections, navigate back to home and add a couple of additional bookmarks. Factory's API has been extended to serve my purpose and conclude the series for this week.
 </p>
 
 <hr/>
@@ -77,25 +77,72 @@
 
 <!-- Documentation -->
 <h2 class="sectionHeader">Documentation</h2>
-<h3>Placeholder Title</h3>
+<h3>Persistence</h3>
 <p>
-    ...
+    A cache object has been introduced in the factory, which is initialized as empty. When search is perfomed from the <span class="asBoldSpan">Home Controller</span>, its results are stored in this cached object. The scope item is updated using this cache whenever my Home Controller is reloaded. What we get is a persistent home page, for the most part. Code for the application's factory and home page controller is highlighted below.
 </p>
 
 <!-- Code -->
 <code class="code-item">
-    ...
+    /* AngularJS Factory for Books */<br/>
+    var itemsCache = [];<br/>
+    <br/>
+    var setItemsCache = function(items)<br/>
+    {<br/>
+    itemsCache = items;<br/>
+    }<br/>
+    <br/>
+    var getItemsCache = function()<br/>
+    {<br/>
+    return itemsCache;<br/>
+    }<br/>
+    ...<br/>
+    ...<br/>
+    return {<br/>
+    setItemsCache: setItemsCache,<br/>
+    getItemsCache: getItemsCache,<br/>
+    }<br/>
+    <br/>
+    /* Home Controller */<br/>
+    app.controller("HomeController",<br/>
+    function($scope, BookService)<br/>
+    {<br/>
+    $scope.items = BookService.getItemsCache();<br/>
+    <br/>
+    $scope.searchBooks = function()<br/>
+    {<br/>
+    BookService.search($scope.searchTitle,<br/>
+    function(response)<br/>
+    {<br/>
+    var items = [];<br/>
+    for (var i = 0; i &lt; response.items.length; i++)<br/>
+    {<br/>
+    items.push(response.items[i].volumeInfo);<br/>
+    }<br/>
+    $scope.items = items;<br/>
+    BookService.setItemsCache(items);<br/>
+    });<br/>
+    }<br/>
+    ...<br/>
+    }
 </code>
 
 <hr />
 
 <!-- Source file(s) -->
 <h2 class="sectionHeader">Source files</h2>
-<a href="../../fileview/Default.aspx?~/experiments/html/20-books.html">HTML</a> |
-<a href="../../fileview/Default.aspx?~/experiments/js/20-books.js">JavaScript</a>
+<ul>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/25-books.html">HTML 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/home-5.html">HTML 2</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/bookmarks-5.html">HTML 3</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/details-5.html">HTML 4</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/css/as-base.css">CSS</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/25-books.js">JavaScript 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/25-books-service.js">JavaScript 2</a></li>
+</ul>
 
 <!-- Reference(s) -->
-<h3 class="sectionTitle">References</h3>
+<h2 class="sectionHeader">References</h2>
 <ul>
     <li><a href="https://angularjs.org/">AngularJS</a></li>
     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>

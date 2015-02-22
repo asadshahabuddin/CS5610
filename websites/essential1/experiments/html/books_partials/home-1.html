@@ -1,7 +1,7 @@
 <!-- Description -->
 <h2 class="sectionHeader">Description</h2>
 <p>
-    ...
+    This week's work adds on to the experiments from the week prior. The Books application utilizes Google Books API to fetch results. Last week's experiments used Bootstrap's <span class="asBoldSpan">'Tab data toggle'</span> to create tabs for various sections. The current experiment replaces them with AngularJS routing to maintain the paradigm of a single page application while being contextual based on search results and content tied to various links. Bookmarks added are logged in the browser's console for now. Contextual controllers and an AngularJS Book Service are used. Visual tweaks include a Bootstrap navigation bar fixed at the top of the page and embedded links. Console logging has also been bumped up and is fervently maintained going forward.
 </p>
 
 <hr/>
@@ -77,25 +77,49 @@
 
 <!-- Documentation -->
 <h2 class="sectionHeader">Documentation</h2>
-<h3>Placeholder Title</h3>
+<h3>AngularJS Routing</h3>
 <p>
-    ...
+    A central route provider directs traffic to the appropriate endpoints (HTML pages). URLs are associated with pages along and their controllers. If a URL does not match any of the known routes, it defaults to the homepage.
 </p>
 
 <!-- Code -->
 <code class="code-item">
-    ...
+    app.config(["$routeProvider",<br/>
+    function($routeProvider)<br/>
+    {<br/>
+    $routeProvider.<br/>
+    when("/home",<br/>
+    {<br/>
+    templateUrl: "../html/books_partials/home-1.html",<br/>
+    controller: "HomeController"<br/>
+    }).<br/>
+    when("/bookmarks",<br/>
+    {<br/>
+    templateUrl: "../html/books_partials/bookmarks-1.html",<br/>
+    controller: "BookmarksController"<br/>
+    }).<br/>
+    otherwise(<br/>
+    {<br/>
+    redirectTo: "/home"<br/>
+    });<br/>
+    }]);
 </code>
 
 <hr />
 
 <!-- Source file(s) -->
 <h2 class="sectionHeader">Source files</h2>
-<a href="../../fileview/Default.aspx?~/experiments/html/20-books.html">HTML</a> |
-<a href="../../fileview/Default.aspx?~/experiments/js/20-books.js">JavaScript</a>
+<ul>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/21-books.html">HTML 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/home-1.html">HTML 2</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/html/books_partials/bookmarks-1.html">HTML 3</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/css/as-base.css">CSS</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/21-books.js">JavaScript 1</a></li>
+    <li><a href="../../fileview/Default.aspx?~/experiments/js/21-books-service.js">JavaScript 2</a></li>
+</ul>
 
 <!-- Reference(s) -->
-<h3 class="sectionTitle">References</h3>
+<h2 class="sectionHeader">References</h2>
 <ul>
     <li><a href="https://angularjs.org/">AngularJS</a></li>
     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
