@@ -1,0 +1,120 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 28-node.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Data Relationship | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/26-node.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="NodeApplication" class="asBody">
+        <div ng-controller="NodeController">
+            <header>
+                <h1 class="asBoldSpan">Data Relationship</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                Shopping List has been expanded. When you click on an item, what you see in an additional list of people who requested that item. Requestors can be removed from the second list and changes will be saved in the same way as before. Local copies are edited by merely editing the item or deleting a person associated with it. However, they must be saved by clicking on the blue button to make them persistent on the server.
+            </p>
+
+            <hr/>
+
+            <h3>Node.js server hosted at OpenShift</h3>
+            <p>Click <a href="http://node1-asadshahabuddin.rhcloud.com/">here</a> to go the experiment.</p>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3>Normalized Data</h3>
+            <p>
+                Data definitions have been made in such a way that replication is kept to a minimum. If you closely look at <span class="asBoldSpan">items</span>, you will notice that the field <span class="asBoldSpan">by</span> does not hold data structures for each person. Instead, it just uses a key to relate it to another object - <span class="asBoldSpan">people</span>. These are essentially indices linking the two objects. The second part shows an AngularJS function to delete a person from an item.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                /* Node.js Server - Data */<br/>
+                var people = [<br/>
+                {name: "Anna Lee",           relation: "Wife",     phone: "8572658956"},<br/>
+                {name: "Elizabeth Coolidge", relation: "Mother",   phone: "9874531544"},<br/>
+                {name: "Marjana Coolidge",   relation: "Aunt",     phone: "7514458621"},<br/>
+                {name: "Benedict Lee",       relation: "Father",   phone: "5817589654"},<br/>
+                {name: "Elise Yale",         relation: "Daughter", phone: "8577895245"}<br/>
+                ];<br/>
+                <br/>
+                var items = [<br/>
+                {itemName: "Apples",              desc: "Red Apples",               qty: 12, by: [1, 2, 3]},<br/>
+                {itemName: "Bananas",             desc: "Not Plantains",            qty: 18, by: [2, 4]   },<br/>
+                {itemName: "Cookies",             desc: "Chocolate Chip Cookies",   qty: 50, by: [1, 0]   },<br/>
+                {itemName: "Eggs",                desc: "Brown Eggs",               qty: 30, by: [1, 2, 0]},<br/>
+                {itemName: "Fish",                desc: "One very big fish",        qty: 1,  by: [4]      },<br/>
+                {itemName: "Granola",             desc: "Its actually not healthy", qty: 4 , by: [1]      },<br/>
+                {itemName: "Los Angeles Tickets", desc: "Oceanic 815",              qty: 2 , by: [1, 0]   }<br/>
+                ];<br/>
+                <br/>
+                /* Angular JS */<br/>
+                $scope.removePersonFromItem = function(index)<br/>
+                {<br/>
+                /* Ouput to console */<br/>
+                console.log("%c[echo] Removed some person (no pinpointing)",<br/>
+                "font-family: Courier New;")  <br/>
+                <br/>
+                $scope.itemDetails.splice(index, 1);<br/>
+                $scope.items[$scope.selectedIndex].by.splice(index, 1);<br/>
+                }<br/>
+            </code>
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/public/index.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/public/css/index.css">CSS</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/public/js/index.js">JavaScript</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/server.js">Node.js Server</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                        Prof. Jose's Class Notes
+                    </a>
+                </li>
+                <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 28-node.html -->

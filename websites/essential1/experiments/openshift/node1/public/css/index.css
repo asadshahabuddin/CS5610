@@ -1,0 +1,27 @@
+/*
+    Author: Asad Shahabuddin
+    File: index.css
+    Details: CSS for 'index.html'.
+    Email ID: asad808@ccs.neu.edu
+*/
+
+body
+{
+    background-color: #eee;
+}
+
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.asMarineSpan
+{
+    color: navy;
+}
+
+.asCenterSpan
+{
+    text-align: center;
+}
+/* End of index.css */

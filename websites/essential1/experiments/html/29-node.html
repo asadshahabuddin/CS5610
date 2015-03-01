@@ -1,0 +1,100 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 29-node.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Cookie | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/26-node.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="NodeApplication" class="asBody">
+        <div ng-controller="NodeController">
+            <header>
+                <h1 class="asBoldSpan">Cookie</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                Browser cookies are exhibited as part of this experiment. You need to fill up the page with all the information it needs. After that, you click on the <span class="asBoldSpan">Sing in</span> button. This will set a cookie which can be inspected using your browser's console window. An alert message will tell you the same.
+            </p>
+
+            <hr/>
+
+            <h3>Node.js server hosted at OpenShift</h3>
+            <p>Click <a href="http://node2-asadshahabuddin.rhcloud.com/">here</a> to go the experiment.</p>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3>Browser Sessions</h3>
+            <p>
+                Cookies are set to enable stateful sessions. They are used by services or websites to track a person as long as they stay signed in or until the cookie expires. When you click the login button after providing enough information, an AngularJS handler sends a POST request to the server at a link which is handled by the Node.js listener shown below. This listener responds with a cookie and an alert pops up after validating success.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                /* Post listeners : BEGIN */<br/>
+                app.post("/api/cookie", function(req, res)<br/>
+                {<br/>
+                res.cookie("username", req.body.fname);<br/>
+                res.writeHead(200, {"Content-Type":"text/html"});<br/>
+                res.write("Cookie Set. You can inspect it by typing 'document.cookie' " +<br/>
+                "in your browser's console.");<br/>
+                res.end();<br/>
+                });
+            </code>
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/public/index.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/public/css/index.css">CSS</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/public/js/index.js">JavaScript</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/server.js">Node.js Server</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                        Prof. Jose's Class Notes
+                    </a>
+                </li>
+                <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 29-node.html -->

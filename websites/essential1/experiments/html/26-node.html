@@ -1,0 +1,114 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 26-node.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Node.js Server | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/26-node.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="NodeApplication" class="asBody">
+        <div ng-controller="NodeController">
+            <header>
+                <h1 class="asBoldSpan">Node.js Server</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                This is an introduction to Node.js server and OpenShift. A server.js file is hosted on a Node.js application created on OpenShift. Cross-origin resource sharing is also demonstrated as the client file (this one) queries a server located on a separate domain which allows queries for just the author object from any source. The URL to fetch equivalent JSON data can be found <a href="http://node1-asadshahabuddin.rhcloud.com/api/author">here</a>. Clicking on the <span class="asBoldSpan">Query Author</span> button does the trick.
+            </p>
+
+            <hr/>
+
+            <h3>Node.js server hosted at OpenShift</h3>
+            <span>Server and Client applications created by</span>
+            <br ng-show="!author"/><br ng-show="!author"/>
+            <button ng-click="queryAuthor()" ng-show="!author">Query Author</button>
+            <span ng-show="author">{{author}}</span>
+            <br/><br/>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3>Node.js Server</h3>
+            <p>
+                A server.js file is hosted on OpenShift which makes it possible for me to query author data. As mentioned earlier, the file will run locally to produce equivalent results as CORS is enabled for this particular query. <span class="asBoldSpan">app.get(...)</span> handles GET requests for a specified URL.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                /* Author */<br/>
+                var author = {<br/>
+                first: "Asad",<br/>
+                last : "Shahabuddin"<br/>
+                };<br/>
+                <br/>
+                app.get("/api/author", function(req, res)<br/>
+                {<br/>
+                res.setHeader("Access-Control-Allow-Origin", "*");<br/>
+                res.json(author);<br/>
+                });
+            </code>
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/html/26-node.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/css/26-node.css">CSS</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/js/26-node.js">JavaScript</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/server.js">Node.js Server</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                        Prof. Jose's Class Notes
+                    </a>
+                </li>
+                <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <!--
+        The inclusion of JavaScripts has been deferred to the end of body section
+        to speed up HTML load time.
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="../js/26-node.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 26-node.html -->

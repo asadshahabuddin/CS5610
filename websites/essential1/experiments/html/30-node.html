@@ -1,0 +1,129 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 30-node.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Mail | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/26-node.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="NodeApplication" class="asBody">
+        <div ng-controller="NodeController">
+            <header>
+                <h1 class="asBoldSpan">Mail</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                A Mail utility is created using the Nodemailer library. Clicking on the link to my experiment will take you to a page which gives a field, a text area and a submit button. Fill up the <span class="asBoldSpan">Email</span> and <span class="asBoldSpan">Message</span> fields with the recepient's Email address and an optional message for them to read. Click <span class="asBoldSpan">Send</span> to transmit your email. If you do not specify an Email address, a message will prompt you to reconsider and fill it up. Check your browser's console window to see additional messages.
+            </p>
+
+            <hr/>
+
+            <h3>Node.js server hosted at OpenShift</h3>
+            <p>Click <a href="http://node2-asadshahabuddin.rhcloud.com/mail.html">here</a> to go the experiment.</p>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3>Nodemailer</h3>
+            <p>
+                I decided to organize the Nodemailer interface by putting everything inside a class. First, the necessary variables are set up to facilitate SMTP trasmission using Gmail services. A username and password must be provided for authentication purpose. Recepient's email address and mail's body are set to the parameters passed from my AngularJS handler. Finally, the <span class="asBoldSpan">sendMail(...)</span> function is called to dispatch your email.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                /* Mail class */<br/>
+                var MailUtility = function()<br/>
+                {<br/>
+                var self = this;<br/>
+                <br/>
+                self.setupVariables = function(toEmail, msg)<br/>
+                {<br/>
+                /* Create reusable transport method (opens a pool of SMTP connections) */<br/>
+                self.smtpTransport = nodemailer.createTransport(<br/>
+                {<br/>
+                service: "Gmail",<br/>
+                auth: {<br/>
+                user: "*****@gmail.com",<br/>
+                pass: "***************"<br/>
+                }<br/>
+                });<br/>
+                <br/>
+                /* Setup email data with unicode symbols */<br/>
+                self.mailOptions = {<br/>
+                from: "The Architect <oracle.java.com@gmail.com>",  /* Sender address */<br/>
+                to: toEmail,                                        /* List of receivers */<br/>
+                subject: "You've Got Mail",                         /* Subject line */<br/>
+                text: msg,                                          /* Plain Text body */<br/>
+                html: msg                                           /* HTML body */<br/>
+                }<br/>
+                }<br/>
+                <br/>
+                /* Send mail with defined transport object */<br/>
+                self.transmit = function(res)<br/>
+                {<br/>
+                self.smtpTransport.sendMail(self.mailOptions, function(error, response)<br/>
+                {<br/>
+                if(error)<br/>
+                {<br/>
+                res.json(error);<br/>
+                }<br/>
+                else<br/>
+                {<br/>
+                res.send("Email sent successfully");<br/>
+                }<br/>
+                });<br/>
+                }<br/>
+                };
+            </code>
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/public/mail.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/public/js/mail.js">JavaScript</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node2/server.js">Node.js Server</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li><a href="http://www.nodemailer.com/">Nodemailer by andris9</a></li>
+                <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 30-node.html -->

@@ -177,4 +177,49 @@
 </p>
 <!-- Contents : END -->
 <!-- Entry 4 : END -->
+
+<!-- Entry 5 : BEGIN -->
+<!-- Title -->
+<h3>Completed experiments 26 through 30</h3>
+
+<!-- Contents : BEGIN -->
+<p>
+    We get closer to a complete MEAN stack this week by adding 'E' and 'N' to the existing 'A'. I learned a lot about Node.js and the associated Express library through a series of experiments centered on the topic, while leveraging the capabilities of my applications by implementing everything learnt hitherto. I setup my own server on OpenShift and also got a good amount of experience dealing with the RHC command-line utility.
+    <br />
+
+    <ul>
+        <li>
+            <a href="../experiments/html/26-node.html">Node.js Server. </a>
+            <span>
+                This is an introduction to Node.js server and OpenShift. A server.js file is hosted on a Node.js application created on OpenShift. Cross-origin resource sharing is also demonstrated as the client file (this one) queries a server located on a separate domain which allows queries for just the author object from any source. The URL to fetch equivalent JSON data can be found <a href="http://node1-asadshahabuddin.rhcloud.com/api/author">here</a>. Clicking on the Query Author button does the trick.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/27-node.html">Shopping List. </a>
+            <span>
+                A Shopping list application makes up the latest experiment. Node.js, AngularJS and Express have been used to come up with it. Data is stored statically on the server and all basis operations such as Add, Delete, Edit and Save are available. Clicking on the blue button saves data on the server and makes these changes persistent irrespective of page reloads. A server refresh will naturally reset these changes since we don't have an actual database yet.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/28-node.html">Data Relationship. </a>
+            <span>
+                Shopping List has been expanded. When you click on an item, what you see in an additional list of people who requested that item. Requestors can be removed from the second list and changes will be saved in the same way as before. Local copies are edited by merely editing the item or deleting a person associated with it. However, they must be saved by clicking on the blue button to make them persistent on the server.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/29-node.html">Cookie. </a>
+            <span>
+                Browser cookies are exhibited as part of this experiment. You need to fill up the page with all the information it needs. After that, you click on the 'Sing in' button. This will set a cookie which can be inspected using your browser's console window. An alert message will tell you the same.
+            </span>
+        </li>
+        <li>
+            <a href="../experiments/html/30-node.html">Mail. </a>
+            <span>
+                A Mail utility is created using the Nodemailer library. Clicking on the link to my experiment will take you to a page which gives a field, a text area and a submit button. Fill up the 'Email' and 'Message' fields with the recepient's Email address and an optional message for them to read. Click 'Send' to transmit your email. If you do not specify an Email address, a message will prompt you to reconsider and fill it up. Check your browser's console window to see additional messages.
+            </span>
+        </li>
+    </ul>
+</p>
+<!-- Contents : END -->
+<!-- Entry 5 : END -->
 <!-- End of demoentry.htm -->

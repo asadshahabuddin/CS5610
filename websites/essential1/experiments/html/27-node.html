@@ -1,0 +1,133 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 27-node.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Shopping List | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/26-node.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="NodeApplication" class="asBody">
+        <div ng-controller="NodeController">
+            <header>
+                <h1 class="asBoldSpan">Shopping List</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                A Shopping list application makes up the latest experiment. Node.js, AngularJS and Express have been used to come up with it. Data is stored statically on the server and all basis operations such as Add, Delete, Edit and Save are available. Clicking on the blue button saves data on the server and makes these changes persistent irrespective of page reloads. A server refresh will naturally reset these changes since we don't have an actual database yet.
+            </p>
+
+            <hr/>
+
+            <h3>Node.js server hosted at OpenShift</h3>
+            <p>Click <a href="http://node1-asadshahabuddin.rhcloud.com/shopping-list.html">here</a> to go the experiment.</p>
+
+            <hr />
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3></h3>
+            <p>
+                Following is a snippet from my server file. Various listeners (GET, DELETE, POST, PUT) have been defined to handle CRUD operations. Granular data access is also available with the help of listeners which take indexes as parameters. Updates are followed by a response object consisting of the updated data set. This may all or a part of the complete data.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                /* Get listeners : BEGIN */<br/>
+                app.get("/api/items/:idx", function(req, res)<br/>
+                {<br/>
+                res.json(items[req.params.idx]);<br/>
+                });<br/>
+                <br/>
+                app.get("/api/people/:idx", function(req, res)<br/>
+                {<br/>
+                res.json(people[req.params.idx]);<br/>
+                });<br/>
+                <br/>
+                app.get("/api/reminders", function(req, res)<br/>
+                {<br/>
+                res.json(reminders);<br/>
+                });<br/>
+                /* Get listeners : END */<br/>
+                <br/>
+                /* Delete listeners : BEGIN */<br/>
+                app.delete("/api/items/:id", function(req, res)<br/>
+                {<br/>
+                items.splice(req.params.id, 1);<br/>
+                res.json(items);<br/>
+                });<br/>
+                /* Delete listeners : END */<br/>
+                <br/>
+                /* Post listeners : BEGIN */<br/>
+                app.post("/api/items", function(req, res)<br/>
+                {<br/>
+                items.push(req.body);<br/>
+                res.json(items);<br/>
+                });<br/>
+                /* Post listeners : END */<br/>
+                <br/>
+                /* Put listeners : BEGIN */<br/>
+                app.put("/api/items/:id", function(req, res)<br/>
+                {<br/>
+                items[req.params.id] = req.body;<br/>
+                res.json(items);<br/>
+                });<br/>
+                /* Put listeners : END */<br/>
+                <br/>
+                app.listen(port, ip);<br/>
+            </code>
+
+            <hr />
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/public/shopping-list.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/public/css/index.css">CSS</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/public/js/index.js">JavaScript</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node1/server.js">Node.js Server</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                        Prof. Jose's Class Notes
+                    </a>
+                </li>
+                <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 27-node.html -->

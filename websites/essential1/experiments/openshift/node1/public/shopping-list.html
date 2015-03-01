@@ -1,0 +1,81 @@
+<!--
+    Author: Asad Shahabuddin
+    File: shopping-list.html
+    Details: Explore the Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Shopping List | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.2-dist/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="NodeApplication">
+        <div ng-controller="NodeController" class="container">
+            <header>
+                <h1 class="asMarineSpan">Shopping List</h1>
+            </header>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <tr>
+                        <th><input ng-model="item.itemName" class="form-control"/></th>
+                        <th><input ng-model="item.desc" class="form-control"/></th>
+                        <th><input ng-model="item.qty" class="form-control"/></th>
+                        <th>
+                            <button ng-click="saveItem(item)" class="btn btn-xs btn-primary pull-right">
+                                <span class="glyphicon glyphicon-ok"/>
+                            </button>
+                            <button ng-click="addItem(item)" class="btn btn-xs btn-success pull-right">
+                                <span class="glyphicon glyphicon-plus"/>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items">
+                        <td>{{item.itemName}}</td>
+                        <td>{{item.desc}}</td>
+                        <td>{{item.qty}}</td>
+                        <td>
+                            <button ng-click="editItem($index)" class="btn btn-xs btn-warning pull-right">
+                                <span class="glyphicon glyphicon-pencil"/>
+                            </button>
+                            <button ng-click="removeItem($index)" class="btn btn-xs btn-danger pull-right">
+                                <span class="glyphicon glyphicon-remove"/>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Scripts -->
+        <!--
+        The inclusion of JavaScripts has been deferred to the end of body section
+        to speed up HTML load time.
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+    <!-- Body section : BEGIN -->
+</html>
+<!-- End of shopping-list.html -->

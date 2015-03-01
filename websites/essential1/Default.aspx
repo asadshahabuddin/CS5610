@@ -14,6 +14,7 @@
 
 <title>Demo Home Page</title>
 
+<!-- Style sheets -->
 <style type="text/css">
     ul.master_navigation
     {
@@ -66,10 +67,10 @@
         padding: 10px;
     }
 </style>
-
+<link rel="stylesheet" type="text/css" href="experiments/css/as-base.css"/>
 </head>
 
-<body>
+<body class="asBody">
 
 <div class="pad">
 
