@@ -1,0 +1,129 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 34-expense-tracking.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Expense Tracking | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/31-mongo.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Expense Tracking</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            I have used the entire MEAN stack to create a finance-oriented web application. This page provides the functionality of an Expense Tracker which would let us view, add, edit and delete expenses. Expenses will appear in their order of creation and changes made to a record will persist in the database hosted on OpenShift. We finally have a robust data store to last a relative eternity.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://node3-asadshahabuddin.rhcloud.com/expense-tracking.html">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>MEAN Stack</h3>
+        <p>
+            Listeners in the server.js file serve all CRUD operations and use the lucid Mongoose API to enforce a schema. Data can also be fetched in a granular way using my API. I have created two utility GET listeners which would give all those documents where the expense has been paid by or for a specific person. You can use these two URL to check them out:
+            <ul>
+                <li>/api/expense/paidby/case_sensitive_name</li>
+                <li>/api/expense/paidfor/case_sensitive_name</li>
+            </ul>
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* DELETE listeners : BEGIN */<br/>
+            app.delete("/api/expense/:id", function(req, res)<br/>
+            {<br/>
+            expenseModel.findById(req.params.id, function(err, doc)<br/>
+            {<br/>
+            doc.remove();<br/>
+            expenseModel.find(function(err, data)<br/>
+            {<br/>
+            res.json(data);<br/>
+            });<br/>
+            });<br/>
+            });<br/>
+            /* DELETE listeners : END */<br/>
+            <br/>
+            /* POST listeners : BEGIN */<br/>
+            app.post("/api/expense", function(req, res)<br/>
+            {<br/>
+            var expenseItem = new expenseModel(req.body);<br/>
+            expenseItem.save(function(err, doc)<br/>
+            {<br/>
+            expenseModel.find(function(err, data)<br/>
+            {<br/>
+            res.json(data);<br/>
+            });<br/>
+            });<br/>
+            });<br/>
+            /* POST listeners : END */<br/>
+            <br/>
+            /* PUT listeners : BEGIN */<br/>
+            app.put("/api/expense/:id", function(req, res)<br/>
+            {<br/>
+            expenseModel.update({_id: req.params.id}, {$set: req.body}, function(err, doc)<br/>
+            {<br/>
+            // TODO<br/>
+            });<br/>
+            });
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/public/expense-tracking.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/public/js/index.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/server.js">Node.js Server</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+            <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 34-expense-tracking.html -->

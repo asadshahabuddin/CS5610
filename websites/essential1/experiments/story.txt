@@ -29,3 +29,8 @@ html/27-node.html                                  Shopping List
 html/28-node.html                                  Data Relationship
 html/29-node.html                                  Cookie
 html/30-node.html                                  Mail
+html/31-mongo.html                                 Mongoose on OpenShift
+html/32-weather.html                               Weather
+html/33-weather.html                               Weather (Premium)
+html/34-expense-tracking.html                      Expense Tracking
+html/35-expense-tracking.html                      Expense Tracking (Premium)

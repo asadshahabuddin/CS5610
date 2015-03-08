@@ -1,0 +1,135 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 32-weather.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Weather | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/32-weather.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="WeatherApplication" class="asBody">
+        <div ng-controller="WeatherController" class="container">
+            <header>
+                <h1>Weather</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                Weather API is leveraged to create a weather application. The webpage has a text input field where you type in the name of any city. The city is looked for and the associated weather information is returned. Various kinds of parameters and relavant units of measurement are rendered to make it useful. Results are near estimations since Weather API's weather results aren't updated every minute.
+            </p>
+
+            <hr class="asHr"/>
+
+            <h3>Approximate Conditions (Weather API)<h3>
+
+            <!-- Form -->
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="cityName">City name</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">Search</div>
+                        <input ng-model="cityName" type="text" class="form-control" id="cityName" placeholder="City name">
+                    </div>
+                </div>
+                <button ng-click="query()" class="btn btn-primary">Go</button>
+            </form>
+
+            <br/>
+
+            <span ng-show="name" class="asStatSpan asBoldSpan">{{name}}<br/></span>
+            <span ng-show="dt" class="asStatSpan asGrisSpan">{{dt | date}}  </span>
+            <span ng-show="time" class="asStatSpan asGrisSpan">{{time}}<br/></span>
+            <span ng-show="weatherMain" class="asStatSpan asGrisSpan">{{weatherMain}}<br/></span>
+            <span ng-show="temp" class="asStatSpan asBoldSpan">Temperature:</span><span ng-show="temp" class="asStatSpan"> {{temp}}&#176;C<br/></span>
+            <span ng-show="humidity" class="asStatSpan asBoldSpan">Humidity:</span><span ng-show="humidity" class="asStatSpan"> {{humidity}}%<br/></span>
+            <span ng-show="pressure" class="asStatSpan asBoldSpan">Pressure:</span><span ng-show="pressure" class="asStatSpan"> {{pressure}} hPa<br/></span>
+            <span ng-show="windSpeed" class="asStatSpan asBoldSpan">Wind:</span><span ng-show="windSpeed" class="asStatSpan"> {{windSpeed}} mps</span>
+
+            <hr class="asHr"/>
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3>Weather Querying</h3>
+            <p>
+                Weather API is queried and it gives back JSON data which is parsed to make it useful for the layman. The result is a good-looking interface which gives various kinds of detailed information such as humidity, wind-speed and pressure.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                $http.get("http://api.openweathermap.org/data/2.5/weather?q=" + $scope.cityName)<br/>
+                .success(function(response)<br/>
+                {<br/>
+                console.log(response);<br/>
+                <br/>
+                $scope.name        = response.name;<br/>
+                $scope.dt          = new Date();<br/>
+                $scope.time        = $scope.dt.getHours() + ":" +<br/>
+                $scope.dt.getMinutes();<br/>
+                $scope.weatherMain = response.weather[0].main;<br/>
+                $scope.temp        = response.main.temp - 273.15;<br/>
+                $scope.humidity    = response.main.humidity;<br/>
+                $scope.pressure    = response.main.pressure;<br/>
+                $scope.windSpeed   = response.wind.speed;<br/>
+                });
+            </code>
+
+            <hr class="asHr"/>
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/html/32-weather.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/css/32-weather.css">CSS</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/js/32-weather.js">JavaScript</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li><a href="http://openweathermap.org/api">Weather API</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <!--
+        The inclusion of JavaScripts has been deferred to the end of body section
+        to speed up HTML load time.
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+        <script src="../js/32-weather.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 32-weather.html -->

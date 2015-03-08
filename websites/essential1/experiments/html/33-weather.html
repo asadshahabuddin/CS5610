@@ -1,0 +1,180 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 33-weather.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Weather | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/33-weather.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body ng-app="WeatherApplication" class="asBody">
+        <div ng-controller="WeatherController" class="container">
+            <header>
+                <h1>Weather</h1>
+            </header>
+
+            <!-- Objective -->
+            <h2 class="asMarineSpan">Description</h2>
+            <p>
+                A weather-widget-like application has been created which flips over to show weather results for the specified city. This marks a massive visual upgrade over the last weather application. In addition to improved aesthetics, blank string validation is also made. You can try that by pressing <span class="asBoldSpan">Select</span> without entering the name of a city. You can go back and select another city just like the Mac OS X Weather widget.
+            </p>
+
+            <hr class="asHr"/>
+
+            <h3>Approximate Conditions (Weather API)<h3>
+
+            <!-- Weather card -->
+            <div class="flip">
+                <div class="card" ng-class="{'flipped':isFlipped}">
+                    <!-- Front -->
+                    <div class="face front">
+                        <form>
+                            <div class="form-group">
+                                <label class="sr-only" for="cityName">City name</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">Search</div>
+                                    <input ng-model="cityName" type="text" class="form-control" id="cityName" placeholder="City name">
+                                </div>
+                            </div>
+                            <button ng-click="query(); isFlipped=!isFlipped" class="btn btn-default">Select</button>
+                        </form>
+                    </div>
+
+                    <!-- Back -->
+                    <div ng-show="name" class="face back">
+                        <span class="asStatSpan asBoldSpan">{{name}}<br/></span>
+                        <span class="asStatSpan asGrisSpan">{{dt | date}}  </span>
+                        <span class="asStatSpan asGrisSpan">{{time}}<br/></span>
+                        <span class="asStatSpan asGrisSpan">{{weatherMain}}<br/></span>
+                        <span class="asStatSpan asBoldSpan">Temperature:</span><span class="asStatSpan"> {{temp}}&#176;C<br/></span>
+                        <span class="asStatSpan asBoldSpan">Humidity:</span><span class="asStatSpan"> {{humidity}}%<br/></span>
+                        <span class="asStatSpan asBoldSpan">Pressure:</span><span class="asStatSpan"> {{pressure}} hPa<br/></span>
+                        <span class="asStatSpan asBoldSpan">Wind:</span><span class="asStatSpan"> {{windSpeed}} mps</span>
+                        <br/><br/>
+                        <button ng-click="isFlipped=!isFlipped" class="btn btn-default">Back</button>
+                    </div>
+                    <div ng-show="!name" class="face back">
+                        <h4>Oops! Invalid city name.</h4>
+                        <button ng-click="isFlipped=!isFlipped" class="btn btn-default">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="asHr"/>
+
+            <!-- Documentation -->
+            <h2 class="asMarineSpan">Documentation</h2>
+            <h3>Weather Widget</h3>
+            <p>
+                A lot of custom CSS and AngularJS class tweaks have been applied to achieve the desired effect working as cleanly as it does. The effect is guaranteed for webkit-based browsers. Internet Explorer will most likely create problems. On filling out the text field and clicking <span class="asBoldSpan">Select</span> button, the card flips to show weather related information. The flip side houses a <span class="asBoldSpan">Back</span> button which lets you (the user) re-select a city.
+            </p>
+
+            <!-- Code -->
+            <code class="asCode">
+                .flip<br/>
+                {<br/>
+                -webkit-perspective: 800;<br/>
+                width: 400px;<br/>
+                height: 200px;<br/>
+                position: relative;<br/>
+                margin: 100px auto;<br/>
+                }<br/>
+                <br/>
+                .flip .card.flipped<br/>
+                {<br/>
+                -webkit-transform: rotatex(-180deg);<br/>
+                }<br/>
+                <br/>
+                .flip .card<br/>
+                {<br/>
+                width: 100%;<br/>
+                height: 100%;<br/>
+                -webkit-transform-style: preserve-3d;<br/>
+                -webkit-transition: 0.5s;<br/>
+                }<br/>
+                <br/>
+                .flip .card .face<br/>
+                {<br/>
+                width: 100%;<br/>
+                height: 100%;<br/>
+                position: absolute;<br/>
+                -webkit-backface-visibility: hidden ;<br/>
+                z-index: 2;<br/>
+                text-align: center;<br/>
+                }<br/>
+                <br/>
+                .flip .card .front<br/>
+                {<br/>
+                position: absolute;<br/>
+                z-index: 1;<br/>
+                color: white;<br/>
+                cursor: pointer;<br/>
+                }<br/>
+                <br/>
+                .flip .card .back<br/>
+                {<br/>
+                -webkit-transform: rotatex(-180deg);<br/>
+                color: black;<br/>
+                cursor: pointer;<br/>
+                }
+            </code>
+
+            <hr class="asHr"/>
+
+            <!-- Source file(s) -->
+            <h2 class="asMarineSpan">Source files</h2>
+            <ul>
+                <li><a href="../../fileview/Default.aspx?~/experiments/html/33-weather.html">HTML</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/css/33-weather.css">CSS</a></li>
+                <li><a href="../../fileview/Default.aspx?~/experiments/js/33-weather.js">JavaScript</a></li>
+            </ul>
+
+            <!-- Reference(s) -->
+            <h2 class="asMarineSpan">References</h2>
+            <ul>
+                <li><a href="http://openweathermap.org/api">Weather API</a></li>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+            </ul>
+
+            <br/>
+
+            <footer>
+                <details>
+                    <summary>&copy; Copyright 2015 Northeastern University</summary>
+                    <p>
+                        by <span class="asBoldSpan">Asad Shahabuddin</span>
+                        <br />
+                        All Rights Reserved.
+                    </p>
+                </details>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <!--
+        The inclusion of JavaScripts has been deferred to the end of body section
+        to speed up HTML load time.
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+        <script src="../js/33-weather.js"></script>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 33-weather.html -->

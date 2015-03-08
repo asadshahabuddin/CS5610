@@ -1,0 +1,127 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 35-expense-tracking.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Expense Tracking | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/31-mongo.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Expense Tracking</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            Expense Tracking has been refined and new features have been added to it. The page now shows balance for every person who is involved in one or more expense. Every create, delete and edit-save operation updates all balances without the necessity of an explicit operation. If all entries related to an individual have been removed, the record for that person in the second table is also purged. Both positive and negative amounts are shown which makes it close to a real-world application. Of course, it is much simpler.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://node3-asadshahabuddin.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Split Your Bills</h3>
+        <p>
+            The function illustrated below is responsible for balance calculation. Every operation which alters any of the records would result in a subsequent call to <span class="asBoldSpan">updateBalance(...)</span> function. It finds all the names involved in various transactions and calculates the amount of money people owe them or their outstanding balance, clearly shown by the use of signed values.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            var updateBalance = function()<br/>
+            {<br/>
+            var posBal = 0;<br/>
+            var negBal = 0;<br/>
+            var tempItem = null;<br/>
+            var tempPeople1 = {};<br/>
+            var tempPeople2 = {};<br/>
+            $scope.people = [];<br/>
+            <br/>
+            for(idx in $scope.items)<br/>
+            {<br/>
+            tempItem = $scope.items[idx];<br/>
+            if(!(tempItem.paidBy in tempPeople1))<br/>
+            {<br/>
+            tempPeople1[tempItem.paidBy] = true;<br/>
+            tempPeople2[tempItem.paidBy] = tempItem.price;<br/>
+            }<br/>
+            else<br/>
+            {<br/>
+            tempPeople2[tempItem.paidBy] += tempItem.price;<br/>
+            }<br/>
+            <br/>
+            if(!(tempItem.paidFor in tempPeople1))<br/>
+            {<br/>
+            tempPeople1[tempItem.paidFor] = true;<br/>
+            tempPeople2[tempItem.paidFor] = -1 * tempItem.price;<br/>
+            }<br/>
+            else<br/>
+            {<br/>
+            tempPeople2[tempItem.paidFor] -= tempItem.price;<br/>
+            }<br/>
+            }<br/>
+            <br/>
+            for(person in tempPeople2)<br/>
+            {<br/>
+            $scope.people.push({name: person, balance: tempPeople2[person]});<br/>
+            }<br/>
+            }
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/public/index.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/public/js/index.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/server.js">Node.js Server</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+            <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 35-expense-tracking.html -->

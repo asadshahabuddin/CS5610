@@ -1,0 +1,115 @@
+<!--
+    Author: Asad Shahabuddin
+    File: 31-mongo.html
+    Details: Test a Node.js server hosted on OpenShift.
+    Email ID: asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Mongoose on OpenShift | CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/31-mongo.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Mongoose on OpenShift</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            The experiment focuses mainly on MongoDB configuration on OpenShift and accessing collections (data) stored online using Mongoose interface from within Node.js. A shopping list collection is stored on OpenShift's MongoDB instance. I have used Mongoose to access data and created listeners to provide an API for accessing these shopping list documents. When you click on the link, JSON data will be output on your browser window.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://node3-asadshahabuddin.rhcloud.com/api/items">here</a> to view the response.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Schema enforcement and querying with Mongoose</h3>
+        <p>
+            I have made a shopping list collection implicitly and enforced a schema with the help of Mongoose. Records which don't adhere to this schema will be rejected by Mongoose. Some documents have also been inserted and made available using a GET listener.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* ================================ */<br/>
+            /* SHOPPING LIST COLLECTION : BEGIN */<br/>
+            /* ================================ */<br/>
+            <br/>
+            /* Enforce schema */<br/>
+            var itemSchema = new mongoose.Schema({<br/>
+            itemName: String,<br/>
+            desc    : String,<br/>
+            qty     : String,<br/>
+            by      : []<br/>
+            }, {collection: "shoppinglist"});<br/>
+            <br/>
+            /* Model */<br/>
+            var itemModel = mongoose.model("ItemModel", itemSchema);<br/>
+            <br/>
+            /* Documents */<br/>
+            var item1 = new itemModel({<br/>
+            itemName: "Apples",<br/>
+            desc    : "Red Apples",<br/>
+            qty     : "12",<br/>
+            by      : []<br/>
+            });<br/>
+            <br/>
+            /* ============================== */<br/>
+            /* SHOPPING LIST COLLECTION : END */<br/>
+            /* ============================== */
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/experiments/html/31-mongo.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/experiments/css/31-mongo.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/experiments/openshift/node3/server.js">Node.js Server</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+            <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 31-mongo.html -->
