@@ -123,6 +123,7 @@ p
     display: inline-block;
     height: 150px;
     margin: 0 1em 1em 0;
+    padding-right: 50px;
     position: relative;
     width: 150px;
 }

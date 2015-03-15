@@ -28,6 +28,7 @@
             <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
             <li><a href="blog/" target="_blank">Blog</a></li>
             <li><a href="story/index.htm?../experiments/" target="_blank"><span class="asBoldSpan">Experiments</span></a></li>
+            <li><a href="project/index.html" target="_blank"><span class="asBoldSpan">Project</span></a></li>
             <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
         </ul>
         
@@ -79,6 +80,12 @@
                             <a href="story/index.htm?../experiments/">
                                 <img src="images/experiment5.png" class="asImgLink"/>
                                 <span class="asImgHoverSpan"><span>Experiments</span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="project/index.html">
+                                <img src="images/project.png" class="asImgLink"/>
+                                <span class="asImgHoverSpan"><span>Project</span></span>
                             </a>
                         </li>
                     </ul>
