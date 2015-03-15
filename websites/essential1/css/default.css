@@ -1,0 +1,174 @@
+/*
+    Author: Asad Shahabuddin
+    File: default.css
+    Details: CSS for 'Default.aspx'.
+    Email ID: asad808@ccs.neu.edu
+*/
+
+.asBody
+{
+    background-image: url("../images/background1.png");
+    background-size: cover;
+    font-family: Arial;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.asBlancSpan
+{
+    color: #E6E6E6;
+}
+
+.asCenterElem
+{
+    text-align: center;
+}
+
+.asNav
+{
+    background-color: #E6E6E6;
+    border-bottom: 1px solid #ccc; 
+    border-top: 1px solid #ccc;
+    margin: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.asNav li
+{
+    display: inline-block;
+    padding: 0 0.5%;
+}
+
+.asNav li a
+{
+    color: black;
+    text-decoration: none;
+}
+
+.asNav li a:hover
+{
+    color: #08f;
+}
+
+.asContentDiv
+{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+p
+{
+    text-align: justify;
+}
+
+.asA
+{
+    color: navy;
+    text-decoration: none;
+}
+
+.asTable
+{
+    width: 750px;
+}
+
+.asHr
+{
+    border: 0;
+    border-top: 1px solid #E6E6E6;
+    display: block;
+    height: 1px;
+    margin: 1em 0; padding: 0;
+}
+
+.asThumbnail
+{
+    border: 2px solid #a1a1a1;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px;
+    width: 165px;
+    height: 165px;
+}
+
+.asContactImg
+{
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+}
+
+.asImgLink
+{
+    height: 150px;
+    width: 150px;
+}
+
+.asImgList
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+.asImgList li
+{
+    display: inline-block;
+    height: 150px;
+    margin: 0 1em 1em 0;
+    position: relative;
+    width: 150px;
+}
+
+.asImgHoverSpan
+{
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    display: table;
+    height: 150px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 150px;
+    opacity: 0;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
+ 
+.asImgHoverSpan span
+{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+ 
+.asImgList li:hover .asImgHoverSpan
+{
+    opacity: 1;
+}
+
+/*
+body
+{
+    width:900px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.pad
+{
+    padding: 10px;
+}
+*/
+/* End of default.css */

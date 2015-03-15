@@ -5,154 +5,126 @@
 </script>
 
 <!DOCTYPE html>
-
 <html lang="en">
+    <head>
+        <meta charset='utf-8' />
+        <title>Asad Shahabuddin | Home</title>
 
-<head>
+        <!-- Style sheets -->
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    </head>
 
-<meta charset='utf-8' />
+    <body class="asBody">
+        <ul class="asNav">
+            <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
+            <li><a href="statistics/" target="_blank">Statistics</a></li>
+            <li><a href="source/" target="_blank">Source</a></li>
+            <li><a href="search/" target="_blank">Search</a></li>
+            <li><a href="searchtree/" target="_blank">SearchTree</a></li>
+            <li><a href="textview/" target="_blank">TextView</a></li>
+            <li><a href="filelist.aspx" target="_blank">FileList</a></li>
+            <li><a href="autofile.aspx" target="_blank">AutoFile</a></li>
+            <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
+            <li><a href="blog/" target="_blank">Blog</a></li>
+            <li><a href="story/index.htm?../experiments/" target="_blank"><span class="asBoldSpan">Experiments</span></a></li>
+            <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
+        </ul>
+        
+        <div class="pad">
+            <form id="form1" runat="server">
+                <div class="asContentDiv">
+                    <h2>About</h2>
+                    <img class="asThumbnail" src="images/asad1.jpeg" title="Asad Shahabuddin"/>
+                    <p>
+                        Bonjour. My name is <span class="asBoldSpan">Asad</span> and I am currently enrolled in a full-time 
+                        graduate course in the Master of Science program in Computer Science at Northeastern University, Boston.
+                    </p>
+                    <p>
+                        I have worked on a number of projects during my academic and professional career. The most recent 
+                        project I embarked on involved research work on an alternative Facebook news feed which aims to be 
+                        more intuitive and predictable by grouping stories from individuals in a carousel-based interface 
+                        using Twitter's Bootstrap framework. In addition to the academic experience, I have about 2 and half 
+                        years of professional experience in the field of software design, development and maintenance including 
+                        my Co-op at IBM in 2014 and full-time at Cognizant Technology Solutions.
+                    </p>
+                    <p>
+                        I have a broad spectrum of interests which include writing, reading literary classics, watching movies 
+                        and football matches, programming, listening to various genres of music and casual photography.
+                    </p>
 
-<title>Demo Home Page</title>
+                    <hr class="asHr"/>
 
-<!-- Style sheets -->
-<style type="text/css">
-    ul.master_navigation
-    {
-        font-size: 100%;
-        font-weight: bold;
-        text-align: center;
-        list-style: none;
-        margin: 0.5em 0;
-        padding: 0;
-    }
+                    <h2>Academics</h2>
+                    <table class="asTable">
+                        <tbody>
+                            <tr>
+                                <td>M.S. in Computer Science</td>
+                                <td><a class="asA" href="http://www.northeastern.edu/">Northeastern University</a></td>
+                                <td class="right">2013 - 2015</td>
+                            </tr>
+                            <tr>
+                                <td>B.Tech. in Information Technology</td>
+                                <td><a class="asA" href="http://www.wbutech.net/">West Bengal University of Technology</a></td>
+                                <td class="right">2007 - 2011</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-    ul.master_navigation li
-    {
-        display: inline-block;
-        padding: 0 0.5%;
-    }
+                    <br/>
 
-    a
-    {
-        color: #08f;
-        font-weight: bold;
-        text-decoration: none;
-    }
+                    <h3>CS 5610</h3>
+                    <ul class="asImgList">
+                        <li>
+                            <a href="story/index.htm?../experiments/">
+                                <img src="images/experiment5.png" class="asImgLink"/>
+                                <span class="asImgHoverSpan"><span>Experiments</span></span>
+                            </a>
+                        </li>
+                    </ul>
 
-    a:visited
-    {
-        color: #88f;
-    }
+                    <br/>
 
-    a:hover
-    {
-        color: #f00;
-    }
+                    <div class="asCenterElem">
+                        <span class="contact-item">
+                            <a class="asA" href="https://www.facebook.com/leosfacemash" target="_blank" title="Facebook">
+                                <img class="asContactImg" src="images/facebook.png"/>
+                            </a>
+                        </span>
+                        <span class="contact-item">
+                            <a class="asA" href="https://twitter.com/asad_olorin" target="_blank" title="Twitter">
+                                <img class="asContactImg" src="images/twitter.png"/>
+                            </a>
+                        </span>
+                        <span class="contact-item">
+                            <a class="asA" href="https://www.linkedin.com/in/asadshahabuddin" target="_blank" title="LinkedIn">
+                                <img class="asContactImg" src="images/linkedin.png"/>
+                            </a>
+                        </span>
+                        <span class="contact-item">
+                            <a class="asA" href="https://github.com/asadshahabuddin/" target="_blank" title="GitHub">
+                                <img class="asContactImg" src="images/github.png"/>
+                            </a>
+                        </span>
+                        <span class="contact-item">
+                            <a class="asA" href="http://of-evermore.blogspot.com/" target="_blank" title="Blogger">
+                                <img class="asContactImg" src="images/blogger.png"/>
+                            </a>
+                        </span>
+                    </div>
 
-    p
-    {
-        text-align: justify;
-    }
-</style>
-
-<style type="text/css" media="screen">
-    body {
-        width:900px;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .pad {
-        padding: 10px;
-    }
-</style>
-<link rel="stylesheet" type="text/css" href="experiments/css/as-base.css"/>
-</head>
-
-<body class="asBody">
-
-<div class="pad">
-
-<form id="form1" runat="server">
-
-<div>
-
-<ul class="master_navigation">
-    <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
-    <li><a href="statistics/" target="_blank">Statistics</a></li>
-    <li><a href="source/" target="_blank">Source</a></li>
-    <li><a href="search/" target="_blank">Search</a></li>
-    <li><a href="searchtree/" target="_blank">SearchTree</a></li>
-    <li><a href="textview/" target="_blank">TextView</a></li>
-    <li><a href="filelist.aspx" target="_blank">FileList</a></li>
-    <li><a href="autofile.aspx" target="_blank">AutoFile</a></li>
-    <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
-    <li><a href="blog/" target="_blank">Blog</a></li>
-    <li><a href="story/index.htm?../experiments/" target="_blank">Experiments</a></li>
-    <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
-</ul>
-
-<hr />
-
-<p>
-    <b>This demo page shows the navigation links that should appear
-    on the home page.</b>
-    It is not necessary that these links be at the top of the page
-    but they should be displayed nicely and be easy to find.  You
-    may alter the CSS on the page to change the placement and the
-    size of the links.
-</p>
-
-<hr />
-
-<p>
-    The home page may show some interesting content but its main
-    purpose should be to <i>provide navigation</i> to other pages
-    on your site.
-</p>
-
-<hr />
-
-<p>
-    It would be helpful if your home page shows your name and a
-    photo of yourself.  This will help us to get to know you. 
-</p>
-    
-<hr />
-
-<p>
-Here is a link to the
-<a href="story/index.htm" target="_blank">Story Utility</a>
-on this site so that you may explore this tool.
-</p>
-
-<p>
-Here is a link to the
-<a href="http://www.northeastern.edu/rasala/webstories.htm"
-        target="_blank">Web Development Stories</a>
-so that you may see a good collection of online documentation.
-</p>
-
-<p>
-This provides a model for using stories for documentation and
-for collections of experiments.
-</p>
-
-<hr />
-
-<p>
-None of the hints given above needs to be on your home page
-downstream but it is convenient to have them here at startup.
-</p>
-
-<hr />
-
-</div>
-
-</form>
-
-</div>
-
-</body>
+                    <footer class="asCenterElem">
+                        <details>
+                            <summary class="asBlancSpan">&copy; Copyright 2015 Northeastern University</summary>
+                            <span class="asCenterElem asBlancSpan">
+                                by <span class="asBoldSpan">Asad Shahabuddin</span>
+                                <br />
+                                All Rights Reserved.
+                            </span>
+                        </details>
+                    </footer>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
+<!-- End of Default.aspx -->
