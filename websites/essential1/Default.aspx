@@ -8,7 +8,8 @@
 <html lang="en">
     <head>
         <meta charset='utf-8' />
-        <title>Asad Shahabuddin | Home</title>
+        <title>A | Home</title>
+        <link rel="icon" href="images/a3.png"/>
 
         <!-- Style sheets -->
         <link rel="stylesheet" type="text/css" href="css/default.css"/>

@@ -1,0 +1,137 @@
+/*
+    Author : Asad Shahabuddin
+    File   : index.css
+    Details: CSS for 'index.html'.
+    Email  : asad808@ccs.neu.edu
+*/
+
+.asBody
+{
+    /* background-image: url("image/pattern5.png"); */
+    background-size: cover;
+    font-family: Arial;
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1
+{
+    color: #5D5D5D;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.asH2
+{
+    font-weight: normal;
+}
+
+.asH2OverImg
+{
+	font-weight: normal;
+    position: absolute;
+    top: 303px;
+	width: 100%;
+}
+
+.asCenterElem
+{
+    text-align: center;
+}
+
+p
+{
+	text-align: justify;
+}
+
+/* Span : BEGIN */
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.asBlancSpan
+{
+    color: white;
+}
+
+.asSpanOverImg
+{
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+}
+/* Span : END */
+
+/* Link : BEGIN */
+.asNavA
+{
+    color: steelblue;
+    margin-right: 1em;
+}
+
+.asNavA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asContactA
+{
+    text-decoration: none;
+}
+/* Link : END */
+
+/* Division : BEGIN */
+.asTitleDiv
+{
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    padding-left: 300px;
+    padding-top: 20px;
+}
+
+.asContentDiv
+{
+    /* TODO */
+}
+
+.asCarouselDiv div
+{
+    /* TODO */    
+}
+
+.asCarouselItemDiv
+{
+    position: relative;
+}
+
+.asPaddedDiv
+{
+	margin-left: 200px;
+	margin-right: 200px;
+}
+/* Division : END */
+
+.asCarouselItem
+{
+    display: block;
+    font-size: 4em;
+    height: 480px;
+    width: 100%;
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/* Image : BEGIN */
+.asContactImg
+{
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+}
+/* Image : END */
+/* End of index.css */
