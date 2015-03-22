@@ -1,0 +1,95 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 39-news.html
+    Details: Top stories and weather updates from around the world.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>News - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">News</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            I have used The New York Times API and the Weather API to create a profile page. Both APIs return JSON data which is parsed to create a simple and intuitive interface. Recent headlines are displayed with newest on top. Clicking on a headline will take you to the full story on The New York Times website. Weather information is presented in its own card on the right.
+        </p>
+        <p>
+            Sign in using your previously created credentials and you should see a homepage with news and weather information. Your name will appear on the navigation bar.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Top Stories</h3>
+        <p>
+            A HTTP GET request is utilized to query Times Developer Network. The result is parsed and presented as a list of paragraphs. This interface scales well on all screen sizes as verified on a desktop and an iPhone screen. The active user's name is determined from the root scope, which stores user details and relavant error messages, if any.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* Fetch headlines using The New York Times Top Stories API */<br/>
+            $http.get("http://api.nytimes.com/svc/topstories/v1/home.json?api-key=6b50b9dd8f1647a9456befedcda60f26:6:71641947")<br/>
+            .success(function(res)<br/>
+            {<br/>
+            console.log("%cHeadlines>",<br/>
+            "font-family: Courier New; font-weight: bold;");<br/>
+            console.log(res);<br/>
+            $scope.headlines = res.results;<br/>
+            });
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/profile.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/profile.js">JavaScript</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="http://developer.nytimes.com/docs">Times Developer Network</a></li>
+            <li><a href="http://openweathermap.org/api">Weather API</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 39-news.html -->

@@ -1,0 +1,118 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 40-weather.html
+    Details: Weather card defaults to user's city.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Weather - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Weather</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            When a user registers with my project website, he/she is asked to enter their city. From this point forward, whenever a user signs in, the weather card defaults to his/her city. You may continue to fetch weather updates for other cities but the weather card defaults to your city on page reload. User preferences are remembered and used to personalize their home page.
+        </p>
+        <p>
+            Sign in using your previously created credentials and you should see a homepage your city's weather information.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Personalization</h3>
+        <p>
+            Every time you sign in to the web application, your city name will be determined from root scope and used to query weather conditions for your city (entered during account creation). The weather card gets populated with the results and presents a more personalized experience.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* Fetch approximate weather information using the Weather API */<br/>
+            $scope.weather = function(city)<br/>
+            {<br/>
+            if(city)<br/>
+            {<br/>
+            console.log("%c   [echo] Querying weather parameters for city '" + city + "'...",<br/>
+            "font-family: Courier New;");<br/>
+            <br/>
+            $http.get("http://api.openweathermap.org/data/2.5/weather?q=" + city)<br/>
+            .success(function(res)<br/>
+            {<br/>
+            console.log("%cWeather>",<br/>
+            "font-family: Courier New; font-weight: bold;");<br/>
+            console.log(res);<br/>
+            <br/>
+            $scope.city        = res.name;<br/>
+            $scope.dt          = new Date();<br/>
+            $scope.time        = $scope.dt.getHours() + ":" +<br/>
+            $scope.dt.getMinutes();<br/>
+            $scope.weatherMain = res.weather[0].main;<br/>
+            $scope.temp        = res.main.temp - 273.15;<br/>
+            $scope.humidity    = res.main.humidity;<br/>
+            $scope.pressure    = res.main.pressure;<br/>
+            $scope.windSpeed   = res.wind.speed;<br/>
+            });<br/>
+            }<br/>
+            };<br/>
+            <br/>
+            /*<br/>
+            By default, weather card shows information for the city<br/>
+            corresponding to the user currently signed in.<br/>
+            */<br/>
+            $scope.weather($rootScope.currentUser.city);
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/profile.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/profile.js">JavaScript</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="http://openweathermap.org/api">Weather API</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 40-weather.html -->

@@ -1,0 +1,124 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : welcome.html
+    Details: Welcome page for my Web Development project.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<div class="asWelcomeTitleDiv">
+    <header>
+        <a class="asWelcomeNavA asBoldSpan" href="index.html">Overview</a>
+        <a class="asWelcomeNavA" href="#">Documentation</a>
+        <a class="asWelcomeNavA" href="#">Source</a>
+        <a class="asWelcomeNavA" href="http://net4.ccs.neu.edu/home/asad808/">About</a>
+        <a class="asWelcomeNavA asBoldSpan" href="#signin" style="float: right; padding-right: 20px;">Sign in</a>
+    </header>
+
+    <h1 class="asH1">Console</h1>
+</div>
+
+<div class="asCenterElem">
+    <h2 class="asH2">Data Driven Services</h2>
+</div>
+
+<div class="asContentDiv">
+    <div class="asCarouselDiv owl-carousel owl-theme">
+        <div class="asCarouselItemDiv">
+            <img class="asCarouselItem" src="image/news3.jpg" title="News"/>
+            <h2 class="asH2OverImg">
+                <span class="asSpanOverImg">News and Stories</span>
+            </h2>
+        </div>
+        <div class="asCarouselItemDiv">
+            <img class="asCarouselItem" src="image/weather1.jpg" title="Weather"/>
+            <h2 class="asH2OverImg">
+                <span class="asSpanOverImg">Weather Updates</span>
+            </h2>
+        </div>
+        <div class="asCarouselItemDiv">
+            <img class="asCarouselItem" src="image/misc1.jpg" title="Books"/>
+            <h2 class="asH2OverImg">
+                <span class="asSpanOverImg">Books and Articles</span>
+            </h2>
+        </div>
+    </div>
+
+    <div class="asPaddedDiv">
+        <h2 class="asH2">Overview</h2>
+        <p>
+            Console is the center of your world. It gives you the ability to do most of your daily activities using a single application. <span class="asBoldSpan">News</span>, <span class="asBoldSpan">Weather Information</span>, <span class="asBoldSpan">Content Search</span> and <span class="asBoldSpan">Expense Tracking</span> are part of the suite. The website is under construction and a full-featured version should be available in the near future. More services may be added in time as I expect my application to replace many others.
+        </p>
+        <p>
+            The idea manifested from the concept of a central repository for all data related services. My ambition has always been to keep you on this page based on its completeness and the breadth of useful features. You shouldn't have to deal with a plethora of tabs and applications to keep track of a multitude of relevant information. The simplest way to eliminate such a scenario would be to provide that information here. After you create a Console account and log in to its services, you can keep track of pertinent information and your daily activities using my catalogue of services. You get a personalized environment with things that you care about, helping you stay organized and informed.
+        </p>
+        <p>
+            The application is free and always will be. Give it a chance; you won't regret it.
+        </p>
+
+        <hr/>
+        <section>
+            <a name="signin"/a>
+            <h2 class="asH2">Sign in</h2>
+            <form>
+                <input ng-model="register" class="asFormElem" type="radio" name="registerRadio" value="register"/>
+                <span> Register a new account</span><br/>
+                <br/>
+                <input ng-model="user.email" class="asFormElem" type="text" placeholder="Email address"/><br/>
+                <input ng-model="user.passwd1" class="asFormElem" type="password" placeholder="Password"/><br/>
+                <input ng-model="user.passwd2" ng-show="register" class="asFormElem" type="password" placeholder="Confirm password"/><br/>
+                <br ng-show="register"/>
+                <button ng-click="" ng-show="register" class="asFormElem asFormBtn" class="asWeatherSpan">Register</button>
+                <button ng-click="login(user)" ng-show="!register" class="asFormElem asFormBtn" class="asWeatherSpan">Sign in</button>
+            </form>
+        </section>
+    </div>
+
+    <br/>
+
+    <div class="asCenterElem">
+        <span class="contact-item">
+            <a class="asContactA" href="https://www.facebook.com/leosfacemash" target="_blank" title="Facebook">
+                <img class="asContactImg" src="image/facebook.png"/>
+            </a>
+        </span>
+        <span class="contact-item">
+            <a class="asContactA" href="https://twitter.com/asad_olorin" target="_blank" title="Twitter">
+                <img class="asContactImg" src="image/twitter.png"/>
+            </a>
+        </span>
+        <span class="contact-item">
+            <a class="asContactA" href="https://www.linkedin.com/in/asadshahabuddin" target="_blank" title="LinkedIn">
+                <img class="asContactImg" src="image/linkedin.png"/>
+            </a>
+        </span>
+        <span class="contact-item">
+            <a class="asContactA" href="https://github.com/asadshahabuddin/" target="_blank" title="GitHub">
+                <img class="asContactImg" src="image/github.png"/>
+            </a>
+        </span>
+        <span class="contact-item">
+            <a class="asContactA" href="http://of-evermore.blogspot.com/" target="_blank" title="Blogger">
+                <img class="asContactImg" src="image/blogger.png"/>
+            </a>
+        </span>
+    </div>
+
+    <footer class="asCenterElem">
+        <details>
+            <summary>&copy; Copyright 2015 Northeastern University</summary>
+            <span class="asCenterElem">
+                by <span class="asBoldSpan">Asad Shahabuddin</span>
+                <br />
+                All Rights Reserved.
+            </span>
+        </details>
+    </footer>
+
+    <!-- Scripts -->
+    <!--
+    The inclusion of JavaScripts has been deferred to the end of body section
+    to speed up HTML load time.
+    -->
+    <script src="js/welcome.js"></script>
+</div>
+<!-- End of welcome.html -->

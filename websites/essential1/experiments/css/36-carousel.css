@@ -1,0 +1,57 @@
+/*
+    Author : Asad Shahabuddin
+    File   : 36-weather.css
+    Details: CSS for '36-carousel.html'.
+    Email  : asad808@ccs.neu.edu
+*/
+
+.asBody
+{
+    background-color: #F2F2F2;
+    font-family: Arial;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Span : BEGIN */
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.asItalicSpan
+{
+    font-style: italic;
+}
+
+.asMarineSpan
+{
+    color: navy;
+}
+
+.asGrisSpan
+{
+    color: gray;
+}
+
+.asCenterSpan
+{
+    text-align: center;
+}
+/* Span : END */
+
+.asCode
+{
+    color: crimson;
+    font-family: "Courier New";
+}
+
+.asHr
+{
+    border: 0;
+    border-top: 1px solid gray;
+    display: block;
+    height: 1px;
+    margin: 1em 0; padding: 0;
+}
+/* End of 36-carousel.css */

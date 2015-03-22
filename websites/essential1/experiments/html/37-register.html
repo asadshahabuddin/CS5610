@@ -1,0 +1,113 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 37-register.html
+    Details: Register a new account on 'Console'.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Registration - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Registration</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            MEAN is used to create an account on my project website. Authentication information persists in a MongoDB database and you will be logged in after registering successfully. Extense console logging has also been done as an additional feature for developers. Without registration or stealing someone else's information, you cannot log into the web application. What follows after signing in a scope for future experiments.
+        </p>
+        <p>
+            Click on <span class="asBoldSpan">Sign In</span> link on the top right portion of my project website. On arriving at the form location, click on the <span class="asBoldSpan">Register a new account</span> checkbox to register. Enter the required information, click on <span class="asBoldSpan">Register</span> and you're good to go. Certain fields are mandatory (they will be indicated when you violate rules) and password entries must coincide.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Account Registration</h3>
+        <p>
+            A HTTP POST request is issued by the AngularJS registration function on user request. The aforementioned request is handled by the Node.js server file which adds user information document to a MongoDB collection. Future login requests from this user are validated against this collection. Email ID and password must be entered and the two passwords must match.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            app.post("/api/register", function(req, res)<br/>
+            {<br/>
+            var user = new UserModel(req.body);<br/>
+            user.save(function(err, doc)<br/>
+            {<br/>
+            req.login(user, function(err)<br/>
+            {<br/>
+            if(err)<br/>
+            {<br/>
+            return next(err);<br/>
+            }<br/>
+            res.json(<br/>
+            {<br/>
+            username : user.username,<br/>
+            firstName: user.firstName,<br/>
+            lastName : user.lastName,<br/>
+            city     : user.city<br/>
+            });<br/>
+            });<br/>
+            });<br/>
+            });
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/welcome.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/app.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 37-register.html -->

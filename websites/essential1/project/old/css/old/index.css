@@ -15,7 +15,7 @@
     overflow-x: hidden;
 }
 
-h1
+.asH1
 {
     color: #5D5D5D;
     font-size: 4em;
@@ -35,10 +35,26 @@ h1
 	width: 100%;
 }
 
+/* Element : BEGIN */
 .asCenterElem
 {
     text-align: center;
 }
+
+.asFormElem
+{
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.asFormBtn
+{
+    margin-right: 10px;
+}
+/* Element : END */
 
 p
 {
@@ -81,6 +97,12 @@ p
 {
     text-decoration: none;
 }
+
+.asSignInA
+{
+    float: right;
+    padding-right: 50px;
+}
 /* Link : END */
 
 /* Division : BEGIN */
@@ -88,7 +110,7 @@ p
 {
     background-color: white;
     border-bottom: 1px solid #ccc;
-    padding-left: 300px;
+    padding-left: 250px;
     padding-top: 20px;
 }
 

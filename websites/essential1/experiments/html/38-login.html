@@ -1,0 +1,135 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 38-login.html
+    Details: Sign in to 'Console'.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Sign In - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Sign In</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            Passport is used to create an authentication mechanism for my web application. Both username and password must be entered for authentication to take place. If both are correct (verified against a MongoDB collection), you will be logged in to your homepage (subject of my next experiment).
+        </p>
+        <p>
+            Click on <span class="asBoldSpan">Sign In link</span> on the top right portion of my project website. On arriving at the form location, enter your credentials and click on the <span class="asBoldSpan">Sign in button</span> to request authentication. If the information is valid, your homepage will appear.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Passport Authentication</h3>
+        <p>
+            Passport is used to intercept the login POST request. It validates user information based on defined rules and performs automatic serialization/de-serialization. Direct access to profile page is not possible without a valid session. Session tracking and maintenance is also performed. Every time a user navigates to his/her profile page, session validity is re-established.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* Set up passport : BEGIN */<br/>
+            passport.use(new LocalStrategy(<br/>
+            function(username, password, done)<br/>
+            {<br/>
+            UserModel.findOne({username: username, password: password}, function(err, user)<br/>
+            {<br/>
+            if(user)<br/>
+            {<br/>
+            return done(null,<br/>
+            {<br/>
+            username : user.username,<br/>
+            firstName: user.firstName,<br/>
+            lastName : user.lastName,<br/>
+            city     : user.city<br/>
+            });<br/>
+            }<br/>
+            return done(null, false, {message: "  [error] Unable to login"});<br/>
+            });<br/>
+            }));<br/>
+            <br/>
+            passport.serializeUser(function(user, done)<br/>
+            {<br/>
+            done(null, user);<br/>
+            });<br/>
+            <br/>
+            passport.deserializeUser(function(user, done)<br/>
+            {<br/>
+            done(null, user);<br/>
+            });<br/>
+            <br/>
+            var auth = function(req, res, next)<br/>
+            {<br/>
+            if(!req.isAuthenticated())<br/>
+            {<br/>
+            res.send(401);<br/>
+            }<br/>
+            else<br/>
+            {<br/>
+            next();<br/>
+            }<br/>
+            };<br/>
+            /* Set up passport : END */
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/welcome.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/app.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://passportjs.org/">Passport</a></li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 38-login.html -->

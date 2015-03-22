@@ -34,3 +34,8 @@ html/32-weather.html                               Weather
 html/33-weather.html                               Weather (Premium)
 html/34-expense-tracking.html                      Expense Tracking
 html/35-expense-tracking.html                      Expense Tracking (Premium)
+html/36-carousel.html                              CSS Image Carousel
+html/37-register.html                              MEAN Account Registration
+html/38-login.html                                 Passport Authentication
+html/39-news.html                                  The New York Times API
+html/40-weather.html                               Personalization and Weather API

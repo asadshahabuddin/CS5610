@@ -1,0 +1,175 @@
+/*
+    Author : Asad Shahabuddin
+    File   : profile.css
+    Details: CSS for 'profile.html'.
+    Email  : asad808@ccs.neu.edu
+*/
+
+.asBody
+{
+    /* background-image: url("../image/pattern6.png"); */
+    background-size: cover;
+    font-family: Arial;
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.asH1
+{
+    color: #5D5D5D;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.asCenterElem
+{
+    text-align: center;
+}
+
+p
+{
+    text-align: justify;
+}
+
+/* Span : BEGIN */
+.asNormalSpan
+{
+    font-weight: normal;
+}
+
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.asBlancSpan
+{
+    color: white;
+}
+
+.asGrisSpan
+{
+    color: gray;
+}
+
+.asWeatherSpan
+{
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.asCopyrightSpan1
+{
+    color: #A4A4A4;
+}
+
+.asCopyrightSpan2
+{
+    color: #6E6E6E;
+}
+/* Span : END */
+
+.asBanner
+{
+    color: #5D5D5D;
+    font-weight: bold;
+    margin-left: 2em;
+}
+
+/* Link : BEGIN */
+.asNavA
+{
+    color: black;
+    float: right;
+    margin-right: 1em;
+}
+
+.asNavA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asNavA:hover
+{
+    color: #08f;
+}
+
+.asContactA
+{
+    text-decoration: none;
+}
+
+.asHeadlineA
+{
+    font-size: 18px;
+    color: blue;
+}
+
+.asHeadlineA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asHeadlineA:visited
+{
+    color: purple;
+}
+/* Link : END */
+
+/* Division : BEGIN */
+.asTitleDiv
+{
+    background-color: #E6E6E6;
+    border-bottom: 1px solid #ccc;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.asContainerDiv
+{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.asNewsDiv
+{
+    float: left;
+    padding-right: 50px;
+    width: 600px;
+}
+
+.asWeatherDiv
+{
+    border: 1px solid #ccc;
+    float: left;
+    height: 350px;
+    margin-top: 65px;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.asFooterDiv
+{
+    background-color: #E6E6E6;
+    border-top: 1px solid #ccc;
+    clear: both;
+    font-size: 13px;
+    padding-bottom: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 20px;
+}
+/* Division : END */
+
+/* Image : BEGIN */
+.asContactImg
+{
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+}
+/* Image : END */
+/* End of profile.css */

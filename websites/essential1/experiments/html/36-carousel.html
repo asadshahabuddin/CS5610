@@ -1,0 +1,120 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 36-carousel.html
+    Details: Carousel based on 'Owl Carousel'.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Carousel - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Carousel</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p class="asItalicSpan">
+            This week's experiments are based off my final project work and highlight different aspects of it which have been refined and developed during the course of past few days, as well as issues encountered and results achieved. All of my experiments navigate to the same URL and highlight various parts of my project so far.
+        </p>
+        <p>
+            The first experiment exhibits a CSS carousel not based on Bootstrap. I had help from an independent library called <span class="asBoldSpan">Owl Carousel</span>.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>CSS Carousel</h3>
+        <p>
+            Fine-grained CSS has been written to make sure the carousel works across a variety of browsers. Specific properties are coded for webkit-based and other kinds of browsers. Transition effects and timings have been made possible by the use of JavaScript.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* CSS */<br/>
+            .asCarouselItem<br/>
+            {<br/>
+            display: block;<br/>
+            font-size: 4em;<br/>
+            height: 480px;<br/>
+            width: 100%;<br/>
+            <br/>
+            -webkit-border-radius: 3px;<br/>
+            -moz-border-radius: 3px;<br/>
+            border-radius: 3px;<br/>
+            }<br/>
+            <br/>
+            .asSpanOverImg<br/>
+            {<br/>
+            background: rgb(0, 0, 0); /* Fallback color */<br/>
+            background: rgba(0, 0, 0, 0.7);<br/>
+            color: white;<br/>
+            padding: 10px;<br/>
+            }<br/>
+            <br/>
+            /* JavaScript */<br/>
+            $(document).ready(function()<br/>
+            { <br/>
+            $(".asCarouselDiv").owlCarousel(<br/>
+            {<br/>
+            autoPlay        : 3000,<br/>
+            stopOnHover     : true,<br/>
+            navigation      : false,<br/>
+            paginationSpeed : 1000,<br/>
+            goToFirstSpeed  : 2000,<br/>
+            singleItem      : true,<br/>
+            autoHeight      : true,<br/>
+            transitionStyle :"fade"<br/>
+            }); <br/>
+            });
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/welcome.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/welcome.js">JavaScript</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="http://owlgraphic.com/owlcarousel/">Owl Carousel</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 36-carousel.html -->
