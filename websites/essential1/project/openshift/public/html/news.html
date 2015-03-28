@@ -1,17 +1,25 @@
 <!--
     Author : Asad Shahabuddin
-    File   : profile.html
-    Details: Profile page for my Web Development project.
+    File   : news.html
+    Details: News application.
     Email  : asad808@ccs.neu.edu
 -->
 
 <div class="asProfileTitleDiv">
     <header class="asNav">
         <a class="asBanner">> Console</a>
-        <a class="asProfileNavA" href="#">Sign Out</a>
-        <a class="asProfileNavA" href="#">Expense</a>
-        <a class="asProfileNavA" href="#">Books</a>
-        <a class="asProfileNavA asBoldSpan" href="profile.html">John Doe</a>
+        <a class="asProfileNavA" href="" ng-click="logout()">
+            <span ng-show="currentUser">Sign out</span>
+            <span ng-show="!currentUser">Sign in</span>
+        </a>
+        <a class="asProfileNavA" href="#/expense">Expense</a>
+        <a class="asProfileNavA" href="#/books">Books</a>
+        <a class="asProfileNavA asBoldSpan" href="#/news">News</a>
+        <a ng-show="currentUser" class="asProfileNavA" href="#/bookmarks">Bookmarks</a>
+        <a class="asProfileNavA" href="#/profile">
+            <span ng-show="currentUser">{{currentUser.firstName}} {{currentUser.lastName}}</span>
+            <span ng-show="!currentUser">Guest</span>
+        </a>
     </header>
 </div>
 
@@ -28,8 +36,8 @@
     <div class="asWeatherDiv">
         <h2 class="asNormalSpan">Weather</h2>
         <form>
-            <input ng-model="qcity" class="asWeatherSpan" type="text" placeholder="City name">
-            <button ng-click="weather(qcity)" class="asWeatherSpan">Search</button>
+            <input ng-model="qcity" class="asInputField" type="text" placeholder="City name">
+            <button ng-click="weather(qcity)" class="asButton">Search</button>
         </form>
 
         <br/>
@@ -54,4 +62,4 @@
     <span class="asCopyrightSpan1">&copy; 2015 Northeastern University - </span>
     <span class="asCopyrightSpan2">Asad Shahabuddin</span>
 </div>
-<!-- End of profile.html -->
+<!-- End of news.html -->

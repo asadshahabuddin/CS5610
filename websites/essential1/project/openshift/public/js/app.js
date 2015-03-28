@@ -25,12 +25,37 @@ app.config(function($routeProvider)
             loggedin: checkLogin
         }
     })
+    .when("/bookmarks",
+    {
+        templateUrl: "html/bookmarks.html",
+        controller: "BookmarksCtrl",
+        resolve: {
+            loggedin: checkLogin
+        }
+    })
+    .when("/news",
+    {
+        templateUrl: "html/news.html",
+        controller: "NewsCtrl",
+        resolve: {
+            loggedin: checkLogin
+        }
+    })
+    .when("/books",
+    {
+        templateUrl: "html/books.html",
+        controller: "BooksCtrl",
+        resolve: {
+            loggedin: checkLogin
+        }
+    })
     .otherwise(
     {
         redirectTo: "/"
     });
 });
 
+/* Verify login status */
 var checkLogin = function($q, $timeout, $rootScope, $http, $location)
 {
     var deferred = $q.defer();
@@ -67,10 +92,18 @@ var checkLogin = function($q, $timeout, $rootScope, $http, $location)
     return deferred.promise;
 };
 
+/* Configure the application controller */
 app.controller("ConsoleCtrl", function($rootScope, $scope, $http, $location, $anchorScroll)
 {
     console.log("%c   [echo] Main Controller has been initialized",
                 "font-family: Courier New;");
+
+    /* Navigate to 'Sign In' section */
+    $scope.gotoSignIn = function()
+    {
+        $location.hash("signin");
+        $anchorScroll();
+    };
 
     /* Register a new account */
     $scope.register = function(user)
@@ -84,6 +117,7 @@ app.controller("ConsoleCtrl", function($rootScope, $scope, $http, $location, $an
                         user.username + "'",
                         "font-family: Courier New;");
 
+            user["cover"] = "image/cover1.jpg";
             $http.post("/api/register", user)
             .success(function(res)
             {
@@ -119,16 +153,22 @@ app.controller("ConsoleCtrl", function($rootScope, $scope, $http, $location, $an
         {
             console.log("%cSuccess.",
                         "color: green; font-family: Courier New;");
+            console.log("%cCurrent user>",
+                        "font-family: Courier New; font-weight: bold");
+            console.log(res);
             $rootScope.currentUser = res;
             $location.url("/profile");
         });
     };
 
-    /* Navigate to 'Sign In' section */
-    $scope.gotoSignIn = function()
+    /* Log user activities */
+    $scope.trace = function(msg)
     {
-        $location.hash("signin");
-        $anchorScroll();
+        $http.put("/api/user/" + $rootScope.currentUser._id + "/trace/" + msg)
+        .success(function(res)
+        {
+            // TODO
+        });
     };
 });
 /* End of app.js */
