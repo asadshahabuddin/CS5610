@@ -1,0 +1,120 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 45-bookmarks.html
+    Details: Profile's activity feed.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Bookmarks - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Bookmarks</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            When you search for a book or song, the results presented contain a <span class="asBoldSpan">Bookmark</span> button right next to each of them. Clicking on the button would add a book to your favorites or a song to your global playlist. Once done, you can view all of your pinned items on the Bookmarks page.
+        </p>
+        <p>
+            Sign in using your credentials and click on <span class="asBoldSpan">Bookmarks</span> to view your favorites.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Favorites</h3>
+        <p>
+            Bookmarks page is now a central location for all your pinned items, whether it's a book or a song. All of this data is fetched dynamically using a unique identifier for every item added as a bookmark. The unique identifier is mapped to each user and saved in MongoDB collections. The schema is available in the Node.js server file.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* Fetch the user's playlist */<br/>
+            $scope.getPlaylist = function()<br/>
+            {<br/>
+            var music = [];<br/>
+            var count = 0;<br/>
+            <br/>
+            $http.get("/api/user/" + $rootScope.currentUser._id + "/music")<br/>
+            .success(function(res)<br/>
+            {<br/>
+            if(res != null)<br/>
+            {<br/>
+            for (var i = 0; i &lt; res.audio.length; i++)<br/>
+            {<br/>
+            var uri = "https://api.soundcloud.com/tracks/" + res.audio[i];<br/>
+            SC.oEmbed(uri, {auto_play: false}, function(track)<br/>
+            {<br/>
+            if(count == 1)<br/>
+            {<br/>
+            console.log("%cTrack 1>",<br/>
+            "font-family: Courier New; font-weight: bold;");<br/>
+            console.log(track);<br/>
+            }<br/>
+            music = music.concat(refineBookmark(track, uri)) + "<br/><br/><br/>";<br/>
+            document.getElementById("as-music-div").innerHTML = music;<br/>
+            });<br/>
+            }<br/>
+            }<br/>
+            });<br/>
+            <br/>
+            $scope.trace("Viewed your favorite books");<br/>
+            };
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/music.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/music.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="https://developers.soundcloud.com/">SoundCloud</a></li>
+            <li><a href="http://passportjs.org/">Passport</a></li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 45-bookmarks.html -->

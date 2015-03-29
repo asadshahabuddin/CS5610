@@ -5,7 +5,7 @@
     Email  : asad808@ccs.neu.edu
 */
 
-app.controller("BooksCtrl", function($rootScope, $scope, $http)
+app.controller("BooksCtrl", function($rootScope, $scope, $http, $location)
 {
     console.log("%c   [echo] Book Controller has been initialized",
                 "font-family: Courier New;");

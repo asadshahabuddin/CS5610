@@ -39,3 +39,8 @@ html/37-register.html                              MEAN Account Registration
 html/38-login.html                                 Passport Authentication
 html/39-news.html                                  The New York Times API
 html/40-weather.html                               Personalization and Weather API
+html/41-cover.html                                 Cover Picture
+html/42-feed.html                                  Activity Feed
+html/43-logout.html                                Session Termination
+html/44-music.html                                 SoundCloud API
+html/45-bookmarks.html                             Bookmarks and Playlists

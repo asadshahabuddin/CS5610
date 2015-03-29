@@ -1,0 +1,116 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 41-cover.html
+    Details: Profile page with a cover picture.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Profile - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Profile</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            When a user signs into my website, they are navigated to their home page with a cover picture. You can click on the <span class="asBoldSpan">Change cover</span> button to change it. The selection list is pre-populated and you may select an image from it. The change sticks between sessions during the application's lifetime.
+        </p>
+        <p>
+            Register an account with the website and you should see your homepage with a default cover. Change it as many times as you want and have it saved for your profile.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr />
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Cover Picture</h3>
+        <p>
+            A modal dialog is used to present a list of pictures from which you can pick one to have it as a cover. Upon selection, press ESC to head back to your original window. The cover picture is also overlayed with your initials to make it look more stylized.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* Display modal window */<br/>
+            $scope.coverModal = function()<br/>
+            {<br/>
+            document.getElementById("as-cover-modal").showModal();<br/>
+            };<br/>
+            <br/>
+            /* Set cover picture */<br/>
+            $scope.cover = function()<br/>
+            {<br/>
+            $http.get("/api/user/" + $rootScope.currentUser._id + "/cover")<br/>
+            .success(function(res)<br/>
+            {<br/>
+            document.getElementById("as-cover-div").style.backgroundImage = "url(" + res + ")";<br/>
+            });<br/>
+            }<br/>
+            <br/>
+            /* Change cover picture */<br/>
+            $scope.changeCover = function(file)<br/>
+            {<br/>
+            document.getElementById("as-cover-div").style.backgroundImage = "url(" + file + ")";<br/>
+            file = file.replace("image/", "image-");<br/>
+            file = file.replace(".", "-");<br/>
+            $http.put("/api/user/" + $rootScope.currentUser._id + "/cover/" + file)<br/>
+            .success(function(res)<br/>
+            {<br/>
+            $scope.trace("Changed your cover picture");<br/>
+            });<br/>
+            };
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/profile.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/profile.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="http://passportjs.org/">Passport</a></li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 41-cover.html -->

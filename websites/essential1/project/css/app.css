@@ -484,6 +484,19 @@ p
     line-height: 30px;
 }
 
+.asMusicTitle
+{
+    color: #2E2E2E;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.asMusicUrl
+{
+    color: #0B610B;
+    font-size: 14px;
+}
+
 .asNoContentSpan
 {
     color: #BDBDBD;

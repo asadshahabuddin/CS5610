@@ -1,0 +1,39 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : music.html
+    Details: Music application.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<div class="asProfileTitleDiv">
+    <header class="asNav">
+        <a class="asBanner">> Console</a>
+        <a class="asProfileNavA" href="" ng-click="logout()">
+            <span ng-show="currentUser">Sign out</span>
+            <span ng-show="!currentUser">Sign in</span>
+        </a>
+        <a class="asProfileNavA" href="#/expense">Expense</a>
+        <a class="asProfileNavA asBoldSpan" href="#/music">Music</a>
+        <a class="asProfileNavA" href="#/books">Books</a>
+        <a class="asProfileNavA" href="#/news">News</a>
+        <a ng-show="currentUser" class="asProfileNavA" href="#/bookmarks">Bookmarks</a>
+        <a class="asProfileNavA" href="#/profile">
+            <span ng-show="currentUser">{{currentUser.firstName}} {{currentUser.lastName}}</span>
+            <span ng-show="!currentUser">Guest</span>
+        </a>
+    </header>
+</div>
+
+<div class="asContainerDiv">
+    <h2 class="asNormalSpan">Music</h2>
+    <div class="">
+        <input ng-model="title" class="asInputField asWideInputField" type ="text" placeholder="Song title" autofocus/>
+        <button ng-click="search(title)" class="asButton">Search</button>
+    </div>
+
+    <br/><hr ng-show="music" class="asHr"/>
+
+    <!-- Songs -->
+    <div id="as-music-div"></div>
+</div>
+<!-- End of music.html -->

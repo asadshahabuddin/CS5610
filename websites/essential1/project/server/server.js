@@ -95,6 +95,23 @@ var BookModel = mongoose.model("BookModel", BookSchema);
 /* BOOK COLLECTION : END */
 /* ===================== */
 
+/* ======================== */
+/* MUSIC COLLECTION : BEGIN */
+/* ======================== */
+
+/* Enforce schema */
+var MusicSchema = new mongoose.Schema({
+    uid  : String,
+    audio: []
+}, {collection: "music"});
+
+/* Model */
+var MusicModel = mongoose.model("MusicModel", MusicSchema);
+
+/* ====================== */
+/* MUSIC COLLECTION : END */
+/* ====================== */
+
 /* Set up passport : BEGIN */
 passport.use(new LocalStrategy(
 function(username, password, done)
@@ -131,7 +148,7 @@ var auth = function(req, res, next)
 {
     if(!req.isAuthenticated())
     {
-        res.sendStatus(401);
+        res.send(401);
     }
     else
     {
@@ -200,7 +217,7 @@ app.post("/api/login", passport.authenticate("local"), function(req, res)
 app.post("/api/logout", function(req, res)
 {
     req.logOut();
-    res.sendStatus(200);
+    res.send(200);
 });
 /* POST listeners : END */
 
@@ -250,6 +267,14 @@ app.get("/api/user/:id/books", function(req, res)
         res.json(doc);
     });
 });
+
+app.get("/api/user/:id/music", function(req, res)
+{
+    MusicModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        res.json(doc);
+    });
+});
 /* GET listeners : END */
 
 /* PUT listeners : BEGIN */
@@ -286,11 +311,11 @@ app.put("/api/user/:id/trace/:t", function(req, res)
                 // TODO
             });
         }
-        res.sendStatus(200);
+        res.send(200);
     }); 
 });
 
-/* Add a bookmark */
+/* Add a bookmark - Books */
 app.put("/api/user/:id/book/:isbn", function(req, res)
 {
     BookModel.findOne({uid: req.params.id}, function(err, doc)
@@ -312,7 +337,33 @@ app.put("/api/user/:id/book/:isbn", function(req, res)
                 // TODO
             });
         }
-        res.sendStatus(200);
+        res.send(200);
+    });
+});
+
+/* Add a bookmark - Music */
+app.put("/api/user/:id/music/:uri", function(req, res)
+{
+    MusicModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        if(doc == null)
+        {
+            music = new MusicModel({uid: req.params.id, audio: [req.params.uri]});
+            music.save(function(err, doc)
+            {
+                // TODO
+            });
+        }
+        else
+        {
+            audio = doc.audio;
+            audio.push(req.params.uri);
+            MusicModel.update({uid: req.params.id}, {$set: {audio: audio}}, function(err, doc)
+            {
+                // TODO
+            });
+        }
+        res.send(200);
     });
 });
 /* PUT listeners : END */
@@ -327,7 +378,7 @@ app.delete("/api/user/:id/book/:isbn", function(req, res)
         var book = doc.book.splice(idx, 1);
         BookModel.update({uid: req.params.id}, {$set: {book: doc.book}}, function(err, doc)
         {
-            res.sendStatus(200);
+            res.send(200);
         });
     });
 });

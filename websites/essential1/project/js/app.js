@@ -49,6 +49,14 @@ app.config(function($routeProvider)
             loggedin: checkLogin
         }
     })
+    .when("/music",
+    {
+        templateUrl: "html/music.html",
+        controller: "MusicCtrl",
+        resolve: {
+            loggedin: checkLogin
+        }
+    })
     .otherwise(
     {
         redirectTo: "/"

@@ -5,7 +5,16 @@
     Email  : asad808@ccs.neu.edu
 */
 
-app.controller("BookmarksCtrl", function($rootScope, $scope, $http)
+var refineBookmark = function(obj, uri)
+{
+    var div = "<div><span class='asMusicTitle'>" + obj.title + "</span> <br/>" +
+              "<span class='asMusicUrl'>" + obj.author_url + "</span><br/><br/>" +
+              obj.html.replace("100%", "480px");
+    div = div.replace("400", "120px");
+    return div.concat("</div>");
+};
+
+app.controller("BookmarksCtrl", function($rootScope, $scope, $http, $location)
 {
     console.log("%c   [echo] Bookmarks Controller has been initialized",
                 "font-family: Courier New;");
@@ -48,6 +57,46 @@ app.controller("BookmarksCtrl", function($rootScope, $scope, $http)
 
         $scope.trace("Viewed your favorite books");
     };
+
+    /* Initialize the SoundCloud service */
+    SC.initialize(
+    {
+        client_id: '332c1c04065fe2da9ad6537bb285a77c'
+    });
+
+    /* Fetch the user's playlist */
+    $scope.getPlaylist = function()
+    {
+        var music = [];
+        var count = 0;
+
+        $http.get("/api/user/" + $rootScope.currentUser._id + "/music")
+        .success(function(res)
+        {
+            if(res != null)
+            {
+                for (var i = 0; i < res.audio.length; i++)
+                {
+                    var uri = "https://api.soundcloud.com/tracks/" + res.audio[i];
+                    SC.oEmbed(uri, {auto_play: false}, function(track)
+                    {
+                        if(count == 1)
+                        {
+                            console.log("%cTrack 1>",
+                                        "font-family: Courier New; font-weight: bold;");
+                            console.log(track);
+                        }
+                        music = music.concat(refineBookmark(track, uri)) + "<br/><br/><br/>";
+                        document.getElementById("as-music-div").innerHTML = music;
+                    });
+                }
+            }
+        });
+
+        $scope.trace("Viewed your favorite books");
+    };
+
+    $scope.getPlaylist();
 
     /* Book thumbnail URL */
     $scope.thumbnail = function(book)
