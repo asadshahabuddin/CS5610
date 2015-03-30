@@ -5,28 +5,37 @@
     Email  : asad808@ccs.neu.edu
 */
 
-app.controller("BooksCtrl", function($rootScope, $scope, $http, $location)
+app.controller("BooksCtrl", function($scope, $location, GlobalService)
 {
     console.log("%c   [echo] Book Controller has been initialized",
                 "font-family: Courier New;");
     
     SHORT_DESC_LEN = 256;
 
+    /* Sign out */
+    $scope.logout = function()
+    {
+        if(GlobalService.getUser())
+        {
+            GlobalService.logout(function()
+            {
+                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                            "font-family: Courier New;");
+            });
+        }
+        $location.url("/");
+    };
+
     /* Log user activities */
     $scope.trace = function(msg)
     {
-        $http.put("/api/user/" + $rootScope.currentUser._id + "/trace/" + msg)
-        .success(function(res)
-        {
-            // TODO
-        });
+        GlobalService.trace(msg, function(res){});
     };
 
     /* Search by book title */
     $scope.search = function(title)
     {
-        $http.get("https://www.googleapis.com/books/v1/volumes?q=" + title)
-        .success(function(res)
+        GlobalService.searchBooksByTitle(title, function(res)
         {
             var books = [];
             for(var i = 0; i < res.items.length; i++)
@@ -41,22 +50,14 @@ app.controller("BooksCtrl", function($rootScope, $scope, $http, $location)
                         "font-family: Courier New; font-weight: bold;")
             console.log(books[0]);
         });
-
         $scope.trace("Searched books with keyword '" + title + "'");
     };
 
-    /* Clip text */
-    $scope.abstract = function(book)
+    /* Add a book to favorites */
+    $scope.bookmark = function(book)
     {
-        if(typeof book.description == "undefined")
-        {
-            return "";
-        }
-
-        var desc = book.description;
-        var len = (desc.length < SHORT_DESC_LEN) ? desc.length : SHORT_DESC_LEN;
-        var suffix = len < SHORT_DESC_LEN ? "" : "...";
-        return desc.substring(0, len) + suffix;
+        GlobalService.setFavBooks(book, function(res){});
+        $scope.trace("Added " + book.title + " to your favorite books");
     };
 
     /* Book thumbnail URL */
@@ -70,34 +71,20 @@ app.controller("BooksCtrl", function($rootScope, $scope, $http, $location)
         return "image/book.gif";
     };
 
-    /* Bookmark */
-    $scope.bookmark = function(book)
+    /* Clip text */
+    $scope.abstract = function(book)
     {
-        $http.put("/api/user/" + $rootScope.currentUser._id +
-                  "/book/" + book.industryIdentifiers[0].identifier)
-        .success(function(res)
+        if(typeof book.description == "undefined")
         {
-            // TODO
-        });
-
-        $scope.trace("Added " + book.title + " to your favorite books");
-    };
-
-    /* Sign out */
-    $scope.logout = function()
-    {
-        if($rootScope
-           && typeof $rootScope.currentUser != "undefined")
-        {
-            $http.post("/api/logout")
-            .success(function()
-            {
-                console.log("%c   [echo] Logged out user '" + $rootScope.currentUser.username + "'",
-                            "font-family: Courier New;");   
-         
-            });
+            return "";
         }
-        $location.url("/");
+        var desc = book.description;
+        var len = (desc.length < SHORT_DESC_LEN) ? desc.length : SHORT_DESC_LEN;
+        var suffix = len < SHORT_DESC_LEN ? "" : "...";
+        
+        return desc.substring(0, len) + suffix;
     };
+
+    $scope.u = GlobalService.getUser();
 });
 /* End of books.js */

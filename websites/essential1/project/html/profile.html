@@ -9,23 +9,26 @@
     <header class="asNav">
         <a class="asBanner">> Console</a>
         <a class="asProfileNavA" href="" ng-click="logout()">
-            <span ng-show="currentUser">Sign out</span>
-            <span ng-show="!currentUser">Sign in</span>
+            <span ng-show="u">Sign out</span>
+            <span ng-show="!u">Sign in</span>
         </a>
         <a class="asProfileNavA" href="#/expense">Expense</a>
         <a class="asProfileNavA" href="#/music">Music</a>
         <a class="asProfileNavA" href="#/books">Books</a>
         <a class="asProfileNavA" href="#/news">News</a>
-        <a ng-show="currentUser" class="asProfileNavA" href="#/bookmarks">Bookmarks</a>
+        <a ng-show="u" class="asProfileNavA" href="#/bookmarks">Bookmarks</a>
         <a class="asProfileNavA asBoldSpan" href="#/profile">
-            <span ng-show="currentUser">{{currentUser.firstName}} {{currentUser.lastName}}</span>
-            <span ng-show="!currentUser">Guest</span>
+            <span ng-show="u">{{u.firstName}} {{u.lastName}}</span>
+            <span ng-show="!u">Guest</span>
         </a>
     </header>
 </div>
 
 <div class="asCoverDiv" id="as-cover-div">
-    <h3 class="asUsernameSpan">{{currentUser.firstName[0]}}{{currentUser.lastName[0]}}</h3>
+    <h3 class="asUsernameSpan">
+        <span ng-show="u">{{u.firstName[0]}}{{u.lastName[0]}}</span>
+        <span ng-show="!u">GU</span>
+    </h3>
     <button ng-click="coverModal()" class="asButton asCoverButton" type="button">Change cover</button>
 
     <dialog class="asCoverModal" id="as-cover-modal">

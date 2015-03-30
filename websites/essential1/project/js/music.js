@@ -14,25 +14,44 @@ var refine = function(obj, uri)
               "<span class='asMusicUrl'>" + obj.author_url + "</span><br/><br/>" +
               obj.html.replace("100%", "480px");
     div = div.replace("400", "120px");
+
     return div.concat("</div>");
 };
 
 /* Bookmark */
 var bookmark = function(uri)
 {
+    console.log("%c   [echo] Added track with URI '" + uri + "' to your playlist",
+                "font-family: Courier New;");
     var xmlHttp = new XMLHttpRequest();
-    uri = uri.substring(uri.indexOf("tracks/") + 7);
+    uri = uri.replace("http://", "http");
+    uri = uri.replace(new RegExp("/", "g"), "asDelimiter");
     xmlHttp.open("PUT", "/api/user/" + uid + "/music/" + uri, false);
     xmlHttp.send(null);
-    return xmlHttp.responseText;
+
+    return xmlHttp.responseText;   
 };
 
-app.controller("MusicCtrl", function($rootScope, $scope, $http, $location)
+app.controller("MusicCtrl", function($scope, $location, GlobalService)
 {
     console.log("%c   [echo] Music Controller has been initialized",
                 "font-family: Courier New;");
+    
+    uid = GlobalService.getUser()._id;
 
-    uid = $rootScope.currentUser._id;
+    /* Sign out */
+    $scope.logout = function()
+    {
+        if(GlobalService.getUser())
+        {
+            GlobalService.logout(function()
+            {
+                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                            "font-family: Courier New;");
+            });
+        }
+        $location.url("/");
+    };
 
     /* Initialize the SoundCloud service */
     SC.initialize(
@@ -51,7 +70,7 @@ app.controller("MusicCtrl", function($rootScope, $scope, $http, $location)
             var len = res.length < 10 ? res.length : 10;
             for(var i = 0; i < len; i++)
             {
-                SC.oEmbed(res[i].uri, {auto_play: false}, function(track)
+                SC.oEmbed(res[i].permalink_url, {auto_play: false}, function(track)
                 {
                     if(count == 1)
                     {
@@ -59,7 +78,12 @@ app.controller("MusicCtrl", function($rootScope, $scope, $http, $location)
                                     "font-family: Courier New; font-weight: bold;");
                         console.log(track);
                     }
-                    music = music.concat(refine(track, res[count++].uri)) + "<br/><br/><br/>";
+                    console.log("%c   [echo] Title: " + track.title,
+                                "font-family: Courier New;");
+                    console.log("%c   [echo] URI: " + res[count].permalink_url,
+                                "font-family: Courier New;");
+
+                    music = music.concat(refine(track, res[count++].permalink_url)) + "<br/><br/><br/>";
                     document.getElementById("as-music-div").innerHTML = music;
                 });
             }
@@ -67,20 +91,6 @@ app.controller("MusicCtrl", function($rootScope, $scope, $http, $location)
         $scope.music = "[music]";
     };
 
-    /* Sign out */
-    $scope.logout = function()
-    {
-        if($rootScope
-           && typeof $rootScope.currentUser != "undefined")
-        {
-            $http.post("/api/logout")
-            .success(function()
-            {
-                console.log("%c   [echo] Logged out user '" + $rootScope.currentUser.username + "'",
-                            "font-family: Courier New;");
-            });
-        }
-        $location.url("/");
-    };
+    $scope.u = GlobalService.getUser();
 });
 /* End of music.js */

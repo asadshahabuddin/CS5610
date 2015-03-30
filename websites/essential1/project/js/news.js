@@ -5,26 +5,39 @@
     Email  : asad808@ccs.neu.edu
 */
 
-app.controller("NewsCtrl", function($rootScope, $scope, $http, $location)
+app.controller("NewsCtrl", function($scope, $location, GlobalService)
 {
     console.log("%c   [echo] News Controller has been initialized",
                 "font-family: Courier New;");
 
     $scope.headlines = [];
 
+    /* Sign out */
+    $scope.logout = function()
+    {
+        if(GlobalService.getUser())
+        {
+            GlobalService.logout(function()
+            {
+                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                            "font-family: Courier New;");
+            });
+        }
+        $location.url("/");
+    };
+
     /* Log user activities */
     $scope.trace = function(msg)
     {
-        $http.put("/api/user/" + $rootScope.currentUser._id + "/trace/" + msg)
-        .success(function(res)
-        {
-            // TODO
-        });
+        GlobalService.trace(msg, function(res){});
     };
 
-    /* Fetch headlines using The New York Times Top Stories API */
-    $http.get("http://api.nytimes.com/svc/topstories/v1/home.json?api-key=6b50b9dd8f1647a9456befedcda60f26:6:71641947")
-    .success(function(res)
+    /* ====================== */
+    /* NEWS FUNCTIONS : BEGIN */
+    /* ====================== */
+
+    /* Seach news using The New York Times Top Stories API */
+    GlobalService.searchNews(function(res)
     {
         console.log("%cHeadlines>",
                     "font-family: Courier New; font-weight: bold;");
@@ -39,7 +52,15 @@ app.controller("NewsCtrl", function($rootScope, $scope, $http, $location)
         return headline.abstract.replace("&#8217;", "'");
     };
 
-    /* Fetch approximate weather information using the Weather API */
+    /* ==================== */
+    /* NEWS FUNCTIONS : END */
+    /* ==================== */
+
+    /* ========================= */
+    /* WEATHER FUNCTIONS : BEGIN */
+    /* ========================= */
+
+    /* Search weather information using the Weather API */
     $scope.weather = function(city)
     {
         if(city)
@@ -47,13 +68,13 @@ app.controller("NewsCtrl", function($rootScope, $scope, $http, $location)
             console.log("%c   [echo] Querying weather parameters for city '" + city + "'...",
                         "font-family: Courier New;");
 
-            $http.get("http://api.openweathermap.org/data/2.5/weather?q=" + city)
-            .success(function(res)
+            GlobalService.searchWeather(city, function(res)
             {
                 console.log("%cWeather>",
                             "font-family: Courier New; font-weight: bold;");
                 console.log(res);
 
+                /* Set weather parameters */
                 $scope.city        = res.name;
                 $scope.dt          = new Date();
                 $scope.time        = $scope.dt.getHours() + ":" +
@@ -64,37 +85,24 @@ app.controller("NewsCtrl", function($rootScope, $scope, $http, $location)
                 $scope.pressure    = res.main.pressure;
                 $scope.windSpeed   = res.wind.speed;
             });
-
             $scope.trace("Queried weather conditions for " + city);
         }
     };
 
-    /* Sign out */
-    $scope.logout = function()
-    {
-        if($rootScope
-           && typeof $rootScope.currentUser != "undefined")
-        {
-            $http.post("/api/logout")
-            .success(function()
-            {
-                console.log("%c   [echo] Logged out user '" + $rootScope.currentUser.username + "'",
-                            "font-family: Courier New;");   
-         
-            });
-        }
-        $location.url("/");
-    };
+    /* ======================= */
+    /* WEATHER FUNCTIONS : END */
+    /* ======================= */
 
     /*
-    By default, weather card shows information for the city
-    corresponding to the user currently signed in.
+    (1) Get the current user.
+    (2) By default, weather card shows information for the city
+        corresponding to the user currently signed in.
     */
-    if($rootScope
-       && typeof $rootScope.currentUser != "undefined"
-       && typeof $rootScope.currentUser.city != "undefined")
+    $scope.u = GlobalService.getUser();
+    if(GlobalService.getUser()
+       && GlobalService.getUser().city != "undefined")
     {
-        $scope.weather($rootScope.currentUser.city);
+        $scope.weather(GlobalService.getUser().city);
     }
 });
 /* End of news.js */

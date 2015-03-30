@@ -14,36 +14,48 @@ var refineBookmark = function(obj, uri)
     return div.concat("</div>");
 };
 
-app.controller("BookmarksCtrl", function($rootScope, $scope, $http, $location)
+app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
 {
     console.log("%c   [echo] Bookmarks Controller has been initialized",
                 "font-family: Courier New;");
 
     SHORT_DESC_LEN = 256;
 
+    /* Sign out */
+    $scope.logout = function()
+    {
+        if(GlobalService.getUser())
+        {
+            GlobalService.logout(function()
+            {
+                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                            "font-family: Courier New;");
+            });
+        }
+        $location.url("/");
+    };
+
     /* Log user activities */
     $scope.trace = function(msg)
     {
-        $http.put("/api/user/" + $rootScope.currentUser._id + "/trace/" + msg)
-        .success(function(res)
-        {
-            // TODO
-        });
+        GlobalService.trace(msg, function(res){});
     };
+
+    /* ====================== */
+    /* BOOK FUNCTIONS : BEGIN */
+    /* ====================== */
 
     /* Search by ISBN */
     $scope.getBookmarks = function()
     {
-        $http.get("/api/user/" + $rootScope.currentUser._id + "/books")
-        .success(function(res)
+        GlobalService.getFavBooks(function(res)
         {
             if(res != null)
             {
                 var books = [];
                 for (var i = 0; i < res.book.length; i++)
                 {
-                    $http.get("https://www.googleapis.com/books/v1/volumes?q=isbn:" + res.book[i])
-                    .success(function(res)
+                    GlobalService.searchBookByISBN(res.book[i], function(res)
                     {
                         for(var i = 0; i < res.items.length; i++)
                         {
@@ -54,49 +66,21 @@ app.controller("BookmarksCtrl", function($rootScope, $scope, $http, $location)
                 $scope.books = books;
             }
         });
-
         $scope.trace("Viewed your favorite books");
     };
 
-    /* Initialize the SoundCloud service */
-    SC.initialize(
+    /* Remove a book from favorites */
+    $scope.remove = function(book)
     {
-        client_id: '332c1c04065fe2da9ad6537bb285a77c'
-    });
-
-    /* Fetch the user's playlist */
-    $scope.getPlaylist = function()
-    {
-        var music = [];
-        var count = 0;
-
-        $http.get("/api/user/" + $rootScope.currentUser._id + "/music")
-        .success(function(res)
+        GlobalService.remFavBook(book, function(res)
         {
-            if(res != null)
-            {
-                for (var i = 0; i < res.audio.length; i++)
-                {
-                    var uri = "https://api.soundcloud.com/tracks/" + res.audio[i];
-                    SC.oEmbed(uri, {auto_play: false}, function(track)
-                    {
-                        if(count == 1)
-                        {
-                            console.log("%cTrack 1>",
-                                        "font-family: Courier New; font-weight: bold;");
-                            console.log(track);
-                        }
-                        music = music.concat(refineBookmark(track, uri)) + "<br/><br/><br/>";
-                        document.getElementById("as-music-div").innerHTML = music;
-                    });
-                }
-            }
+            console.log("%c   [echo] Removed a bookmark",
+                            "font-family: Courier New;");
+            $scope.getBookmarks();
         });
 
-        $scope.trace("Viewed your favorite books");
+        $scope.trace("Removed " + book.title + " from your favorite books");
     };
-
-    $scope.getPlaylist();
 
     /* Book thumbnail URL */
     $scope.thumbnail = function(book)
@@ -123,36 +107,60 @@ app.controller("BookmarksCtrl", function($rootScope, $scope, $http, $location)
         return desc.substring(0, len) + suffix;
     };
 
-    $scope.remove = function(book)
-    {
-        $http.delete("/api/user/" + $rootScope.currentUser._id +
-                     "/book/" + book.industryIdentifiers[0].identifier)
-        .success(function(res)
-        {
-            console.log("%c   [echo] Removed a bookmark",
-                            "font-family: Courier New;");
-            $scope.getBookmarks();
-        });
+    /* ==================== */
+    /* BOOK FUNCTIONS : END */
+    /* ==================== */
 
-        $scope.trace("Removed " + book.title + " from your favorite books");
-    };
+    /* ======================= */
+    /* MUSIC FUNCTIONS : BEGIN */
+    /* ======================= */
 
-    /* Sign out */
-    $scope.logout = function()
+    /* Initialize the SoundCloud service */
+    SC.initialize(
     {
-        if($rootScope
-           && typeof $rootScope.currentUser != "undefined")
+        client_id: '332c1c04065fe2da9ad6537bb285a77c'
+    });
+
+    /* Fetch the user's playlist */
+    $scope.getPlaylist = function()
+    {
+        var music = [];
+        var count = 0;
+
+        GlobalService.getPlaylist(function(res)
         {
-            $http.post("/api/logout")
-            .success(function()
+            if(res != null)
             {
-                console.log("%c   [echo] Logged out user '" + $rootScope.currentUser.username + "'",
-                            "font-family: Courier New;");
-            });
-        }
-        $location.url("/");
+                for (var i = 0; i < res.audio.length; i++)
+                {
+                    var uri = res.audio[i].replace("http", "http://");
+                    uri = uri.replace(new RegExp("asDelimiter", "g"), "/");
+                    console.log("%c   [echo] Searching track with uri '" + uri + "'",
+                                "font-family: Courier New;");
+                    SC.oEmbed(uri, {auto_play: false}, function(track)
+                    {
+                        if(count == 1)
+                        {
+                            console.log("%cTrack 1>",
+                                        "font-family: Courier New; font-weight: bold;");
+                            console.log(track);
+                        }
+                        music = music.concat(refineBookmark(track, uri)) + "<br/><br/><br/>";
+                        document.getElementById("as-music-div").innerHTML = music;
+                    });
+                }
+                $scope.music = music;
+            }
+        });
+        $scope.trace("Viewed your favorite music");
     };
 
+    /* ===================== */
+    /* MUSIC FUNCTIONS : END */
+    /* ===================== */
+
+    $scope.u = GlobalService.getUser();
     $scope.getBookmarks();
+    $scope.getPlaylist();
 });
 /* End of bookmarks.js */

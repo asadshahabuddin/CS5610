@@ -5,16 +5,29 @@
     Email  : asad808@ccs.neu.edu
 */
 
-app.controller("ProfileCtrl", function($rootScope, $scope, $http, $location)
+app.controller("ProfileCtrl", function($scope, $location, GlobalService)
 {
     console.log("%c   [echo] Profile Controller has been initialized",
                 "font-family: Courier New;");
 
+    /* Sign out */
+    $scope.logout = function()
+    {
+        if(GlobalService.getUser())
+        {
+            GlobalService.logout(function()
+            {
+                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                            "font-family: Courier New;");
+            });
+        }
+        $location.url("/");
+    };
+
     /* Log user activities */
     $scope.trace = function(msg)
     {
-        $http.put("/api/user/" + $rootScope.currentUser._id + "/trace/" + msg)
-        .success(function(res)
+        GlobalService.trace(msg, function(res)
         {
             $scope.feed();
         });
@@ -23,30 +36,13 @@ app.controller("ProfileCtrl", function($rootScope, $scope, $http, $location)
     /* Fetch trace */
     $scope.feed = function()
     {
-        $http.get("/api/user/" + $rootScope.currentUser._id + "/trace")
-        .success(function(res)
+        GlobalService.feed(function(res)
         {
             if(res != null)
             {
                 $scope.activities = res.activity;
             }
         });
-    };
-
-    /* Sign out */
-    $scope.logout = function()
-    {
-        if($rootScope
-           && typeof $rootScope.currentUser != "undefined")
-        {
-            $http.post("/api/logout")
-            .success(function()
-            {
-                console.log("%c   [echo] Logged out user '" + $rootScope.currentUser.username + "'",
-                            "font-family: Courier New;");
-            });
-        }
-        $location.url("/");
     };
 
     /* Display modal window */
@@ -56,29 +52,28 @@ app.controller("ProfileCtrl", function($rootScope, $scope, $http, $location)
     };
 
     /* Set cover picture */
-    $scope.cover = function()
+    $scope.changeCover = function(cover)
     {
-        $http.get("/api/user/" + $rootScope.currentUser._id + "/cover")
-        .success(function(res)
-        {
-            document.getElementById("as-cover-div").style.backgroundImage = "url(" + res + ")";
-        });
-    }
-
-    /* Change cover picture */
-    $scope.changeCover = function(file)
-    {
-        document.getElementById("as-cover-div").style.backgroundImage = "url(" + file + ")";
-        file = file.replace("image/", "image-");
-        file = file.replace(".", "-");
-        $http.put("/api/user/" + $rootScope.currentUser._id + "/cover/" + file)
-        .success(function(res)
+        document.getElementById("as-cover-div").style.backgroundImage = "url(" + cover + ")";
+        cover = cover.replace("image/", "image-");
+        cover = cover.replace(".", "-");
+        GlobalService.setCover(cover, function(res)
         {
             $scope.trace("Changed your cover picture");
         });
     };
 
+    /* Get cover picture */
+    $scope.cover = function()
+    {
+        GlobalService.getCover(function(res)
+        {
+            document.getElementById("as-cover-div").style.backgroundImage = "url(" + res + ")";
+        });
+    }
+
     /* Initialize profile page */
+    $scope.u = GlobalService.getUser();
     $scope.cover();
     $scope.feed();
 });

@@ -9,17 +9,17 @@
     <header class="asNav">
         <a class="asBanner">> Console</a>
         <a class="asProfileNavA" href="" ng-click="logout()">
-            <span ng-show="currentUser">Sign out</span>
-            <span ng-show="!currentUser">Sign in</span>
+            <span ng-show="u">Sign out</span>
+            <span ng-show="!u">Sign in</span>
         </a>
         <a class="asProfileNavA" href="#/expense">Expense</a>
         <a class="asProfileNavA" href="#/music">Music</a>
         <a class="asProfileNavA" href="#/books">Books</a>
         <a class="asProfileNavA" href="#/news">News</a>
-        <a ng-show="currentUser" class="asProfileNavA asBoldSpan" href="#/bookmarks">Bookmarks</a>
+        <a ng-show="u" class="asProfileNavA asBoldSpan" href="#/bookmarks">Bookmarks</a>
         <a class="asProfileNavA" href="#/profile">
-            <span ng-show="currentUser">{{currentUser.firstName}} {{currentUser.lastName}}</span>
-            <span ng-show="!currentUser">Guest</span>
+            <span ng-show="u">{{u.firstName}} {{u.lastName}}</span>
+            <span ng-show="!u">Guest</span>
         </a>
     </header>
 </div>
@@ -48,7 +48,7 @@
     </div>
 
     <!-- Songs -->
-    <h2 class="asNormalSpan" style="clear:both;">Music</h2>
+    <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Music</h2>
     <div id="as-music-div"></div>
 </div>
 <!-- End of bookmarks.html -->
