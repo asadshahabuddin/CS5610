@@ -237,6 +237,14 @@
     padding-right: 5px;
 }
 
+@media screen and (max-width: 500px)
+{
+    .asFormElem
+    {
+        font-size: 14px;
+    }
+}
+
 .asHr
 {
     border: 0;
@@ -279,6 +287,22 @@ p
     color: #5D5D5D;
     font-size: 4em;
     font-weight: normal;
+}
+
+@media screen and (max-width: 500px)
+{
+    .asH1
+    {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 420px)
+{
+    .asH1
+    {
+        font-size: 2em;
+    }
 }
 
 .asH2
