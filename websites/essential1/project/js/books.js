@@ -19,7 +19,7 @@ app.controller("BooksCtrl", function($scope, $location, GlobalService)
         {
             GlobalService.logout(function()
             {
-                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                console.log("%c   [echo] Logged out successfully",
                             "font-family: Courier New;");
             });
         }
@@ -43,6 +43,7 @@ app.controller("BooksCtrl", function($scope, $location, GlobalService)
                 books.push(res.items[i].volumeInfo);
             }
             $scope.books = books;
+            GlobalService.setBooks(books);
 
             console.log("%c   [echo] Book search returned successfully",
                         "font-family: Courier New;");
@@ -57,6 +58,8 @@ app.controller("BooksCtrl", function($scope, $location, GlobalService)
     $scope.bookmark = function(book)
     {
         GlobalService.setFavBooks(book, function(res){});
+        console.log("%c   [echo] Added " + book.title + " to your favorite books",
+                    "font-family: Courier New;");
         $scope.trace("Added " + book.title + " to your favorite books");
     };
 
@@ -86,5 +89,6 @@ app.controller("BooksCtrl", function($scope, $location, GlobalService)
     };
 
     $scope.u = GlobalService.getUser();
+    $scope.books = GlobalService.getBooks();
 });
 /* End of books.js */

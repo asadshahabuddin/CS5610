@@ -12,9 +12,9 @@
             <span ng-show="u">Sign out</span>
             <span ng-show="!u">Sign in</span>
         </a>
-        <a ng-show="u" class="asProfileNavA" href="#/people">People</a>
-        <a ng-show="u" class="asProfileNavA asBoldSpan" href="#/music">Music</a>
-        <a ng-show="!u" class="asProfileNavA asBoldSpan" href="#/musicg">Music</a>
+        <a ng-show="u" class="asProfileNavA asBoldSpan" href="#/people">People</a>
+        <a ng-show="u" class="asProfileNavA" href="#/music">Music</a>
+        <a ng-show="!u" class="asProfileNavA" href="#/musicg">Music</a>
         <a ng-show="u" class="asProfileNavA" href="#/books">Books</a>
         <a ng-show="!u" class="asProfileNavA" href="#/booksg">Books</a>
         <a ng-show="u" class="asProfileNavA" href="#/news">News</a>
@@ -30,20 +30,24 @@
 </div>
 
 <div class="asContainerDiv">
-    <h2 class="asNormalSpan">Music</h2>
+    <h2 class="asNormalSpan">People</h2>
     <div class="">
-        <input ng-model="title" class="asInputField asWideInputField" type ="text" placeholder="Song title" autofocus/>
-        <button ng-click="search(title)" class="asButton">Search</button>
+        <input ng-model="name" class="asInputField asWideInputField" type ="text" placeholder="They are out there..." autofocus/>
+        <button ng-click="search(name)" class="asButton">Search</button>
     </div>
 
-    <br/><hr ng-show="music" class="asHr"/>
-
-    <!-- Songs -->
-    <div class="asMusicDiv" id="as-music-div"></div>
-</div>
-
-<div ng-show="music" class="asFooterDiv">
-    <span class="asCopyrightSpan1">&copy; 2015 Northeastern University - </span>
-    <span class="asCopyrightSpan2">Asad Shahabuddin</span>
+    <br/><hr ng-show="people" class="asHr"/>
+    
+    <div ng-repeat="person in people" class="asPeopleDiv">
+        <img src="image/male.jpg" class="asPersonImg"/>
+        <a ng-click="gotoPerson(person)" class="asPersonA" style="" href="">{{person.firstName}} {{person.lastName}}</a>
+        <br/><br/>
+        <span class="asPersonDesc"><span class="asBoldSpan">Email:</span> {{person.username}}</span>
+        <br/>
+        <span class="asPersonDesc"><span class="asBoldSpan">City:</span> {{person.city}}</span>
+        <br/><br/>
+        <button class="asButton">Follow</button>
+        <hr class="asHr">
+    </div>
 </div>
 <!-- End of music.html -->

@@ -12,14 +12,19 @@
             <span ng-show="u">Sign out</span>
             <span ng-show="!u">Sign in</span>
         </a>
-        <a class="asProfileNavA" href="#/expense">Expense</a>
-        <a class="asProfileNavA" href="#/music">Music</a>
-        <a class="asProfileNavA" href="#/books">Books</a>
-        <a class="asProfileNavA" href="#/news">News</a>
+        <a ng-show="u" class="asProfileNavA" href="#/people">People</a>
+        <a ng-show="u" class="asProfileNavA" href="#/music">Music</a>
+        <a ng-show="!u" class="asProfileNavA" href="#/musicg">Music</a>
+        <a ng-show="u" class="asProfileNavA" href="#/books">Books</a>
+        <a ng-show="!u" class="asProfileNavA" href="#/booksg">Books</a>
+        <a ng-show="u" class="asProfileNavA" href="#/news">News</a>
+        <a ng-show="!u" class="asProfileNavA" href="#/newsg">News</a>
         <a ng-show="u" class="asProfileNavA" href="#/bookmarks">Bookmarks</a>
-        <a class="asProfileNavA asBoldSpan" href="#/profile">
-            <span ng-show="u">{{u.firstName}} {{u.lastName}}</span>
-            <span ng-show="!u">Guest</span>
+        <a ng-show="u" class="asProfileNavA asBoldSpan" href="#/profile">
+            <span>{{u.firstName}} {{u.lastName}}</span>
+        </a>
+        <a ng-show="!u" class="asProfileNavA asBoldSpan" href="#/profileg">
+            <span>Guest</span>
         </a>
     </header>
 </div>

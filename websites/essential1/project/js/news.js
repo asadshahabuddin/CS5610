@@ -19,7 +19,7 @@ app.controller("NewsCtrl", function($scope, $location, GlobalService)
         {
             GlobalService.logout(function()
             {
-                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                console.log("%c   [echo] Logged out successfully",
                             "font-family: Courier New;");
             });
         }

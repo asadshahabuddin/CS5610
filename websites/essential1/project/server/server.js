@@ -244,6 +244,16 @@ app.get("/api/loggedin", function(req, res)
     res.send(req.isAuthenticated() ? req.user : '0');
 });
 
+app.get("/api/user/:id", function(req, res)
+{
+    UserModel.findOne({_id: req.params.id},
+                      {username: 1, firstName: 1, lastName: 1, city: 1},
+    function(err, doc)
+    {
+        res.json(doc);
+    });
+});
+
 app.get("/api/user/:id/cover", function(req, res)
 {
     UserModel.findOne({_id: req.params.id}, function(err, doc)
@@ -275,6 +285,30 @@ app.get("/api/user/:id/music", function(req, res)
         res.json(doc);
     });
 });
+
+app.get("/api/people", function(req, res)
+{
+    UserModel.find({}, {username: 1, firstName: 1, lastName: 1, city: 1}, function(err, data)
+    {
+        res.json(data);
+    });
+});
+
+app.get("/api/people/:q", function(req, res)
+{
+    UserModel.find(
+        {$or: [
+            {username : {$regex: new RegExp(req.params.q, "i")}},
+            {firstName: {$regex: new RegExp(req.params.q, "i")}},
+            {lastName : {$regex: new RegExp(req.params.q, "i")}},
+            {city     : {$regex: new RegExp(req.params.q, "i")}},
+        ]}, {username: 1, firstName: 1, lastName: 1, city: 1},
+        function(err, data)
+        {
+            res.json(data);
+        }
+    );
+});
 /* GET listeners : END */
 
 /* PUT listeners : BEGIN */
@@ -305,6 +339,11 @@ app.put("/api/user/:id/trace/:t", function(req, res)
         else
         {
             activity = doc.activity;
+            /* Clip trace to log the last ten activities */
+            if(activity.length == 10)
+            {
+                activity.splice(0, 1);
+            }
             activity.push(req.params.t);
             TraceModel.update({uid: req.params.id}, {$set: {activity: activity}}, function(err, doc)
             {
@@ -369,14 +408,28 @@ app.put("/api/user/:id/music/:uri", function(req, res)
 /* PUT listeners : END */
 
 /* DELETE listeners: BEGIN */
-/* Remove a bookmark */
+/* Remove a book from favorites */
 app.delete("/api/user/:id/book/:isbn", function(req, res)
 {
     BookModel.findOne({uid: req.params.id}, function(err, doc)
     {
         var idx = doc.book.indexOf(req.params.isbn);
-        var book = doc.book.splice(idx, 1);
+        doc.book.splice(idx, 1);
         BookModel.update({uid: req.params.id}, {$set: {book: doc.book}}, function(err, doc)
+        {
+            res.send(200);
+        });
+    });
+});
+
+/* Remove a soundtrack from favorites */
+app.delete("/api/user/:id/music/:url", function(req, res)
+{
+    MusicModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        var idx = doc.audio.indexOf(req.params.url);
+        doc.audio.splice(idx, 1);
+        MusicModel.update({uid: req.params.id}, {$set: {audio: doc.audio}}, function(err, doc)
         {
             res.send(200);
         });

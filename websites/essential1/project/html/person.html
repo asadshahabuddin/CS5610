@@ -1,7 +1,7 @@
 <!--
     Author : Asad Shahabuddin
-    File   : bookmarks.html
-    Details: Bookmarks.
+    File   : person.html
+    Details: Bookmarks page for another user.
     Email  : asad808@ccs.neu.edu
 -->
 
@@ -10,34 +10,28 @@
         <a class="asBanner">> Console</a>
         <a class="asProfileNavA" href="" ng-click="logout()">
             <span ng-show="u">Sign out</span>
-            <span ng-show="!u">Sign in</span>
         </a>
-        <a ng-show="u" class="asProfileNavA" href="#/people">People</a>
-        <a ng-show="u" class="asProfileNavA" href="#/music">Music</a>
-        <a ng-show="!u" class="asProfileNavA" href="#/musicg">Music</a>
-        <a ng-show="u" class="asProfileNavA" href="#/books">Books</a>
-        <a ng-show="!u" class="asProfileNavA" href="#/booksg">Books</a>
-        <a ng-show="u" class="asProfileNavA" href="#/news">News</a>
-        <a ng-show="!u" class="asProfileNavA" href="#/newsg">News</a>
-        <a ng-show="u" class="asProfileNavA asBoldSpan" href="#/bookmarks">Bookmarks</a>
+        <a class="asProfileNavA" href="#/people">People</a>
+        <a class="asProfileNavA" href="#/music">Music</a>
+        <a class="asProfileNavA" href="#/books">Books</a>
+        <a class="asProfileNavA" href="#/news">News</a>
+        <a ng-show="u" class="asProfileNavA" href="#/bookmarks">Bookmarks</a>
         <a ng-show="u" class="asProfileNavA" href="#/profile">
             <span>{{u.firstName}} {{u.lastName}}</span>
-        </a>
-        <a ng-show="!u" class="asProfileNavA" href="#/profileg">
-            <span>Guest</span>
         </a>
     </header>
 </div>
 
 <div class="asContainerDiv">
-    <!-- h2 class="asNormalSpan">Bookmarks</h2 -->
+    <h2 class="asNormalSpan" style="color: #585858;">{{person.firstName}} {{person.lastName}}</h2>
+
+    <hr class="asHr"/>
 
     <!-- Book details -->
     <div ng-show="books.length > 0" class="asFavBooksDiv">
         <h2 class="asNormalSpan">Books</h2>
         <p ng-repeat="book in books" class="asBookP">
             <a class="asBookA" href="{{book.previewLink}}">{{book.title}}</a> 
-            <button ng-click="remFavBook(book)" class="asBookmarkRemBtn">Remove</button>
             <br/>
             <img ng-src="{{thumbnail(book)}}" class="asBookImg"/>
             <span ng-show="{{book.industryIdentifiers}}" class="asBookUrl">
@@ -52,7 +46,7 @@
         <hr class="asHr"/>
     </div>
 
-    <!-- Songs -->
+    <!-- Song details -->
     <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Music</h2>
     <div class="asMusicDiv" id="as-music-div"></div>
 </div>

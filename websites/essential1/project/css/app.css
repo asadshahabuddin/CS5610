@@ -13,6 +13,25 @@
 }
 
 /* Button : BEGIN */
+.asBlueBtn
+{
+    background-color: #2E64FE;
+    border: 1px solid #013ADF;
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    margin-left: 15px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.asBlueBtn:hover
+{
+    border-color: #424242;
+}
+
 .asBookmarkBtn
 {
     background-color: #A4A4A4;
@@ -63,11 +82,29 @@
 .asButton:hover
 {
     border: 1px solid #BDBDBD;
+    color: black;
 }
 
 .asCoverButton
 {
     margin-left: 30px;
+}
+
+.asFollowBtn
+{
+    background-color: #A4A4A4;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    color: #FAFAFA;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.asFollowBtn:hover
+{
+    background-color: #2E64FE;
 }
 /* Button : END */
 
@@ -76,7 +113,7 @@
 {
     float: left;
     padding-right: 50px;
-    width: 600px;
+    width: 50%;
 }
 
 .asCarouselItemDiv
@@ -101,7 +138,7 @@
 {
     float: left;
     padding-right: 50px;
-    width: 600px;
+    width: 50%;
 }
 
 .asFooterDiv
@@ -123,20 +160,32 @@
     height: 150px;
     margin-right: 15px;
     margin-bottom: 15px;
-    width: 150px;
+    width: 29%;
+}
+
+.asMusicDiv
+{
+    width: 50%;
 }
 
 .asNewsDiv
 {
     float: left;
     padding-right: 50px;
-    width: 600px;
+    width: 50%;
 }
 
 .asPaddedDiv
 {
     margin-left: 200px;
     margin-right: 200px;
+}
+
+.asPeopleDiv
+{
+    float: left;
+    padding-right: 50px;
+    width: 50%;
 }
 
 .asProfileTitleDiv
@@ -156,7 +205,7 @@
     margin-top: 65px;
     padding-left: 35px;
     margin-bottom: 20px;
-    width: 500px;
+    width: 40%;
 }
 
 .asWelcomeTitleDiv
@@ -275,6 +324,16 @@ p
     padding: 10px;
     width: 40px;
 }
+
+.asPersonImg
+{
+    float: left;
+    height: 160px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    width: 120px;
+}
 /* Image : END */
 
 /* Link : BEGIN */
@@ -313,6 +372,13 @@ p
 .asHeadlineA:visited
 {
     color: purple;
+}
+
+.asPersonA
+{
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
 }
 
 .asProfileNavA
@@ -356,7 +422,7 @@ p
     border: 0px;
     border-radius: 10px;
     padding-left: 50px;
-    width: 515px;
+    width: 33%;
 }
 
 .asImgFrame1
@@ -388,33 +454,6 @@ p
 {
     background-image: url('../image/cover6.jpg');
 }
-
-/*
-.asModalClose
-{
-    background: #606061;
-    color: #FFFFFF;
-    line-height: 25px;
-    position: absolute;
-    right: -12px;
-    text-align: center;
-    top: -10px;
-    width: 24px;
-    text-decoration: none;
-    font-weight: bold;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    -moz-box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
-    box-shadow: 1px 1px 3px #000;
-}
-
-.asModalClose:hover
-{
-    background: #00d9ff;
-}
-*/
 /* Modal : END */
 
 /* Span : BEGIN */
@@ -501,6 +540,19 @@ p
 {
     color: #BDBDBD;
     font-size: 64px;
+}
+
+.asPersonDesc
+{
+    color: #585858;
+    font-size: 13px;
+}
+
+.asPersonTitle
+{
+    color: #2E2E2E;
+    font-size: 18px;
+    font-weight: normal;
 }
 
 .asSpanOverImg

@@ -51,6 +51,12 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
         $anchorScroll();
     };
 
+    /* Login as a guest user */
+    $scope.guest = function()
+    {
+        $location.url("/profileg");
+    };
+
     /* Register a new account */
     $scope.register = function(user)
     {
@@ -112,7 +118,7 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
         {
             GlobalService.logout(function()
             {
-                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                console.log("%c   [echo] Logged out successfully",
                             "font-family: Courier New;");   
          
             });

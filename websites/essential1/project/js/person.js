@@ -1,38 +1,16 @@
 /*
     Author : Asad Shahabuddin
-    File   : bookmarks.js
-    Details: JS for 'bookmarks.html'.
+    File   : person.js
+    Details: JS for 'person.html'.
     Email  : asad808@ccs.neu.edu
 */
 
-/* Remove a track from favorite music */
-var remFavMusic = function(url)
+app.controller("PersonCtrl", function($scope, $location, GlobalService)
 {
-    console.log("%c   [echo] Removed track with URL '" + url + "' from your playlist",
-                "font-family: Courier New;");
-    var xmlHttp = new XMLHttpRequest();
-    url = url.replace("http://", "http");
-    url = url.replace(new RegExp("/", "g"), "asDelimiter");
-    xmlHttp.open("DELETE", "/api/user/" + uid + "/music/" + url, false);
-    xmlHttp.send(null);
-    $scope.getFavMusic();
-    $scope.music = null;
-
-    return xmlHttp.responseText;
-};
-
-app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
-{
-    console.log("%c   [echo] Bookmarks Controller has been initialized",
+    console.log("%c   [echo] Person Controller has been initialized",
                 "font-family: Courier New;");
 
     SHORT_DESC_LEN = 256;
-
-    /* Get current user's unique identifier */
-    if(GlobalService.getUser())
-    {
-        uid = GlobalService.getUser()._id;
-    }
 
     /* Sign out */
     $scope.logout = function()
@@ -54,6 +32,14 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
         GlobalService.trace(msg, function(res){});
     };
 
+    $scope.personInfo = function()
+    {
+        GlobalService.getPersonInfo(function(res)
+        {
+            $scope.person = res;
+        });
+    }
+
     /* ====================== */
     /* BOOK FUNCTIONS : BEGIN */
     /* ====================== */
@@ -61,7 +47,7 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
     /* Search by ISBN */
     $scope.getFavBooks = function()
     {
-        GlobalService.getFavBooks(GlobalService.getUser()._id, function(res)
+        GlobalService.getFavBooks(GlobalService.getPersonId(), function(res)
         {
             if(res != null)
             {
@@ -80,18 +66,6 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
             }
         });
         $scope.trace("Viewed your favorite books");
-    };
-
-    /* Remove a book from favorites */
-    $scope.remFavBook = function(book)
-    {
-        GlobalService.remFavBook(book, function(res)
-        {
-            console.log("%c   [echo] Removed a bookmark",
-                            "font-family: Courier New;");
-            $scope.getFavBooks();
-        });
-        $scope.trace("Removed " + book.title + " from your favorite books");
     };
 
     /* Book thumbnail URL */
@@ -139,7 +113,7 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
         var music = [];
         var count = 0;
 
-        GlobalService.getFavMusic(GlobalService.getUser()._id, function(res)
+        GlobalService.getFavMusic(GlobalService.getPersonId(), function(res)
         {
             if(res != null)
             {
@@ -183,6 +157,7 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
     /* ===================== */
 
     $scope.u = GlobalService.getUser();
+    $scope.personInfo();
     $scope.getFavBooks();
     $scope.getFavMusic();
 });

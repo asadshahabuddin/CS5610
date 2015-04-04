@@ -25,6 +25,11 @@ app.config(function($routeProvider)
             loggedin: checkLogin
         }
     })
+    .when("/profileg",
+    {
+        templateUrl: "html/profile.html",
+        controller: "ProfileCtrl"
+    })
     .when("/bookmarks",
     {
         templateUrl: "html/bookmarks.html",
@@ -41,6 +46,11 @@ app.config(function($routeProvider)
             loggedin: checkLogin
         }
     })
+    .when("/newsg",
+    {
+        templateUrl: "html/news.html",
+        controller: "NewsCtrl"
+    })
     .when("/books",
     {
         templateUrl: "html/books.html",
@@ -49,10 +59,36 @@ app.config(function($routeProvider)
             loggedin: checkLogin
         }
     })
+    .when("/booksg",
+    {
+        templateUrl: "html/books.html",
+        controller: "BooksCtrl"
+    })
     .when("/music",
     {
         templateUrl: "html/music.html",
         controller: "MusicCtrl",
+        resolve: {
+            loggedin: checkLogin
+        }
+    })
+    .when("/musicg",
+    {
+        templateUrl: "html/music.html",
+        controller: "MusicCtrl"
+    })
+    .when("/people",
+    {
+        templateUrl: "html/people.html",
+        controller: "PeopleCtrl",
+        resolve: {
+            loggedin: checkLogin
+        }
+    })
+    .when("/person",
+    {
+        templateUrl: "html/person.html",
+        controller: "PersonCtrl",
         resolve: {
             loggedin: checkLogin
         }

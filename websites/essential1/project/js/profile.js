@@ -17,7 +17,7 @@ app.controller("ProfileCtrl", function($scope, $location, GlobalService)
         {
             GlobalService.logout(function()
             {
-                console.log("%c   [echo] Logged out user '" + GlobalService.getUser().username + "'",
+                console.log("%c   [echo] Logged out successfully",
                             "font-family: Courier New;");
             });
         }
@@ -66,10 +66,17 @@ app.controller("ProfileCtrl", function($scope, $location, GlobalService)
     /* Get cover picture */
     $scope.cover = function()
     {
-        GlobalService.getCover(function(res)
+        if(!GlobalService.getUser())
         {
-            document.getElementById("as-cover-div").style.backgroundImage = "url(" + res + ")";
-        });
+            document.getElementById("as-cover-div").style.backgroundImage = "url(\"image/cover1.jpg\")";
+        }
+        else
+        {
+            GlobalService.getCover(function(res)
+            {
+                document.getElementById("as-cover-div").style.backgroundImage = "url(" + res + ")";
+            });
+        }
     }
 
     /* Initialize profile page */
