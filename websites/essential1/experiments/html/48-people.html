@@ -1,0 +1,112 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 48-people.html
+    Details: Profile's activity feed.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>People - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">People</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            A people page is available to all registered users. After you log in, a link called <span class="asBoldSpan">People</span> is present on the navigation bar. When you click on it, you use a list of all users registered with the website. Searching for a token returns all users with any information related to them containing the search query. This provides an extensive and intuitive search facility and lets you see all people on the network.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr/>
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Search and connect</h3>
+        <p>
+            When you search for a person, the query is passed on to the server which uses regular expressions to search all fields related to a user and finds all those users who have one or more fields containing the search token. Selective information is returned by setting 1 for all fields that need returning.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            app.get("/api/people", function(req, res)<br/>
+            {<br/>
+            UserModel.find({}, {username: 1, firstName: 1, lastName: 1, city: 1}, function(err, data)<br/>
+            {<br/>
+            res.json(data);<br/>
+            });<br/>
+            });<br/>
+            <br/>
+            app.get("/api/people/:q", function(req, res)<br/>
+            {<br/>
+            UserModel.find(<br/>
+            {$or: [<br/>
+            {username : {$regex: new RegExp(req.params.q, "i")}},<br/>
+            {firstName: {$regex: new RegExp(req.params.q, "i")}},<br/>
+            {lastName : {$regex: new RegExp(req.params.q, "i")}},<br/>
+            {city     : {$regex: new RegExp(req.params.q, "i")}},<br/>
+            ]}, {username: 1, firstName: 1, lastName: 1, city: 1},<br/>
+            function(err, data)<br/>
+            {<br/>
+            res.json(data);<br/>
+            }<br/>
+            );<br/>
+            });
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/people.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/people.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 48-people.html -->

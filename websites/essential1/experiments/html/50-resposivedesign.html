@@ -1,0 +1,117 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 50-responsivedesign.html
+    Details: Profile's activity feed.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Responsive Design - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Responsive Design</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            My project website consists entirely of hand-written CSS and does not use Bootstrap. Because of this, horizontal scroll bars would appear until last week. I carefully tuned my CSS to make sure that no page has a horizontal scroll bar on it even when resized to the smallest possible size. This has been achieved by replacing static width assignment for various elements.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr/>
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Media queries</h3>
+        <p>
+            All width assignments use percentages instead of pixel counts. In addition to those, media queries have been used to resize elements when the screen size goes below a certain number of pixels. This creates a partly responsive design. A caveat is that the navigation bar does not resize in the best possible way, which remains a scope for future improvement.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            @media screen and (max-width: 500px)<br/>
+            {<br/>
+            .asFormElem<br/>
+            {<br/>
+            font-size: 14px;<br/>
+            }<br/>
+            }<br/>
+            <br/>
+            @media screen and (max-width: 500px)<br/>
+            {<br/>
+            .asH1<br/>
+            {<br/>
+            font-size: 3em;<br/>
+            }<br/>
+            }<br/>
+            <br/>
+            @media screen and (max-width: 420px)<br/>
+            {<br/>
+            .asH1<br/>
+            {<br/>
+            font-size: 2em;<br/>
+            }<br/>
+            }<br/>
+            <br/>
+            .asImgFrame<br/>
+            {<br/>
+            background-size: cover;<br/>
+            float: left;<br/>
+            height: 150px;<br/>
+            margin-right: 15px;<br/>
+            margin-bottom: 15px;<br/>
+            width: 29%;<br/>
+            }
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">Mozilla Developer Network</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 50-responsivedesign.html -->

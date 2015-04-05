@@ -1,0 +1,153 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 49-person.html
+    Details: Profile's activity feed.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Social Activity - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Social Activity</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            In addition to looking up and searching for people in your network on my website, you can now view their bookmarks and playlist. To do this, click on any person's name on the People page and you will be able to view their bookmarks and favorites. If the person has nothing to show for favorites, nothing will show up. This creates more of a social feel.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr/>
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Where do you stand?</h3>
+        <p>
+            When you click on a person's name, their unique identifier is saved in the Global Service. This identifier is used to fetch their favorite books and playlist which are then rendered on a page. Data is fetched dynamically and no static pages are used for viewing other users' bookmarks.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            $scope.personInfo = function()<br/>
+            {<br/>
+            GlobalService.getPersonInfo(function(res)<br/>
+            {<br/>
+            $scope.person = res;<br/>
+            });<br/>
+            }<br/>
+            <br/>
+            /* ====================== */<br/>
+            /* BOOK FUNCTIONS : BEGIN */<br/>
+            /* ====================== */<br/>
+            <br/>
+            /* Search by ISBN */<br/>
+            $scope.getFavBooks = function()<br/>
+            {<br/>
+            GlobalService.getFavBooks(GlobalService.getPersonId(), function(res)<br/>
+            {<br/>
+            if(res != null)<br/>
+            {<br/>
+            var books = [];<br/>
+            for (var i = 0; i &lt; res.book.length; i++)<br/>
+            {<br/>
+            GlobalService.searchBookByISBN(res.book[i], function(res)<br/>
+            {<br/>
+            for(var i = 0; i &lt; res.items.length; i++)<br/>
+            {<br/>
+            books.push(res.items[i].volumeInfo);<br/>
+            }<br/>
+            });<br/>
+            }<br/>
+            $scope.books = books;<br/>
+            }<br/>
+            });<br/>
+            $scope.trace("Viewed your favorite books");<br/>
+            };<br/>
+            <br/>
+            /* Book thumbnail URL */<br/>
+            $scope.thumbnail = function(book)<br/>
+            {<br/>
+            if(typeof book.imageLinks != "undefined"<br/>
+            &amp;&amp; typeof book.imageLinks.smallThumbnail != "undefined")<br/>
+            {<br/>
+            return book.imageLinks.smallThumbnail;<br/>
+            }<br/>
+            return "image/book.gif";<br/>
+            };<br/>
+            <br/>
+            /* Clip text */<br/>
+            $scope.abstract = function(book)<br/>
+            {<br/>
+            if(typeof book.description == "undefined")<br/>
+            {<br/>
+            return "";<br/>
+            }<br/>
+            <br/>
+            var desc = book.description;<br/>
+            var len = (desc.length &lt; SHORT_DESC_LEN) ? desc.length : SHORT_DESC_LEN;<br/>
+            var suffix = len &lt; SHORT_DESC_LEN ? "" : "...";<br/>
+            return desc.substring(0, len) + suffix;<br/>
+            };<br/>
+            <br/>
+            /* ==================== */<br/>
+            /* BOOK FUNCTIONS : END */<br/>
+            /* ==================== */
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/person.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/person.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/">MongoDB</a></li>
+            <li><a href="http://nodejs.org/documentation/tutorials/">Node.js</a></li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 49-person.html -->

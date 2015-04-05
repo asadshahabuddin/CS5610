@@ -1,0 +1,146 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 46-guest.html
+    Details: Profile's activity feed.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Guest - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Guest</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            My project website required the user to sign in before being able to use any of its features. That restriction has been relaxed and one can sign in as a guest now. The profile page automatically unlocks relevant features and keeps the privileged features restricted. Guest profile is also cutomized to show the name Guest on the navigation bar as his/her profile link and initials switch to GU (Guest User). To login as a guest, click on the <span class="asBoldSpan">Try for free</span> button next to the <span class="asBoldSpan">Sign in</span> button.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr/>
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Free trial</h3>
+        <p>
+            Additional routes have been created to faciliate the guest feature. If I were to unlock some of the pages through existing routes, the user would not be re-authenticated on page refresh. That would have resulted in a potential vulnerability. Every page to be accessed by the guest is never passed through the authentication filter and creates a clear separation.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            app.config(function($routeProvider)<br/>
+            {<br/>
+            $routeProvider<br/>
+            .when("/",<br/>
+            {<br/>
+            templateUrl: "html/welcome.html",<br/>
+            controller: "LoginCtrl"<br/>
+            })<br/>
+            .when("/profile",<br/>
+            {<br/>
+            templateUrl: "html/profile.html",<br/>
+            controller: "ProfileCtrl",<br/>
+            resolve: {<br/>
+            loggedin: checkLogin<br/>
+            }<br/>
+            })<br/>
+            .when("/profileg",<br/>
+            {<br/>
+            templateUrl: "html/profile.html",<br/>
+            controller: "ProfileCtrl"<br/>
+            })<br/>
+            .when("/news",<br/>
+            {<br/>
+            templateUrl: "html/news.html",<br/>
+            controller: "NewsCtrl",<br/>
+            resolve: {<br/>
+            loggedin: checkLogin<br/>
+            }<br/>
+            })<br/>
+            .when("/newsg",<br/>
+            {<br/>
+            templateUrl: "html/news.html",<br/>
+            controller: "NewsCtrl"<br/>
+            })<br/>
+            .when("/books",<br/>
+            {<br/>
+            templateUrl: "html/books.html",<br/>
+            controller: "BooksCtrl",<br/>
+            resolve: {<br/>
+            loggedin: checkLogin<br/>
+            }<br/>
+            })<br/>
+            .when("/booksg",<br/>
+            {<br/>
+            templateUrl: "html/books.html",<br/>
+            controller: "BooksCtrl"<br/>
+            })<br/>
+            .when("/music",<br/>
+            {<br/>
+            templateUrl: "html/music.html",<br/>
+            controller: "MusicCtrl",<br/>
+            resolve: {<br/>
+            loggedin: checkLogin<br/>
+            }<br/>
+            })<br/>
+            .when("/musicg",<br/>
+            {<br/>
+            templateUrl: "html/music.html",<br/>
+            controller: "MusicCtrl"<br/>
+            })<br/>
+            .otherwise(<br/>
+            {<br/>
+            redirectTo: "/"<br/>
+            });
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/welcome.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/welcome.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 46-guest.html -->

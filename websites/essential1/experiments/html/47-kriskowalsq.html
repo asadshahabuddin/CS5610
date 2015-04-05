@@ -1,0 +1,127 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : 47-kriskowalsq.html
+    Details: Profile's activity feed.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Kris Kowal's Q - CS 5610</title>
+
+        <!-- Style sheet information -->
+        <link rel="stylesheet" type="text/css" href="../css/36-carousel.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <header>
+            <h1 class="asBoldSpan">Kris Kowal's Q</h1>
+        </header>
+
+        <!-- Objective -->
+        <h2 class="asMarineSpan">Description</h2>
+        <p>
+            I created a playlist feature last week where a user could bookmark any track from SoundCloud using search results in the Music page. On further inspection, I noticed that wrong tracks were being bookmarked because I wasn't waiting for the asynchronous call to finish before assigning meta data to a track. To rectify the bug, I used Kris Kowal's Q - a service that helps you run functions asynchronously, and use their return values when they are done processing.
+        </p>
+
+        <hr/>
+
+        <h3>Node.js server hosted at OpenShift</h3>
+        <p>Click <a href="http://console-farpoint.rhcloud.com/">here</a> to go the experiment.</p>
+
+        <hr/>
+
+        <!-- Documentation -->
+        <h2 class="asMarineSpan">Documentation</h2>
+        <h3>Promises/deferred objects</h3>
+        <p>
+            The <span class="asBoldSpan">embed(...)</span> function defers processing the meta data and associating them with a song to populate HTML until the asynchronous call has returned. This is a very robust and clean piece of implementation that achieves the desired result. The <span class="asBoldSpan">resolve()</span> method is called once the result is available.
+        </p>
+
+        <!-- Code -->
+        <code class="asCode">
+            /* Search for music by keyword */<br/>
+            $scope.search = function(title)<br/>
+            {<br/>
+            music = ""<br/>
+            $scope.music = "[music]";<br/>
+            console.log("");<br/>
+            console.log("%cMusic>",<br/>
+            "font-family: Courier New; font-weight: bold;");<br/>
+            <br/>
+            SC.get("/tracks", {q: title}, function(res)<br/>
+            {<br/>
+            var len = res.length &lt; 10 ? res.length : 10;<br/>
+            for(var i = 0; i &lt; len; i++)<br/>
+            {<br/>
+            $scope.embed(res[i].permalink_url);<br/>
+            }<br/>
+            });<br/>
+            $scope.trace("Searched music with keyword '" + title + "'");<br/>
+            };<br/>
+            <br/>
+            /* Embed a track in HTML */<br/>
+            $scope.embed = function(url)<br/>
+            {<br/>
+            var deferred = $q.defer();<br/>
+            <br/>
+            SC.oEmbed(url, {auto_play: false}, function(track)<br/>
+            {<br/>
+            deferred.resolve();<br/>
+            console.log("%c   [echo] Title: " + track.title,<br/>
+            "font-family: Courier New;");<br/>
+            console.log("%c   [echo] URI: " + url,<br/>
+            "font-family: Courier New;");<br/>
+            music = music.concat(refine(track, url)) + "<br/><br/><br/>";<br/>
+            GlobalService.setMusic(music);<br/>
+            document.getElementById("as-music-div").innerHTML = music;<br/>
+            });<br/>
+            <br/>
+            return deferred.promise;<br/>
+            };
+        </code>
+
+        <hr />
+
+        <!-- Source file(s) -->
+        <h2 class="asMarineSpan">Source files</h2>
+        <ul>
+            <li><a href="../../fileview/Default.aspx?~/project/html/music.html">HTML</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/css/app.css">CSS</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/js/music.js">JavaScript</a></li>
+            <li><a href="../../fileview/Default.aspx?~/project/server/server.js">Node.js</a></li>
+        </ul>
+
+        <!-- Reference(s) -->
+        <h2 class="asMarineSpan">References</h2>
+        <ul>
+            <li><a href="https://docs.angularjs.org/api/ng/service/$q">Kris Kowal's Q</a></li>
+            <li>
+                <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/tree/master/cs5610/experiments">
+                    Prof. Jose's Class Notes
+                </a>
+            </li>
+            <li><a href="https://angularjs.org/">AngularJS</a></li>
+        </ul>
+
+        <br/>
+
+        <footer>
+            <details>
+                <summary>&copy; Copyright 2015 Northeastern University</summary>
+                <p>
+                    by <span class="asBoldSpan">Asad Shahabuddin</span>
+                    <br />
+                    All Rights Reserved.
+                </p>
+            </details>
+        </footer>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of 47-kriskowalsq.html -->
