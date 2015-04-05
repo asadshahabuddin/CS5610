@@ -44,3 +44,8 @@ html/42-feed.html                                  Activity Feed
 html/43-logout.html                                Session Termination
 html/44-music.html                                 SoundCloud API
 html/45-bookmarks.html                             Bookmarks and Playlists
+html/46-guest.html                                 Guest
+html/47-kriskowalsq.html                           Kris Kowals's Q
+html/48-people.html                                People
+html/49-person.html                                Social Activity
+html/50-resposivedesign.html                       Resposive Design
