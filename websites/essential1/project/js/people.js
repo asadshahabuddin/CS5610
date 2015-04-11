@@ -45,6 +45,7 @@ app.controller("PeopleCtrl", function($scope, $location, GlobalService)
             GlobalService.getPerson(q, function(res)
             {
                 $scope.people = res;
+                $scope.trace("Searched people with keyword '" + q + "'");
             });
         }
     };
@@ -54,7 +55,16 @@ app.controller("PeopleCtrl", function($scope, $location, GlobalService)
     {
         GlobalService.setPersonId(person._id);
         $location.url("/person");
+        $scope.trace("Viewed " + person.firstName + " " + person.lastName + "'s favorites");
     };
+
+    $scope.follow = function(person)
+    {
+        GlobalService.setCirle(person._id, function(res)
+        {
+            $scope.trace("Followed " + person.firstName + " " + person.lastName);
+        });
+    }
 
     $scope.u = GlobalService.getUser();
     $scope.search();

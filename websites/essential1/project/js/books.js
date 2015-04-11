@@ -58,9 +58,9 @@ app.controller("BooksCtrl", function($scope, $location, GlobalService)
     $scope.bookmark = function(book)
     {
         GlobalService.setFavBooks(book, function(res){});
-        console.log("%c   [echo] Added " + book.title + " to your favorite books",
+        console.log("%c   [echo] Added " + book.title + " to your reading list",
                     "font-family: Courier New;");
-        $scope.trace("Added " + book.title + " to your favorite books");
+        $scope.trace("Added " + book.title + " to your reading list");
     };
 
     /* Book thumbnail URL */

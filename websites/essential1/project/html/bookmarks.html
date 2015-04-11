@@ -34,9 +34,9 @@
 
     <!-- Book details -->
     <div ng-show="books.length > 0" class="asFavBooksDiv">
-        <h2 class="asNormalSpan">Books</h2>
+        <h2 class="asNormalSpan">Reading list</h2>
         <p ng-repeat="book in books" class="asBookP">
-            <a class="asBookA" href="{{book.previewLink}}">{{book.title}}</a> 
+            <a class="asBookA" href="{{book.previewLink}}" target="_blank">{{book.title}}</a> 
             <button ng-click="remFavBook(book)" class="asBookmarkRemBtn">Remove</button>
             <br/>
             <img ng-src="{{thumbnail(book)}}" class="asBookImg"/>
@@ -49,11 +49,12 @@
             <span class="asBookDesc">{{abstract(book)}}</span>
             <br/>
         </p>
-        <hr class="asHr"/>
     </div>
 
     <!-- Songs -->
-    <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Music</h2>
-    <div class="asMusicDiv" id="as-music-div"></div>
+    <div class="asFavMusicDiv">
+        <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Playlist</h2>
+        <div id="as-music-div"></div>
+    </div>
 </div>
 <!-- End of bookmarks.html -->

@@ -41,7 +41,7 @@
     <!-- Book details -->
     <div class="asBookDiv">
         <p ng-repeat="book in books" class="asBookP">
-            <a class="asBookA" href="{{book.previewLink}}">{{book.title}}</a> 
+            <a class="asBookA" href="{{book.previewLink}}" target="_blank">{{book.title}}</a> 
             <button ng-show="u" ng-click="bookmark(book)" class="asBookmarkBtn">Bookmark</button>
             <br/>
             <img ng-src="{{thumbnail(book)}}" class="asBookImg"/>

@@ -134,11 +134,43 @@
     height: 350px;
 }
 
+.asDocContentDiv
+{
+    float: left;
+    margin-bottom: 35px;
+    margin-left: 28%;
+    margin-right: 175px;
+    width: 50%;
+}
+
+.asDocSectionDiv
+{
+    background-color: #FAFAFA;
+    border: 1px solid #F2F2F2;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .asFavBooksDiv
 {
     float: left;
-    padding-right: 50px;
-    width: 50%;
+    margin-right: 50px;
+    width: 45%;
+}
+
+.asFavMusicDiv
+{
+    float: left;
+    width: 45%;
+}
+
+.asFeedDiv
+{
+    float: left;
+    margin-right: 35px;
+    width: 30%;
 }
 
 .asFooterDiv
@@ -161,6 +193,13 @@
     margin-right: 15px;
     margin-bottom: 15px;
     width: 29%;
+}
+
+.asLikesDiv
+{
+    float: left;
+    margin-right: 35px;
+    width: 30%;
 }
 
 .asMusicDiv
@@ -197,6 +236,16 @@
     width: 100%;
 }
 
+.asSectionNavDiv
+{
+    float: left;
+    height: 100%;
+    margin-left: 175px;
+    margin-top: 50px;
+    position: fixed;
+    width: 15%;
+}
+
 .asWeatherDiv
 {
     border: 1px solid #ccc;
@@ -221,6 +270,11 @@
 .asBookP
 {
     clear: both;
+}
+
+.asDocP
+{
+    color: #2E2E2E;
 }
 
 .asCenterElem
@@ -297,7 +351,7 @@ p
     }
 }
 
-@media screen and (max-width: 420px)
+@media screen and (max-width: 450px)
 {
     .asH1
     {
@@ -357,6 +411,13 @@ p
     padding-right: 20px;
     padding-top: 10px;
     width: 120px;
+}
+
+.asProviderImg
+{
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 /* Image : END */
 
@@ -422,6 +483,18 @@ p
     color: #08f;
 }
 
+.asSectionNavA
+{
+    color: #2E2E2E;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.asSectionNavA:hover
+{
+    color: #FF0000;
+}
+
 .asSignInA
 {
     float: right;
@@ -439,6 +512,25 @@ p
     text-decoration: none;
 }
 /* Link : END */
+
+/* List : BEGIN */
+.asSectionNavLi
+{
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+
+.asSectionNavLi:hover
+{
+    background-color: #E6E6E6;
+}
+
+.asSectionNavUl
+{
+    list-style-type: none;
+}
+/* List : END */
 
 /* Modal : BEGIN */
 .asCoverModal
@@ -533,9 +625,20 @@ p
     color: #6E6E6E;
 }
 
+.asDocH2
+{
+    color: #FF0000;
+}
+
+.asDocH3
+{
+    color: #2E2E2E;
+    font-weight: normal;
+}
+
 .asFeedHeading
 {
-    color: #424242;
+    color: #086A87;
     font-size: 20px;
     font-weight: normal;
 }

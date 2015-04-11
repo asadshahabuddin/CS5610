@@ -5,17 +5,25 @@
     Email  : asad808@ccs.neu.edu
 */
 
-var uid = null;
+var DELIMITER = "asDelimiter";
+var uid       = null;
 
 /* Add a track to favorite music */
-var addFavMusic = function(url)
+var addFavMusic = function(meta)
 {
-    console.log("%c   [echo] Added track with URL '" + url + "' to your playlist",
-                "font-family: Courier New;");
+    var url = meta.substr(0, meta.indexOf(DELIMITER));
+    var title = meta.substr(meta.indexOf(DELIMITER) + 11);
     var xmlHttp = new XMLHttpRequest();
     url = url.replace("http://", "http");
     url = url.replace(new RegExp("/", "g"), "asDelimiter");
     xmlHttp.open("PUT", "/api/user/" + uid + "/music/" + url, false);
+    xmlHttp.send(null);
+
+    /* Log and trace */
+    var msg = "Added " + title + " to your playlist";
+    console.log("%c   [echo] " + msg,
+                "font-family: Courier New;");
+    xmlHttp.open("PUT", "/api/user/" + uid + "/trace/" + msg, false);
     xmlHttp.send(null);
 
     return xmlHttp.responseText;
@@ -105,7 +113,7 @@ app.controller("MusicCtrl", function($q, $scope, $location, GlobalService)
     var refine = function(obj, url)
     {
         var div = "<div><span class='asMusicTitle'>" + obj.title + "</span> " +
-                  "<button ng-show=\"u\" onclick='addFavMusic(\"" + url + "\")' class='asBookmarkBtn'>Bookmark</button><br/>" +
+                  "<button ng-show=\"u\" onclick='addFavMusic(\"" + url + DELIMITER + obj.title + "\")' class='asBookmarkBtn'>Bookmark</button><br/>" +
                   "<span class='asMusicUrl'>" + obj.author_url + "</span><br/><br/>" +
                   obj.html.replace("100%", "100%");
         div = div.replace("400", "120px");

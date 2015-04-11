@@ -8,7 +8,7 @@
 <html lang="en">
     <head>
         <meta charset='utf-8' />
-        <title>A | Home</title>
+        <title>A - Home</title>
         <link rel="icon" href="images/a3.png"/>
 
         <!-- Style sheets -->
@@ -28,7 +28,8 @@
             <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
             <li><a href="blog/" target="_blank">Blog</a></li>
             <li><a href="story/index.htm?../experiments/" target="_blank"><span class="asBoldSpan">Experiments</span></a></li>
-            <li><a href="project/index.html" target="_blank"><span class="asBoldSpan">Project</span></a></li>
+            <li><a href="http://console-farpoint.rhcloud.com/" target="_blank"><span class="asBoldSpan">Project</span></a></li>
+            <li><a href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project" target="_blank">Project code</a></li>
             <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
         </ul>
         
@@ -83,7 +84,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="project/index.html">
+                            <a href="http://console-farpoint.rhcloud.com/">
                                 <img src="images/project.png" class="asImgLink"/>
                                 <span class="asImgHoverSpan"><span>Project</span></span>
                             </a>

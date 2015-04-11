@@ -146,6 +146,30 @@ app.factory("GlobalService", function GlobalService($http)
         .success(callback);
     };
 
+    /* Get thy circle */
+    var circle = function(callback)
+    {
+        $http.get("/api/user/" + user._id + "/circle")
+        .success(callback);
+    }
+
+    /* Follow a person */
+    var follow = function(id, callback)
+    {
+        $http.put("/api/user/" + user._id + "/follow/" + id)
+        .success(function(res)
+        {
+            follower(id, callback);
+        });
+    }
+
+    /* Add a follower */
+    var follower = function(id, callback)
+    {
+        $http.put("/api/user/" + id + "/followed/" + user._id)
+        .success(callback);
+    }
+
     /* Get all users */
     var getPeople = function(callback)
     {
@@ -185,6 +209,13 @@ app.factory("GlobalService", function GlobalService($http)
     var remFavMusic = function(url, callback)
     {
         $http.delete("/api/user/" + user._id + "/music/" + url)
+        .success(callback);
+    };
+
+    /* Search a person by ID */
+    var searchPersonById = function(q, callback)
+    {
+        $http.get("/api/user/" + q)
         .success(callback);
     };
 
@@ -255,12 +286,15 @@ app.factory("GlobalService", function GlobalService($http)
         getPersonId       : getPersonId,
         setFavBooks       : setFavBooks,
         getFavBooks       : getFavBooks,
+        setCirle          : follow,
+        getCircle         : circle,
         getPeople         : getPeople,
         getPerson         : getPerson,
         getPersonInfo     : getPersonInfo,
         getFavMusic       : getFavMusic,
         remFavBook        : remFavBook,
         remFavMusic       : remFavMusic,
+        searchPersonById  : searchPersonById,
         searchNews        : searchNews,
         searchWeather     : searchWeather,
         searchBooksByTitle: searchBooksByTitle,

@@ -112,6 +112,24 @@ var MusicModel = mongoose.model("MusicModel", MusicSchema);
 /* MUSIC COLLECTION : END */
 /* ====================== */
 
+/* ========================= */
+/* CIRCLE COLLECTION : BEGIN */
+/* ========================= */
+
+/* Enforce schema */
+var CircleSchema = new mongoose.Schema({
+    uid      : String,
+    following: [],
+    follower : []
+}, {collection: "circle"});
+
+/* Model */
+var CircleModel = mongoose.model("CircleModel", CircleSchema);
+
+/* ======================= */
+/* CIRCLE COLLECTION : END */
+/* ======================= */
+
 /* Set up passport : BEGIN */
 passport.use(new LocalStrategy(
 function(username, password, done)
@@ -286,6 +304,14 @@ app.get("/api/user/:id/music", function(req, res)
     });
 });
 
+app.get("/api/user/:id/circle", function(req, res)
+{
+    CircleModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        res.json(doc);
+    });
+});
+
 app.get("/api/people", function(req, res)
 {
     UserModel.find({}, {username: 1, firstName: 1, lastName: 1, city: 1}, function(err, data)
@@ -398,6 +424,58 @@ app.put("/api/user/:id/music/:uri", function(req, res)
             audio = doc.audio;
             audio.push(req.params.uri);
             MusicModel.update({uid: req.params.id}, {$set: {audio: audio}}, function(err, doc)
+            {
+                // TODO
+            });
+        }
+        res.send(200);
+    });
+});
+
+/* Follow a person */
+app.put("/api/user/:id/follow/:uid", function(req, res)
+{
+    CircleModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        if(doc == null)
+        {
+            circle = new CircleModel({uid: req.params.id, following: [req.params.uid]});
+            circle.save(function(err, doc)
+            {
+                // TODO
+            });
+        }
+        else
+        {
+            following = doc.following;
+            following.push(req.params.uid);
+            CircleModel.update({uid: req.params.id}, {$set: {following: following}}, function(err, doc)
+            {
+                // TODO
+            });
+        }
+        res.send(200);
+    });
+});
+
+/* Add a follower */
+app.put("/api/user/:id/followed/:uid", function(req, res)
+{
+    CircleModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        if(doc == null)
+        {
+            circle = new CircleModel({uid: req.params.id, follower: [req.params.uid]});
+            circle.save(function(err, doc)
+            {
+                // TODO
+            });
+        }
+        else
+        {
+            follower = doc.follower;
+            follower.push(req.params.uid);
+            CircleModel.update({uid: req.params.id}, {$set: {follower: follower}}, function(err, doc)
             {
                 // TODO
             });

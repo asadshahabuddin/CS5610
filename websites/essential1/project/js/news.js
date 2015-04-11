@@ -85,7 +85,11 @@ app.controller("NewsCtrl", function($scope, $location, GlobalService)
                 $scope.pressure    = res.main.pressure;
                 $scope.windSpeed   = res.wind.speed;
             });
-            $scope.trace("Queried weather conditions for " + city);
+            
+            if(city != $scope.u.city)
+            {
+                $scope.trace("Queried weather conditions for " + city);
+            }
         }
     };
 

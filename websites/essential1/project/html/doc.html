@@ -1,0 +1,219 @@
+<!--
+    Author : Asad Shahabuddin
+    File   : doc.html
+    Details: Documentation page my Web Development project.
+    Email  : asad808@ccs.neu.edu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <title>Console - Documentation</title>
+        <link rel="icon" href="../image/icon2.png"/>
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../css/app.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody">
+        <div class="asProfileTitleDiv">
+            <header class="asNav">
+                <a class="asBanner">> Console</a>
+                <a class="asProfileNavA asSignInA" href="../index.html">Sign in</a>
+                <a class="asProfileNavA" href="http://net4.ccs.neu.edu/home/asad808/">About</a>
+                <a class="asProfileNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project" target="_blank">Source</a>
+                <a class="asProfileNavA asBoldSpan" href="doc.html">Documentation</a>
+                <a class="asProfileNavA" href="../index.html">Overview</a>
+            </header>
+        </div>
+
+        <div class="asSectionNavDiv">
+            <nav>
+                <ul class="asSectionNavUl">
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#title">Title</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#intro">Introduction</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#detail">Details</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#source">Source</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#tech">Technology</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#reference">References</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#provider">Content providers</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="asDocContentDiv">
+            <div class="asDocSectionDiv">
+                <a name="title"/>
+                <h2 class="asH2 asDocH2">Project title</h2>
+                <hr class="asHr"/>
+                <h3 class="asDocH3">Console</h3>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="intro"/>
+                <h2 class="asH2 asDocH2">Introduction</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    The application aims to achieve three objectives:
+                    <ul>
+                        <li>Content search</li>
+                        <li>Social discovery</li>
+                        <li>Personalization</li>
+                    </ul>
+                    You can sift through the top news stories, get weather conditions, search for books, audio content and people on the network. In addition to these, books and music can be bookmarked to create a more personalized experience. You profile page presents a concise view of your likes, activities and taste. It's okay if you want to test the application before you decide to become a member. A <span class="asBoldSpan">Guest</span> mode is there for all you skeptics.
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="detail"/>
+                <h2 class="asH2 asDocH2">Details</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Home. </span>
+                    This page welcomes you to my web application. It gives you an overview of the various features available through the use of carousels and a short description. You may read the documentation or source code using the provided navigation bar. However, the primary function of this page is to introduce you to my application and let you in. You may choose to continue as a guest user and limit yourself to content search and consumption or sign in using your existing credentials. User registration is facilitated in the same section by clicking on a check box to reveal the registration form. Once you sign in, my web application moves you to your own profile page.
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Profile. </span>
+                    The profile page is a complete view of your likes, social circle and activities on my website. User personalization is valued and the first instance to be seen is the option to represent your personality using a cover picture. The selection is limited to a restricted set for now. The cover picture is part of your profile and sticks to your selection through sessions. As you start executing actions of any kind, the application gives you a historical trace of activities while limiting them to your last ten. This is followed by your circle - people you follow you and those you have followed. That's column number one.
+                    <br/><br/>
+                    The second column shows your favorite books. Each one has a thumbail (or a filler picture if none is available), title, author and a short description going for it. Books are followed by a column showing your favorite music. You can play the audio content right there. This completes the scope of a profile page.
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">News. </span>
+                    The news service is pretty straightforward. You get a current list of headlines from around the world. The list changes (not referring to auto-refresh) with new incoming headlines. A news item includes the title and a short description. When you click on the news item, it takes you to the full story on <span class="asBoldSpan">The New York Times</span> website, which also happens to be the source for all news on my website.
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Weather. </span>
+                    Weather conditions are given to a user in the news page by making use of a weather card and the <span class="asBoldSpan">Open Weather Map API</span>. The weather card would display weather conditions for your home city by default. The home city is provided by you during registration. You can always query weather for any city in the world by typing its name. The information returned consists of the city name (of course), the current data and time, a one-word summary (e.g., clouds, rain, etc.), the temperature in degrees celsuis, humidity in terms of percentage, pressure in hPa (hectopascal) and wind speed in meters per second. If you are a guest user, the weather card shows no information by default and asks you to give it a go.
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Books. </span>
+                    Books is based on the <span class="asBoldSpan">Google Books API</span>. You are given a search bar and that's the basic premise. You type the partial or full name of a book you want to search for and click on the button next to it. The result consists of a number of book items which match the search query. Each item consists of the book title, a thumbnail preview of the cover, its Google Books URL, author and a short description. You can bookmark any of the items to save it to your reading list available on your bookmarks and profile pages. Switching between tabs does not erase the previous search results. Bookmarking feature is exclusive to registered users.
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Music. </span>
+                    Music works just like Books. You type the name of a song or artist in the search bar and click on the search button. You results consists of embedded players for matching audio content on <span class="asBoldSpan">SoundCloud</span>. You can play any item within the page and bookmark if you like it. Bookmarked music will constitute a single playlist and become visible on the bookmarks and profile pages. The API-provided player lets you seek the track at any point within its timeline and share it to a variety of social networks. As with books, previous search results persist on tab switching as long as the application isn't refreshed (page reload).
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Bookmarks. </span>
+                    Bookmarks page shows a user's favorite books and music in the form of a reading list and playlist respectively. You can click on a book's title to read or preview it in Google Books. The list is mutable and you may remove a book from your favorites. The list refreshes immediately to reflect the deleted item. The user's playlist consists of playable tracks previously added to his/her favorites. Playlist does not support deletion. This a scope for future improvement. Bookmarks are visible on the user's profile page too but without any mutability since the profile page is supposed to be an overview of your likes and favorites. Editing lists should be and is available only on the bookmarks page.
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">People. </span>
+                    This feature is meant for registered users who are also signed in. You get a list of all people registered on my web application. However, that's not the best way to find people, which gives way to a search utility. The user gets a search bar one more time which can be used to search registered accounts based on the search query. The search is not limited to user names but all fields used to register a person. The scope of search is therefore broad. It doesn't end there. You can click on any of the names to view that member's favorites (reading list and playlist), or follow them by clicking the follow button. When you follow someone, his/her name is added to the list of people you follow visible on the profile page. Moreover, that person would have you as a follower on their profile page.
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="source"/>
+                <h2 class="asH2 asDocH2">Source</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Under the hood - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/index.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/css/app.css">CSS</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/app.js">JavaScript</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/service.js">RESTful service</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/server/server.js">Node.js server</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Home - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/welcome.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/welcome.js">JavaScript 1</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/carousel.js">JavaScript 2</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Profile - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/profile.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/profile.js">JavaScript</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">News and Weather - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/news.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/news.js">JavaScript</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Books - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/books.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/books.js">JavaScript</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Music - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/music.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/music.js">JavaScript</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Bookmarks - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/bookmarks.html">HTML</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/bookmarks.js">JavaScript</a>
+                </p>
+                <p class="asDocP">
+                    <span class="asBoldSpan">People - </span>
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/people.html">HTML 1</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/html/person.html">HTML 2</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/people.js">JavaScript 1</a>, 
+                    <a class="asSectionNavA" href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project/js/person.js">JavaScript 2</a>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="tech"/>
+                <h2 class="asH2 asDocH2">Technology</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    The following technologies have been combined to build this project:
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>AngularJS</li>
+                        <li>Node.js</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="reference"/>
+                <h2 class="asH2 asDocH2">References</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    I have used the following resources to implement various parts of Console:
+                    <ul>
+                        <li><a class="asSectionNavA" href="http://www.w3schools.com/" target="_blank">W3Schools</a></li>
+                        <li><a class="asSectionNavA" href="https://angularjs.org/" target="_blank">AngularJS</a></li>
+                        <li><a class="asSectionNavA" href="https://nodejs.org/" target="_blank">Node.js</a></li>
+                        <li><a class="asSectionNavA" href="http://expressjs.com/" target="_blank">Express</a></li>
+                        <li><a class="asSectionNavA" href="https://www.mongodb.org/" target="_blank">MongoDB</a></li>
+                        <li><a class="asSectionNavA" href="http://owlgraphic.com/owlcarousel/" target="_blank">Owl Carousel</a></li>
+                        <li><a class="asSectionNavA" href="http://passportjs.org/" target="_blank">Passport</a></li>
+                        <li><a class="asSectionNavA" href="http://developer.nytimes.com/docs/top_stories_api/" target="_blank">Times Developer Network</a></li>
+                        <li><a class="asSectionNavA" href="http://openweathermap.org/api" target="_blank">Open Weather Map</a></li>
+                        <li><a class="asSectionNavA" href="https://developers.google.com/books/" target="_blank">Google Books</a></li>
+                        <li><a class="asSectionNavA" href="https://developers.soundcloud.com/" target="_blank">SoundCloud Developers</a></li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="provider"/>
+                <h2 class="asH2 asDocH2">Content providers</h2>
+                <hr class="asHr"/>
+                <img class="asProviderImg" src="../image/times.jpg"/>
+                <img class="asProviderImg" src="../image/openweathermap.jpg"/>
+                <img class="asProviderImg" src="../image/googledev.jpg"/>
+                <img class="asProviderImg" src="../image/soundcloud.jpg"/>
+            </div>
+        </div>
+
+        <div class="asFooterDiv">
+            <span class="asCopyrightSpan1">&copy; 2015 Northeastern University - </span>
+            <span class="asCopyrightSpan2">Asad Shahabuddin</span>
+        </div>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of doc.html -->

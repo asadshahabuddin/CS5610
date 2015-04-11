@@ -79,7 +79,6 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
                 $scope.books = books;
             }
         });
-        $scope.trace("Viewed your favorite books");
     };
 
     /* Remove a book from favorites */
@@ -164,7 +163,6 @@ app.controller("BookmarksCtrl", function($scope, $location, GlobalService)
                 $scope.music = music;
             }
         });
-        $scope.trace("Viewed your favorite music");
     };
 
     /* Refine HTML */

@@ -49,11 +49,46 @@
 </div>
 
 <div class="asContainerDiv">
-    <h2 class="asFeedHeading">Activity feed</h2>
-    <hr class="asHr"/>
-    <span ng-repeat="activity in activities track by $index" class="asFeedSpan">
-        {{activity}}<br/>
-    </span>
-    <span ng-show="!activities" class="asNoContentSpan">Build your history</span>
+    <div class="asFeedDiv">
+        <h2 class="asFeedHeading">Activity feed</h2>
+        <span ng-repeat="activity in activities track by $index" class="asFeedSpan">
+            {{activity}}<br/>
+        </span>
+        <span ng-show="!activities" class="asNoContentSpan">Build your history</span>
+
+        <hr ng-show="circle" class="asHr"/>
+
+        <h2 ng-show="followers.length > 0" class="asFeedHeading">Followers</h2>
+        <span ng-repeat="follower in followers track by $index">
+            <span class="asFeedSpan">{{follower}}<br/></span>
+        </span>
+
+        <h2 ng-show="followings.length > 0" class="asFeedHeading">Followed</h2>
+        <span ng-repeat="following in followings track by $index">
+            <span class="asFeedSpan">{{following}}<br/></span>
+        </span>
+    </div>
+
+    <div ng-show="u" class="asLikesDiv">
+        <h2 ng-show="books" class="asFeedHeading">Books</h2>
+        <p ng-repeat="book in books" class="asBookP">
+            <a class="asBookA" href="{{book.previewLink}}" target="_blank">{{book.title}}</a> 
+            <br/>
+            <img ng-src="{{thumbnail(book)}}" class="asBookImg"/>
+            <span ng-show="{{book.industryIdentifiers}}" class="asBookUrl">
+                https://books.google.com/books?isbn={{book.industryIdentifiers[0].identifier}}
+            </span>
+            <br/>
+            <span ng-show="{{book.authors}}" class="asBookAuth">{{book.authors[0]}}</span>
+            <br ng-show="{{book.authors}}"/>
+            <span class="asBookDesc">{{abstract(book)}}</span>
+            <br/>
+        </p>
+    </div>
+
+    <div ng-show="u" class="asLikesDiv">
+        <h2 ng-show="music" class="asFeedHeading">Music</h2>
+        <div id="as-music-div"></div>
+    </div>
 </div>
 <!-- End of profile.html -->
