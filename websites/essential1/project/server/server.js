@@ -15,22 +15,25 @@ var session       = require("express-session");
 var mongoose      = require("mongoose");
 var app           = express();
 
-app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(multer());
 app.use(session(
     {
-        secret           : "Farpoint Station",
+        secret           : "Farpoint Station"
+        /*
         name             : "gâteau",
         // store            : sessionStore,
         proxy            : true,
         resave           : true,
         saveUninitialized: true
+        */
     }
 ));
-app.use(multer());
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static(__dirname + "/public"));
 
 /* Set the environment variables we need */
 var ip      = process.env.OPENSHIFT_NODEJS_IP      || '127.0.0.1';
@@ -222,7 +225,7 @@ app.post("/api/login", passport.authenticate("local"), function(req, res)
     var user = req.user;
     res.json(
     {
-        _id       : user._id,
+        _id      : user._id,
         username : user.username,
         firstName: user.firstName,
         lastName : user.lastName,

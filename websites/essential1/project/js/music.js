@@ -15,7 +15,7 @@ var addFavMusic = function(meta)
     var title = meta.substr(meta.indexOf(DELIMITER) + 11);
     var xmlHttp = new XMLHttpRequest();
     url = url.replace("http://", "http");
-    url = url.replace(new RegExp("/", "g"), "asDelimiter");
+    url = url.replace(new RegExp("/", "g"), DELIMITER);
     xmlHttp.open("PUT", "/api/user/" + uid + "/music/" + url, false);
     xmlHttp.send(null);
 
@@ -72,8 +72,8 @@ app.controller("MusicCtrl", function($q, $scope, $location, GlobalService)
     /* Search for music by keyword */
     $scope.search = function(title)
     {
-        music = ""
-        $scope.music = "[music]";
+        music = "";
+        $scope.music = 1;
         console.log("");
         console.log("%cMusic>",
                     "font-family: Courier New; font-weight: bold;");
@@ -112,19 +112,21 @@ app.controller("MusicCtrl", function($q, $scope, $location, GlobalService)
     /* Refine HTML */
     var refine = function(obj, url)
     {
-        var div = "<div><span class='asMusicTitle'>" + obj.title + "</span> " +
-                  "<button ng-show=\"u\" onclick='addFavMusic(\"" + url + DELIMITER + obj.title + "\")' class='asBookmarkBtn'>Bookmark</button><br/>" +
-                  "<span class='asMusicUrl'>" + obj.author_url + "</span><br/><br/>" +
-                  obj.html.replace("100%", "100%");
-        div = div.replace("400", "120px");
-
+        var div = "<div><span class='asMusicTitle'>" + obj.title + "</span> ";
+        if($scope.u)
+        {
+            div = div.concat("<button onclick='addFavMusic(\"" + url + DELIMITER + obj.title + "\")' class='asBookmarkBtn'>Bookmark</button>");
+        }
+        div = div.concat("<br/><span class='asMusicUrl'>" + obj.author_url + "</span><br/><br/>" + obj.html.replace("100%", "100%"));
+        div = div.replace("400", "120");
+        
         return div.concat("</div>");
     };
 
     $scope.u = GlobalService.getUser();
     if(GlobalService.getMusic())
     {
-        $scope.music = "[music]";
+        $scope.music = 1;
         document.getElementById("as-music-div").innerHTML = GlobalService.getMusic();
     }
 });

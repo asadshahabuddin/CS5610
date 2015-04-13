@@ -18,27 +18,39 @@
 </div>
 
 <div class="asCenterElem">
-    <h2 class="asH2">Data Driven Services</h2>
+    <h2 class="asH2">The Console has you</h2>
 </div>
 
 <div class="asContentDiv">
     <div class="asCarouselDiv owl-carousel owl-theme">
         <div class="asCarouselItemDiv">
-            <img class="asCarouselItem" src="image/news3.jpg" title="News"/>
+            <img class="asCarouselItem" src="image/news.jpg" title="News"/>
             <h2 class="asH2OverImg">
-                <span class="asSpanOverImg">News and Stories</span>
+                <span class="asSpanOverImg">News</span>
             </h2>
         </div>
         <div class="asCarouselItemDiv">
-            <img class="asCarouselItem" src="image/weather1.jpg" title="Weather"/>
+            <img class="asCarouselItem" src="image/weather.jpg" title="Weather"/>
             <h2 class="asH2OverImg">
-                <span class="asSpanOverImg">Weather Updates</span>
+                <span class="asSpanOverImg">Weather</span>
             </h2>
         </div>
         <div class="asCarouselItemDiv">
-            <img class="asCarouselItem" src="image/misc1.jpg" title="Books"/>
+            <img class="asCarouselItem" src="image/books.jpg" title="Books"/>
             <h2 class="asH2OverImg">
-                <span class="asSpanOverImg">Books and Articles</span>
+                <span class="asSpanOverImg">Books</span>
+            </h2>
+        </div>
+        <div class="asCarouselItemDiv">
+            <img class="asCarouselItem" src="image/music.jpg" title="Music"/>
+            <h2 class="asH2OverImg">
+                <span class="asSpanOverImg">Music</span>
+            </h2>
+        </div>
+        <div class="asCarouselItemDiv">
+            <img class="asCarouselItem" src="image/people.jpg" title="People"/>
+            <h2 class="asH2OverImg">
+                <span class="asSpanOverImg">People</span>
             </h2>
         </div>
     </div>
@@ -46,7 +58,7 @@
     <div class="asPaddedDiv">
         <h2 class="asH2">Overview</h2>
         <p>
-            Console is the center of your world. It gives you the ability to do most of your daily activities using a single application. <span class="asBoldSpan">News</span>, <span class="asBoldSpan">Weather Information</span>, <span class="asBoldSpan">Content Search</span> and <span class="asBoldSpan">Expense Tracking</span> are part of the suite. The website is under construction and a full-featured version should be available in the near future. More services may be added in time as I expect my application to replace many others.
+            Console is the center of your world. It gives you the ability to do most of your daily activities using a single application. <span class="asBoldSpan">News</span>, <span class="asBoldSpan">Weather Information</span>, <span class="asBoldSpan">Content Search</span> and <span class="asBoldSpan">Social Discovery</span> are part of the suite. Sift through my offerings as a guest or have it full-featured as a registered user. More services may be added in time as I expect my application to replace many others.
         </p>
         <p>
             The idea manifested from the concept of a central repository for all data related services. My ambition has always been to keep you on this page based on its completeness and the breadth of useful features. You shouldn't have to deal with a plethora of tabs and applications to keep track of a multitude of relevant information. The simplest way to eliminate such a scenario would be to provide that information here. After you create a Console account and log in to its services, you can keep track of pertinent information and your daily activities using my catalogue of services. You get a personalized environment with things that you care about, helping you stay organized and informed.
@@ -62,9 +74,13 @@
             <input ng-model="reg" ng-checked="reg" class="asFormElem" type="checkbox" name="registerCheck"/>
             <span> Register a new account</span><br/>
             <br/>
-            <input ng-model="user.username" class="asFormElem" type="text" placeholder="Email address" required/><br/>
-            <input ng-model="user.password" class="asFormElem" type="password" placeholder="Password" required/><br/>
-            <input ng-model="user.password2" ng-show="reg" class="asFormElem" type="password" placeholder="Confirm password"/><br/>
+            <input ng-model="user.username" class="asFormElem" type="text" placeholder="Email address" required/>
+            <span ng-show="notif == 1" class="asNotifSpan">Invalid credentials</span><br/>
+            <input ng-model="user.password" class="asFormElem" type="password" placeholder="Password" required/>
+            <span ng-show="notif == 1" class="asNotifSpan">Credenciales no válidas</span>
+            <span ng-show="reg &amp;&amp; passwdmatch == 0" class="asNotifSpan">Passwords do not match</span><br/>
+            <input ng-model="user.password2" ng-show="reg" class="asFormElem" type="password" placeholder="Confirm password"/>
+            <span ng-show="reg &amp;&amp; passwdmatch == 0" class="asNotifSpan">Las contraseñas no coinciden</span><br/>
             <input ng-model="user.firstName" ng-show="reg" class="asFormElem" type="text" placeholder="First name"/><br ng-show="reg"/>
             <input ng-model="user.lastName" ng-show="reg" class="asFormElem" type="text" placeholder="Last name"/><br ng-show="reg"/>
             <input ng-model="user.city" ng-show="reg" class="asFormElem" type="text" placeholder="City"/><br ng-show="reg"/>

@@ -17,7 +17,7 @@ var checkLogin = function($q, $timeout, $location, GlobalService)
             GlobalService.setUser(res);
             deferred.resolve();
         }
-        else           /* User isn't authenticated */
+        else            /* User isn't authenticated */
         {
             GlobalService.setErrMsg("You need to sign in");
             deferred.reject();
@@ -75,7 +75,7 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
                 console.log("%cSuccess.",
                             "color: green; font-family: Courier New;");
                 GlobalService.setUser(res);
-                $location.url("/profile");
+                $scope.login(user);
             });
         }
         else
@@ -86,6 +86,8 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
             {
                 console.log("%c  [error] Passwords don't match",
                             "color: red; font-family: Courier New;");
+                $scope.notif       = 0;  /* 0 (zero) represents false */
+                $scope.passwdmatch = 0;  /* 0 (zero) represents false */
             }
             console.log("%c   [echo] Try again",
                         "font-family: Courier New;");
@@ -109,6 +111,8 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
             GlobalService.setUser(res);
             $location.url("/profile");
         });
+        $scope.notif       = 1;  /* 1 represents true */
+        $scope.passwdmatch = 1;  /* 1 represents true */
     };
 
     /* Sign out */

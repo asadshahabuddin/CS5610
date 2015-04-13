@@ -48,9 +48,15 @@ app.controller("ProfileCtrl", function($scope, $location, GlobalService)
     };
 
     /* Display modal window */
-    $scope.coverModal = function()
+    $scope.showModal = function()
     {
         document.getElementById("as-cover-modal").showModal();
+    };
+
+    /* Close modal window */
+    $scope.closeModal = function()
+    {
+        document.getElementById("as-cover-modal").close();
     };
 
     /* Set cover picture */
@@ -86,28 +92,31 @@ app.controller("ProfileCtrl", function($scope, $location, GlobalService)
     {
         GlobalService.getCircle(function(res)
         {
-            console.log("%cFollowers>",
-                        "font-family: Courier New; font-weight: bold;");
-            console.log(res.follower);
-            console.log("%cFollowing>",
-                        "font-family: Courier New; font-weight: bold;");
-            console.log(res.following);
+            if(res)
+            {
+                console.log("%cFollowers>",
+                            "font-family: Courier New; font-weight: bold;");
+                console.log(res.follower);
+                console.log("%cFollowing>",
+                            "font-family: Courier New; font-weight: bold;");
+                console.log(res.following);
 
-            $scope.followers = [];
-            $scope.followings = [];
-            for(i = 0; i < res.follower.length; i++)
-            {
-                GlobalService.searchPersonById(res.follower[i], function(r)
+                $scope.followers = [];
+                $scope.followings = [];
+                for(i = 0; i < res.follower.length; i++)
                 {
-                    $scope.followers.push(r.firstName + " " + r.lastName);
-                });
-            }
-            for(i = 0; i < res.following.length; i++)
-            {
-                GlobalService.searchPersonById(res.following[i], function(r)
+                    GlobalService.searchPersonById(res.follower[i], function(r)
+                    {
+                        $scope.followers.push(r.firstName + " " + r.lastName);
+                    });
+                }
+                for(i = 0; i < res.following.length; i++)
                 {
-                    $scope.followings.push(r.firstName + " " + r.lastName);
-                });
+                    GlobalService.searchPersonById(res.following[i], function(r)
+                    {
+                        $scope.followings.push(r.firstName + " " + r.lastName);
+                    });
+                }
             }
         });
     }
@@ -196,14 +205,17 @@ app.controller("ProfileCtrl", function($scope, $location, GlobalService)
                                 "font-family: Courier New;");
                     SC.oEmbed(url, {auto_play: false}, function(track)
                     {
-                        if(count == 1)
+                        if(track)
                         {
-                            console.log("%cTrack 1>",
-                                        "font-family: Courier New; font-weight: bold;");
-                            console.log(track);
+                            if(count == 1)
+                            {
+                                console.log("%cTrack 1>",
+                                            "font-family: Courier New; font-weight: bold;");
+                                console.log(track);
+                            }
+                            music = music.concat(refine(track, url)) + "<br/><br/><br/>";
+                            document.getElementById("as-music-div").innerHTML = music;
                         }
-                        music = music.concat(refine(track, url)) + "<br/><br/><br/>";
-                        document.getElementById("as-music-div").innerHTML = music;
                     });
                 }
                 $scope.music = music;

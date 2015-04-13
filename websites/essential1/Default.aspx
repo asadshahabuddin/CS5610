@@ -62,12 +62,12 @@
                         <tbody>
                             <tr>
                                 <td>M.S. in Computer Science</td>
-                                <td><a class="asA" href="http://www.northeastern.edu/">Northeastern University</a></td>
+                                <td><a class="asA" href="http://www.northeastern.edu/" target="_blank">Northeastern University</a></td>
                                 <td class="right">2013 - 2015</td>
                             </tr>
                             <tr>
                                 <td>B.Tech. in Information Technology</td>
-                                <td><a class="asA" href="http://www.wbutech.net/">West Bengal University of Technology</a></td>
+                                <td><a class="asA" href="http://www.wbutech.net/" target="_blank">West Bengal University of Technology</a></td>
                                 <td class="right">2007 - 2011</td>
                             </tr>
                         </tbody>
@@ -78,13 +78,13 @@
                     <h3>CS 5610</h3>
                     <ul class="asImgList">
                         <li>
-                            <a href="story/index.htm?../experiments/">
+                            <a href="story/index.htm?../experiments/" target="_blank">
                                 <img src="images/experiment5.png" class="asImgLink"/>
                                 <span class="asImgHoverSpan"><span>Experiments</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="http://console-farpoint.rhcloud.com/">
+                            <a href="http://console-farpoint.rhcloud.com/" target="_blank">
                                 <img src="images/project.png" class="asImgLink"/>
                                 <span class="asImgHoverSpan"><span>Project</span></span>
                             </a>

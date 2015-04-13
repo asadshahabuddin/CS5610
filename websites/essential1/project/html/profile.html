@@ -34,11 +34,11 @@
         <span ng-show="u">{{u.firstName[0]}}{{u.lastName[0]}}</span>
         <span ng-show="!u">GU</span>
     </h3>
-    <button ng-click="coverModal()" class="asButton asCoverButton" type="button">Change cover</button>
+    <button ng-click="showModal()" class="asButton asCoverButton" type="button">Change cover</button>
 
     <dialog class="asCoverModal" id="as-cover-modal">
-        <!-- TODO: Hard coding needs to be removed -->
         <h3 class="asNormalSpan">Select a picture</h3>
+        <a ng-click="closeModal()" class="asModalCloseA" href="">x</a>
         <div ng-click="changeCover('image/cover1.jpg')" class="asImgFrame asImgFrame1"/>
         <div ng-click="changeCover('image/cover2.jpg')" class="asImgFrame asImgFrame2"/>
         <div ng-click="changeCover('image/cover3.jpg')" class="asImgFrame asImgFrame3"/>

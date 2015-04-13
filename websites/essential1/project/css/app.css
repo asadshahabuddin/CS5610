@@ -459,6 +459,31 @@ p
     color: purple;
 }
 
+.asModalCloseA
+{
+    background: #606061;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px #000;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    text-decoration: none;
+    top: -10px;
+    width: 24px;
+    -moz-border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-border-radius: 12px;
+    -webkit-box-shadow: 1px 1px 3px #000;
+}
+
+.asModalCloseA:hover
+{
+    background: #FF0000;
+}
+
 .asPersonA
 {
     color: black;
@@ -667,6 +692,20 @@ p
 {
     color: #BDBDBD;
     font-size: 64px;
+}
+
+.asNotifSpan
+{
+    background-color: #FF0000;
+    border: 1px solid #FF0000;
+    border-radius: 3px;
+    color: white;
+    font-size: 13px;
+    margin-left: 10px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
 }
 
 .asPersonDesc
