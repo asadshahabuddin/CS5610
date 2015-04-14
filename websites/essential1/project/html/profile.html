@@ -49,7 +49,7 @@
 </div>
 
 <div class="asContainerDiv">
-    <div class="asFeedDiv">
+    <div class="asProfileLeftDiv">
         <h2 class="asFeedHeading">Activity feed</h2>
         <span ng-repeat="activity in activities track by $index" class="asFeedSpan">
             {{activity}}<br/>
@@ -67,10 +67,11 @@
         <span ng-repeat="following in followings track by $index">
             <span class="asFeedSpan">{{following}}<br/></span>
         </span>
+        <hr class="asNonClearingProfileHr"/>
     </div>
 
-    <div ng-show="u" class="asLikesDiv">
-        <h2 ng-show="books" class="asFeedHeading">Books</h2>
+    <div ng-show="u" class="asProfileCenterDiv">
+        <h2 ng-show="books.length > 0" class="asFeedHeading">Books</h2>
         <p ng-repeat="book in books" class="asBookP">
             <a class="asBookA" href="{{book.previewLink}}" target="_blank">{{book.title}}</a> 
             <br/>
@@ -84,9 +85,10 @@
             <span class="asBookDesc">{{abstract(book)}}</span>
             <br/>
         </p>
+        <hr class="asNonClearingProfileHr"/>
     </div>
 
-    <div ng-show="u" class="asLikesDiv">
+    <div ng-show="u" class="asProfileRightDiv">
         <h2 ng-show="music" class="asFeedHeading">Music</h2>
         <div id="as-music-div"></div>
     </div>

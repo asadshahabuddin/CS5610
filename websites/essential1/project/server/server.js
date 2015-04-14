@@ -115,6 +115,23 @@ var MusicModel = mongoose.model("MusicModel", MusicSchema);
 /* MUSIC COLLECTION : END */
 /* ====================== */
 
+/* ========================== */
+/* COMMENT COLLECTION : BEGIN */
+/* ========================== */
+
+/* Enforce schema */
+var CommentSchema = new mongoose.Schema({
+    uid : String,
+    comment: []
+}, {collection: "comment"});
+
+/* Model */
+var CommentModel = mongoose.model("CommentModel", CommentSchema);
+
+/* ======================== */
+/* COMMENT COLLECTION : END */
+/* ======================== */
+
 /* ========================= */
 /* CIRCLE COLLECTION : BEGIN */
 /* ========================= */
@@ -307,6 +324,14 @@ app.get("/api/user/:id/music", function(req, res)
     });
 });
 
+app.get("/api/user/:id/comment", function(req, res)
+{
+    CommentModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        res.json(doc);
+    });
+});
+
 app.get("/api/user/:id/circle", function(req, res)
 {
     CircleModel.findOne({uid: req.params.id}, function(err, doc)
@@ -371,9 +396,9 @@ app.put("/api/user/:id/trace/:t", function(req, res)
             /* Clip trace to log the last ten activities */
             if(activity.length == 10)
             {
-                activity.splice(0, 1);
+                activity.pop();
             }
-            activity.push(req.params.t);
+            activity.unshift(req.params.t);
             TraceModel.update({uid: req.params.id}, {$set: {activity: activity}}, function(err, doc)
             {
                 // TODO
@@ -391,19 +416,13 @@ app.put("/api/user/:id/book/:isbn", function(req, res)
         if(doc == null)
         {
             book = new BookModel({uid: req.params.id, book: [req.params.isbn]});
-            book.save(function(err, doc)
-            {
-                // TODO
-            });
+            book.save(function(err, doc){});
         }
         else
         {
             book = doc.book;
             book.push(req.params.isbn);
-            BookModel.update({uid: req.params.id}, {$set: {book: book}}, function(err, doc)
-            {
-                // TODO
-            });
+            BookModel.update({uid: req.params.id}, {$set: {book: book}}, function(err, doc){});
         }
         res.send(200);
     });
@@ -417,19 +436,33 @@ app.put("/api/user/:id/music/:uri", function(req, res)
         if(doc == null)
         {
             music = new MusicModel({uid: req.params.id, audio: [req.params.uri]});
-            music.save(function(err, doc)
-            {
-                // TODO
-            });
+            music.save(function(err, doc){});
         }
         else
         {
             audio = doc.audio;
             audio.push(req.params.uri);
-            MusicModel.update({uid: req.params.id}, {$set: {audio: audio}}, function(err, doc)
-            {
-                // TODO
-            });
+            MusicModel.update({uid: req.params.id}, {$set: {audio: audio}}, function(err, doc){});
+        }
+        res.send(200);
+    });
+});
+
+/* Add a comment - Books */
+app.put("/api/user/:id/comment/:comment", function(req, res)
+{
+    CommentModel.findOne({uid: req.params.id}, function(err, doc)
+    {
+        if(doc == null)
+        {
+            comment = new CommentModel({uid: req.params.id, comment: [req.params.comment]});
+            comment.save(function(err, doc){});
+        }
+        else
+        {
+            comment = doc.comment;
+            comment.push(req.params.comment);
+            CommentModel.update({uid: req.params.id}, {$set: {comment: comment}}, function(err, doc){});
         }
         res.send(200);
     });
@@ -443,19 +476,13 @@ app.put("/api/user/:id/follow/:uid", function(req, res)
         if(doc == null)
         {
             circle = new CircleModel({uid: req.params.id, following: [req.params.uid]});
-            circle.save(function(err, doc)
-            {
-                // TODO
-            });
+            circle.save(function(err, doc){});
         }
         else
         {
             following = doc.following;
             following.push(req.params.uid);
-            CircleModel.update({uid: req.params.id}, {$set: {following: following}}, function(err, doc)
-            {
-                // TODO
-            });
+            CircleModel.update({uid: req.params.id}, {$set: {following: following}}, function(err, doc){});
         }
         res.send(200);
     });

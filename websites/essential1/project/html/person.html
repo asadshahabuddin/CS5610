@@ -29,9 +29,9 @@
 
     <!-- Book details -->
     <div ng-show="books.length > 0" class="asFavBooksDiv">
-        <h2 class="asNormalSpan">Books</h2>
+        <h2 class="asNormalSpan">Reading list</h2>
         <p ng-repeat="book in books" class="asBookP">
-            <a class="asBookA" href="{{book.previewLink}}">{{book.title}}</a> 
+            <a class="asBookA" href="{{book.previewLink}}" target="_blank">{{book.title}}</a> 
             <br/>
             <img ng-src="{{thumbnail(book)}}" class="asBookImg"/>
             <span ng-show="{{book.industryIdentifiers}}" class="asBookUrl">
@@ -43,13 +43,28 @@
             <span class="asBookDesc">{{abstract(book)}}</span>
             <br/>
         </p>
-        <hr class="asHr"/>
     </div>
 
     <!-- Song details -->
     <div class="asFavMusicDiv">
-        <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Music</h2>
+        <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Playlist</h2>
         <div id="as-music-div"></div>
+        <br/>
+    </div>
+
+    <hr ng-show="books.length > 0 || music" class="asHr"/>
+
+    <!-- Comments -->
+    <div class="asCommentsDiv">
+        <h2 class="asCommentHeading">ALL COMMENTS</h2>
+        <textarea ng-model="comment" class="asCommentTextArea" rows="3" placeholder="Share your thoughts"/><br/>
+        <button ng-click="setComments(comment)" class="asButton asCommentBtn">Post</button>
+        <p ng-repeat="comment in comments" class="asCommentP">
+            <img class="asCommentImg" src="image/female.jpg"/>
+            <span class="asBoldSpan asCommentSpan">{{comment.unm}}</span><br/>
+            <span class="asCommentSpan">{{comment.post}}</span>
+        </p>
+        <br/><br/>
     </div>
 </div>
 <!-- End of bookmarks.html -->

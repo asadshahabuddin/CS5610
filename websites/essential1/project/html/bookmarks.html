@@ -30,8 +30,6 @@
 </div>
 
 <div class="asContainerDiv">
-    <!-- h2 class="asNormalSpan">Bookmarks</h2 -->
-
     <!-- Book details -->
     <div ng-show="books.length > 0" class="asFavBooksDiv">
         <h2 class="asNormalSpan">Reading list</h2>
@@ -49,12 +47,28 @@
             <span class="asBookDesc">{{abstract(book)}}</span>
             <br/>
         </p>
+        <hr class="asNonClearingBookmarksHr"/>
     </div>
 
     <!-- Songs -->
     <div class="asFavMusicDiv">
         <h2 ng-show="music" class="asNormalSpan" style="clear:both;">Playlist</h2>
         <div id="as-music-div"></div>
+    </div>
+
+    <hr ng-show="books.length > 0 || music" class="asHr"/>
+
+    <!-- Comments -->
+    <div class="asCommentsDiv">
+        <h2 class="asCommentHeading">ALL COMMENTS</h2>
+        <textarea ng-model="comment" class="asCommentTextArea" rows="3" placeholder="Share your thoughts"/><br/>
+        <button ng-click="setComments(comment)" class="asButton asCommentBtn">Post</button>
+        <p ng-repeat="comment in comments" class="asCommentP">
+            <img class="asCommentImg" src="image/female.jpg"/>
+            <span class="asBoldSpan asCommentSpan">{{comment.unm}}</span><br/>
+            <span class="asCommentSpan">{{comment.post}}</span>
+        </p>
+        <br/><br/>
     </div>
 </div>
 <!-- End of bookmarks.html -->

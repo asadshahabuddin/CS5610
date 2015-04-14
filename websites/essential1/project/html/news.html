@@ -34,8 +34,9 @@
         <h2 class="asNormalSpan">Headlines</h2>
         <p ng-repeat="headline in headlines">
             <a class="asHeadlineA" href="{{headline.url}}" target="_blank">{{headline.title}}</a><br/>
-            <span>{{abstract(headline)}}</span><br/>
+            <span class="asNewsSpan">{{abstract(headline)}}</span><br/>
         </p>
+        <hr class="asNonClearingNewsHr"/>
     </div>
 
     <!-- Weather card -->

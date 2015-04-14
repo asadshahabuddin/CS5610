@@ -7,6 +7,9 @@
 
 app.factory("GlobalService", function GlobalService($http)
 {
+    /* Constant(s) */
+    DELIMITER = "asDelimiter";
+
     var user = null;
     var errMsg = null;
     var nytAPIKey = "6b50b9dd8f1647a9456befedcda60f26:6:71641947";
@@ -146,6 +149,20 @@ app.factory("GlobalService", function GlobalService($http)
         .success(callback);
     };
 
+    /* Set comments for the book */
+    var setComments = function(uid, comment, callback)
+    {
+        $http.put("/api/user/" + uid + "/comment/" + user._id + DELIMITER + comment)
+        .success(callback);
+    };
+
+    /* Get comments for the book */
+    var getComments = function(uid, callback)
+    {
+        $http.get("/api/user/" + uid + "/comment")
+        .success(callback);
+    };
+
     /* Get thy circle */
     var circle = function(callback)
     {
@@ -185,9 +202,9 @@ app.factory("GlobalService", function GlobalService($http)
     };
 
     /* Get a user's details */
-    var getPersonInfo = function(callback)
+    var getPersonInfo = function(uid, callback)
     {
-        $http.get("/api/user/" + personId)
+        $http.get("/api/user/" + uid)
         .success(callback);
     };
 
@@ -286,6 +303,8 @@ app.factory("GlobalService", function GlobalService($http)
         getPersonId       : getPersonId,
         setFavBooks       : setFavBooks,
         getFavBooks       : getFavBooks,
+        setComments       : setComments,
+        getComments       : getComments,
         setCirle          : follow,
         getCircle         : circle,
         getPeople         : getPeople,

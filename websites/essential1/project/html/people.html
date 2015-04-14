@@ -32,7 +32,7 @@
 <div class="asContainerDiv">
     <h2 class="asNormalSpan">People</h2>
     <div class="">
-        <input ng-model="name" class="asInputField asWideInputField" type ="text" placeholder="They are out there..." autofocus/>
+        <input ng-model="name" ng-keyup="search(name)" class="asInputField asWideInputField" type ="text" placeholder="They are out there..." autofocus/>
         <button ng-click="search(name)" class="asButton">Search</button>
     </div>
 

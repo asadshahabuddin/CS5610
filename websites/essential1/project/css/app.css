@@ -71,7 +71,7 @@
     background-color: #F2F2F2;
     border: 1px solid #D8D8D8;
     color: #585858;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: normal;
     padding-bottom: 5px;
     padding-left: 20px;
@@ -83,6 +83,27 @@
 {
     border: 1px solid #BDBDBD;
     color: black;
+}
+
+.asCommentBtn
+{
+    background-color: #0174DF;
+    border: 0;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 10px;
+}
+
+.asCommentBtn:hover
+{
+    background-color: #2E9AFE;
+    border: 0;
+    color: #FFFFFF;
 }
 
 .asCoverButton
@@ -121,10 +142,14 @@
     position: relative;
 }
 
+.asCommentsDiv
+{
+    width: 50%;
+}
+
 .asContainerDiv
 {
-    padding-left: 150px;
-    padding-right: 150px;
+    padding:0 7.35%;
 }
 
 .asCoverDiv
@@ -166,11 +191,12 @@
     width: 45%;
 }
 
-.asFeedDiv
+@media screen and (max-width: 650px)
 {
-    float: left;
-    margin-right: 35px;
-    width: 30%;
+    .asCommentsDiv, .asFavBooksDiv, .asFavMusicDiv
+    {
+        width: 100%;
+    }
 }
 
 .asFooterDiv
@@ -192,13 +218,6 @@
     height: 150px;
     margin-right: 15px;
     margin-bottom: 15px;
-    width: 29%;
-}
-
-.asLikesDiv
-{
-    float: left;
-    margin-right: 35px;
     width: 30%;
 }
 
@@ -214,6 +233,14 @@
     width: 50%;
 }
 
+@media screen and (max-width: 1100px)
+{
+    .asNewsDiv
+    {
+        width: 100%;
+    }
+}
+
 .asPaddedDiv
 {
     margin-left: 200px;
@@ -225,6 +252,42 @@
     float: left;
     padding-right: 50px;
     width: 50%;
+}
+
+.asProfileCenterDiv
+{
+    float: left;
+    margin-right: 35px;
+    width: 30%;
+}
+
+.asProfileLeftDiv
+{
+    float: left;
+    margin-right: 35px;
+    width: 30%;
+}
+
+.asProfileRightDiv
+{
+    float: left;
+    width: 30%;
+}
+
+@media screen and (max-width: 1300px)
+{
+    .asProfileCenterDiv, .asProfileLeftDiv, .asProfileRightDiv
+    {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .asProfileCenterDiv, .asProfileLeftDiv, .asProfileRightDiv
+    {
+        width: 100%;
+    }
 }
 
 .asProfileTitleDiv
@@ -250,11 +313,69 @@
 {
     border: 1px solid #ccc;
     float: left;
-    height: 350px;
+    height: 300px;
     margin-top: 65px;
     padding-left: 35px;
     margin-bottom: 20px;
-    width: 40%;
+    width: 35%;
+}
+
+@media screen and (max-width: 1100px)
+{
+    .asWeatherDiv
+    {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 950px)
+{
+    .asWeatherDiv
+    {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .asWeatherDiv
+    {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 800px)
+{
+    .asWeatherDiv
+    {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    .asWeatherDiv
+    {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .asWeatherDiv
+    {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .asWeatherDiv
+    {
+        border: 0px;
+        margin-top: 0px;
+        width: 100%;
+    }
 }
 
 .asWelcomeTitleDiv
@@ -272,6 +393,21 @@
     clear: both;
 }
 
+.asCommentP
+{
+    clear: both;
+}
+
+.asCommentTextArea
+{
+    color: #424242;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 5px;
+    resize: none;
+    width: 100%;
+}
+
 .asDocP
 {
     color: #2E2E2E;
@@ -279,6 +415,7 @@
 
 .asCenterElem
 {
+    font-size: 14px;
     text-align: center;
 }
 
@@ -312,9 +449,66 @@
 
 .asInputField
 {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 150%;
     padding-left: 5px;
+}
+
+.asNonClearingBookmarksHr
+{
+    visibility: hidden;
+}
+
+.asNonClearingNewsHr
+{
+    visibility: hidden;   
+}
+
+.asNonClearingProfileHr
+{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 650px)
+{
+    .asNonClearingBookmarksHr
+    {
+        border: 0;
+        border-top: 1px solid #E6E6E6;
+        display: block;
+        height: 1px;
+        margin: 1em 0;
+        padding: 0;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .asNonClearingNewsHr
+    {
+        border: 0;
+        border-top: 1px solid #E6E6E6;
+        display: block;
+        height: 1px;
+        margin: 1em 0;
+        padding: 0;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .asNonClearingProfileHr
+    {
+        border: 0;
+        border-top: 1px solid #E6E6E6;
+        display: block;
+        height: 1px;
+        margin: 1em 0;
+        padding: 0;
+        visibility: visible;
+    }
 }
 
 .asWideInputField
@@ -396,6 +590,16 @@ p
     border-radius: 3px;
 }
 
+.asCommentImg
+{
+    float: left;
+    height: 50px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    width: 40px;
+}
+
 .asContactImg
 {
     height: 40px;
@@ -416,8 +620,8 @@ p
 .asProviderImg
 {
     padding-bottom: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 /* Image : END */
 
@@ -425,7 +629,7 @@ p
 .asBookA
 {
     color: blue;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .asBookA:not(:hover)
@@ -446,7 +650,7 @@ p
 .asHeadlineA
 {
     color: blue;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .asHeadlineA:not(:hover)
@@ -488,6 +692,10 @@ p
 {
     color: black;
     font-size: 24px;
+}
+
+.asPersonA:not(:hover)
+{
     text-decoration: none;
 }
 
@@ -495,6 +703,7 @@ p
 {
     color: black;
     float: right;
+    font-size: 15px;
     margin-right: 1em;
 }
 
@@ -563,7 +772,7 @@ p
     border: 0px;
     border-radius: 10px;
     padding-left: 50px;
-    width: 33%;
+    width: 40%;
 }
 
 .asImgFrame1
@@ -606,6 +815,7 @@ p
 
 .asNormalSpan
 {
+    font-size: 20px;
     font-weight: normal;
 }
 
@@ -638,6 +848,21 @@ p
 {
     color: #0B610B;
     font-size: 14px;
+}
+
+.asCommentHeading
+{
+    color: #6E6E6E;
+    clear: both;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+.asCommentSpan
+{
+    color: #424242;
+    font-size: 13px;
 }
 
 .asCopyrightSpan1
@@ -678,13 +903,18 @@ p
 .asMusicTitle
 {
     color: #2E2E2E;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: normal;
 }
 
 .asMusicUrl
 {
     color: #0B610B;
+    font-size: 14px;
+}
+
+.asNewsSpan
+{
     font-size: 14px;
 }
 
@@ -729,6 +959,11 @@ p
     padding: 10px;
 }
 
+.asStatSpan
+{
+    font-size: 14px;
+}
+
 .asUsernameSpan
 {
     color: black;
@@ -741,7 +976,7 @@ p
 
 .asWeatherSpan
 {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
 }
 /* Span : END */

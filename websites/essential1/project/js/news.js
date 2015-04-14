@@ -80,7 +80,7 @@ app.controller("NewsCtrl", function($scope, $location, GlobalService)
                 $scope.time        = $scope.dt.getHours() + ":" +
                                      $scope.dt.getMinutes();
                 $scope.weatherMain = res.weather[0].main;
-                $scope.temp        = res.main.temp - 273.15;
+                $scope.temp        = Math.round(res.main.temp - 273.15);
                 $scope.humidity    = res.main.humidity;
                 $scope.pressure    = res.main.pressure;
                 $scope.windSpeed   = res.wind.speed;

@@ -202,8 +202,69 @@ app.controller("BookmarksCtrl", function($q, $scope, $location, GlobalService)
     /* MUSIC FUNCTIONS : END */
     /* ===================== */
 
+    /* ========================= */
+    /* COMMENT FUNCTIONS : BEGIN */
+    /* ========================= */
+
+    /* Set comments for this user */
+    $scope.setComments = function(comment)
+    {
+        GlobalService.setComments($scope.u._id, comment, function(res)
+        {
+            $scope.getComments();
+        });
+    };
+
+    /* Get comments for this user */
+    $scope.getComments = function()
+    {
+        $scope.commentCount = 0;
+        $scope.comments     = [];
+        comments            = [];
+
+        GlobalService.getComments($scope.u._id, function(res)
+        {
+            if(res != null)
+            {
+                for(var i = 0; i < res.comment.length; i++)
+                {
+                    var curComment = res.comment[i];
+                    var delimIdx = curComment.indexOf(DELIMITER);
+                    var uid = curComment.substring(0, delimIdx);
+                    $scope.updateComments(uid, delimIdx, curComment);
+                }
+                $scope.commentCount = res.comment.length;
+                $scope.comments     = comments;
+            }
+        });
+    };
+
+    /* Update comments */
+    $scope.updateComments = function(uid, delimIdx, curComment)
+    {
+        var deferred = $q.defer();
+
+        GlobalService.getPersonInfo(uid, function(res)
+        {
+            deferred.resolve();
+            var comment = {
+                uid : uid,
+                unm : res.firstName + " " + res.lastName,
+                post: curComment.substring(delimIdx + 11)
+            };
+            comments.push(comment);
+        });
+
+        return deferred.promise;
+    };
+
+    /* ======================= */
+    /* COMMENT FUNCTIONS : END */
+    /* ======================= */
+
     $scope.u = GlobalService.getUser();
     $scope.getFavBooks();
     $scope.getFavMusic();
+    $scope.getComments();
 });
 /* End of bookmarks.js */
