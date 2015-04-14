@@ -137,6 +137,14 @@
     width: 50%;
 }
 
+@media screen and (max-width: 900px)
+{
+    .asBookDiv
+    {
+        width: 100%;
+    }
+}
+
 .asCarouselItemDiv
 {
     position: relative;
@@ -226,6 +234,14 @@
     width: 50%;
 }
 
+@media screen and (max-width: 900px)
+{
+    .asMusicDiv
+    {
+        width: 100%;
+    }
+}
+
 .asNewsDiv
 {
     float: left;
@@ -243,8 +259,7 @@
 
 .asPaddedDiv
 {
-    margin-left: 200px;
-    margin-right: 200px;
+    margin: 0 14.7%;
 }
 
 .asPeopleDiv
@@ -252,6 +267,14 @@
     float: left;
     padding-right: 50px;
     width: 50%;
+}
+
+@media screen and (max-width: 800px)
+{
+    .asPeopleDiv
+    {
+        width: 100%;
+    }
 }
 
 .asProfileCenterDiv
@@ -297,6 +320,14 @@
     padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
+}
+
+@media screen and (max-width: 1100px)
+{
+    .asSearchDiv
+    {
+        /* TODO */
+    }
 }
 
 .asSectionNavDiv
@@ -514,6 +545,30 @@
 .asWideInputField
 {
     width: 90%;
+}
+
+@media screen and (max-width: 1200px)
+{
+    .asWideInputField
+    {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 850px)
+{
+    .asWideInputField
+    {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    .asWideInputField
+    {
+        width: 60%;
+    }
 }
 
 p
