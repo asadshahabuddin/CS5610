@@ -16,22 +16,30 @@
     </head>
 
     <body class="asBody">
-        <ul class="asNav">
-            <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
-            <li><a href="statistics/" target="_blank">Statistics</a></li>
-            <li><a href="source/" target="_blank">Source</a></li>
-            <li><a href="search/" target="_blank">Search</a></li>
-            <li><a href="searchtree/" target="_blank">SearchTree</a></li>
-            <li><a href="textview/" target="_blank">TextView</a></li>
-            <li><a href="filelist.aspx" target="_blank">FileList</a></li>
-            <li><a href="autofile.aspx" target="_blank">AutoFile</a></li>
-            <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
-            <li><a href="blog/" target="_blank">Blog</a></li>
-            <li><a href="story/index.htm?../experiments/" target="_blank"><span class="asBoldSpan">Experiments</span></a></li>
-            <li><a href="http://console-farpoint.rhcloud.com/" target="_blank"><span class="asBoldSpan">Project</span></a></li>
-            <li><a href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project" target="_blank">Project code</a></li>
-            <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
-        </ul>
+        <nav class="asNav">
+            <ul class="asNavUl">
+                <li><a href="#">Utilities</a>
+                    <ul>
+                        <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
+                        <li><a href="statistics/" target="_blank">Statistics</a></li>
+                        <li><a href="source/" target="_blank">Source</a></li>
+                        <li><a href="search/" target="_blank">Search</a></li>
+                        <li><a href="searchtree/" target="_blank">SearchTree</a></li>
+                        <li><a href="textview/" target="_blank">TextView</a></li>
+                        <li><a href="filelist.aspx" target="_blank">FileList</a></li>
+                        <li><a href="autofile.aspx" target="_blank">AutoFile</a></li>
+                        <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
+                    </ul>
+                </li>
+                <li><a href="blog/" target="_blank">Blog</a></li>
+                <li><a href="story/index.htm?../experiments/" target="_blank">Experiments</a></li>
+                <li><a href="https://github.com/asadshahabuddin/CS5610" target="_blank">GitHub</a></li>
+                <li><a href="http://console-farpoint.rhcloud.com/" target="_blank">Project home</a></li>
+                <li><a href="http://console-farpoint.rhcloud.com/html/doc.html" target="_blank">Project documentation</a></li>
+                <li><a href="story/index.htm?../project/" target="_blank">Project as story</a></li>
+                <li><a href="https://github.com/asadshahabuddin/CS5610/tree/master/websites/essential1/project" target="_blank">Project code</a></li>
+            </ul>
+        </nav>
         
         <div class="pad">
             <form id="form1" runat="server">

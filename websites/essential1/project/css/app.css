@@ -133,7 +133,6 @@
 .asBookDiv
 {
     float: left;
-    padding-right: 50px;
     width: 50%;
 }
 
@@ -171,8 +170,8 @@
 {
     float: left;
     margin-bottom: 35px;
-    margin-left: 28%;
-    margin-right: 175px;
+    margin-left: 29%;
+    margin-right: 12.87%;
     width: 50%;
 }
 
@@ -253,6 +252,7 @@
 {
     .asNewsDiv
     {
+        padding-right: 0px;
         width: 100%;
     }
 }
@@ -273,6 +273,7 @@
 {
     .asPeopleDiv
     {
+        padding-right: 0px;
         width: 100%;
     }
 }
@@ -322,22 +323,62 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1100px)
-{
-    .asSearchDiv
-    {
-        /* TODO */
-    }
-}
-
 .asSectionNavDiv
 {
     float: left;
     height: 100%;
-    margin-left: 175px;
+    margin-left: 12.87%;
     margin-top: 50px;
     position: fixed;
     width: 15%;
+}
+
+@media screen and (max-width: 1300px)
+{
+    .asDocContentDiv
+    {
+        margin-left: 30%;
+        margin-right: 10%;
+    }
+
+    .asSectionNavDiv
+    {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 950px)
+{
+    .asDocContentDiv
+    {
+        clear: both;
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .asSectionNavDiv
+    {
+        clear: both;
+        margin-left: 5%;
+        position: initial;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 650px)
+{
+    .asSectionNavDiv
+    {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .asSectionNavDiv
+    {
+        width: 50%;
+    }
 }
 
 .asWeatherDiv
@@ -405,6 +446,7 @@
     {
         border: 0px;
         margin-top: 0px;
+        padding-left: 0px;
         width: 100%;
     }
 }
@@ -413,7 +455,7 @@
 {
     background-color: white;
     border-bottom: 1px solid #ccc;
-    padding-left: 250px;
+    padding-left: 18.38%;
     padding-top: 20px;
 }
 /* Division : END */
@@ -442,6 +484,7 @@
 .asDocP
 {
     color: #2E2E2E;
+    font-size: 14px;
 }
 
 .asCenterElem
@@ -592,22 +635,6 @@ p
     font-weight: normal;
 }
 
-@media screen and (max-width: 500px)
-{
-    .asH1
-    {
-        font-size: 3em;
-    }
-}
-
-@media screen and (max-width: 450px)
-{
-    .asH1
-    {
-        font-size: 2em;
-    }
-}
-
 .asH2
 {
     font-weight: normal;
@@ -662,6 +689,22 @@ p
     width: 40px;
 }
 
+.asCreditImg
+{
+    position: absolute;
+    zindex: 100;
+}
+
+.asDocImg
+{
+    border: 1px solid #FF0000;
+    height: 75%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 4.9%;
+    width: 90%;
+}
+
 .asPersonImg
 {
     float: left;
@@ -700,6 +743,20 @@ p
 .asContactA
 {
     text-decoration: none;
+}
+
+.asCreditA
+{
+    color: #A4A4A4;
+    font-size: 13px;
+    margin: 0 15px;
+    padding: 2px;
+    text-decoration: none;
+}
+
+.asCreditA:hover
+{
+    color: #08f;
 }
 
 .asHeadlineA
@@ -775,7 +832,7 @@ p
 .asSectionNavA
 {
     color: #2E2E2E;
-    font-size: 13px;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -803,6 +860,12 @@ p
 /* Link : END */
 
 /* List : BEGIN */
+.asDocUl
+{
+    color: #2E2E2E;
+    font-size: 14px;
+}
+
 .asSectionNavLi
 {
     padding-bottom: 7px;
@@ -885,6 +948,11 @@ p
     color: gray;
 }
 
+.asRougeSpan
+{
+    color: #FF0000;
+}
+
 /* Custom */
 .asBookAuth
 {
@@ -939,6 +1007,12 @@ p
 {
     color: #2E2E2E;
     font-weight: normal;
+}
+
+.asDocSpan
+{
+    color: #2E2E2E;
+    font-size: 14px; 
 }
 
 .asFeedHeading

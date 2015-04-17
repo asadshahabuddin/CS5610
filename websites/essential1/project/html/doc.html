@@ -18,7 +18,7 @@
     <!-- Head section : END -->
 
     <!-- Body section : BEGIN -->
-    <body class="asBody">
+    <body class="asBody asDocBody">
         <div class="asProfileTitleDiv">
             <header class="asNav">
                 <a class="asBanner">> Console</a>
@@ -35,7 +35,10 @@
                 <ul class="asSectionNavUl">
                     <li class="asSectionNavLi"><a class="asSectionNavA" href="#title">Title</a></li>
                     <li class="asSectionNavLi"><a class="asSectionNavA" href="#intro">Introduction</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#flow">Page flows</a></li>
                     <li class="asSectionNavLi"><a class="asSectionNavA" href="#detail">Details</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#fscope">Future scope</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#support">Support</a></li>
                     <li class="asSectionNavLi"><a class="asSectionNavA" href="#source">Source</a></li>
                     <li class="asSectionNavLi"><a class="asSectionNavA" href="#tech">Technology</a></li>
                     <li class="asSectionNavLi"><a class="asSectionNavA" href="#reference">References</a></li>
@@ -58,12 +61,34 @@
                 <hr class="asHr"/>
                 <p class="asDocP">
                     The application aims to achieve three objectives:
-                    <ul>
+                    <ul class="asDocUl">
                         <li>Content search</li>
                         <li>Social discovery</li>
                         <li>Personalization</li>
                     </ul>
-                    You can sift through the top news stories, get weather conditions, search for books, audio content and people on the network. In addition to these, books and music can be bookmarked to create a more personalized experience. You profile page presents a concise view of your likes, activities and taste. It's okay if you want to test the application before you decide to become a member. A <span class="asBoldSpan">Guest</span> mode is there for all you skeptics.
+                    <span class="asDocSpan">You can sift through the top news stories, get weather conditions, search for books, audio content and people on the network. In addition to these, books and music can be bookmarked to create a more personalized experience. You profile page presents a concise view of your likes, activities and taste. It's okay if you want to test the application before you decide to become a member. A <span class="asBoldSpan">Guest</span> mode is there for all you skeptics.</span>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="flow"/>
+                <h2 class="asH2 asDocH2">Page flows</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    Starting at the application main page, a user can follow one of two page flows:
+                    <ul class="asDocUl">
+                        <li>Guest flow</li>
+                        <li>Member flow</li>
+                    </ul>
+                    <span class="asDocSpan">
+                        <span class="asBoldSpan">Guest flow. </span>Click on the "Try for free" button to continue as a guest user. The user will be taken to a generic profile page where they can view the default cover picture and change it for the moment. None of these changes made in the guest mode persist. An unregistered user can read the current headlines, navigate to full articles (on The New York Times website) by clicking on the headline and view weather conditions for any city. They can also search for books and music, preview and/or read books (on Google Books) by clicking on the book title and listen to audio content in the embedded players populated using search results. This is the extent of actions provided without registration.
+                        <br/>
+                        <img class="asDocImg" src="../image/doc14.jpg"/>
+                        <br/>
+                        <span class="asBoldSpan">Member flow. </span>If the user isn't registered, then they must do so. A registered user can sign in and this would take the member to their customized profile page. In addition to all the actions allowed for a guest, a registered user can perform a host of other activities. They can bookmark a book or music item from the Books/Music tab and these would populate the user's profile and bookmarks pages. Books and audio content are organized in the form of a reading list and playlist respectively. Items can be removed individually from each of these lists with immediate page updation. Signed in users can also view other members, search among them, view their bookmarks, follow them and comment on their favorites.
+                        <br/>
+                        <img class="asDocImg" src="../image/doc15.jpg"/>
+                    </span>
                 </p>
             </div>
 
@@ -72,38 +97,115 @@
                 <h2 class="asH2 asDocH2">Details</h2>
                 <hr class="asHr"/>
                 <p class="asDocP">
+                    <a name="home"/>
                     <span class="asBoldSpan">Home. </span>
-                    This page welcomes you to my web application. It gives you an overview of the various features available through the use of carousels and a short description. You may read the documentation or source code using the provided navigation bar. However, the primary function of this page is to introduce you to my application and let you in. You may choose to continue as a guest user and limit yourself to content search and consumption or sign in using your existing credentials. User registration is facilitated in the same section by clicking on a check box to reveal the registration form. Once you sign in, my web application moves you to your own profile page.
+                    This page welcomes you to my web application. It gives you an overview of the various features available by employing carousels and a short description. You may read the documentation or source code using the provided navigation bar. However, the primary function of this page is to introduce you to my application and let you in.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc1.jpg"/>
+                    <img class="asDocImg" src="../image/doc2.jpg"/>
+                    <br/>
+                    You may choose to continue as a guest user and limit yourself to content search and consumption or sign in using your existing credentials. User registration is facilitated in the same section by clicking on a check box to reveal the registration form. Once you sign in, my web application moves you to your own profile page.
                 </p>
+
+                <hr class="asHr"/>
+                
                 <p class="asDocP">
+                    <a name="profile"/>
                     <span class="asBoldSpan">Profile. </span>
-                    The profile page is a complete view of your likes, social circle and activities on my website. User personalization is valued and the first instance to be seen is the option to represent your personality using a cover picture. The selection is limited to a restricted set for now. The cover picture is part of your profile and sticks to your selection through sessions. As you start executing actions of any kind, the application gives you a historical trace of activities while limiting them to your last ten. This is followed by your circle - people you follow you and those you have followed. That's column number one.
-                    <br/><br/>
-                    The second column shows your favorite books. Each one has a thumbail (or a filler picture if none is available), title, author and a short description going for it. Books are followed by a column showing your favorite music. You can play the audio content right there. This completes the scope of a profile page.
+                    The profile page is a complete view of your likes, social circle and activities on my website. User personalization is valued and the first instance to be seen is the option to represent your personality using a cover picture. The selection is limited to a restricted set for now. The cover picture is part of your profile and sticks to your selection through sessions. If you are a guest, this choice is not remembered.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc3.jpg"/>
+                    <img class="asDocImg" src="../image/doc4.jpg"/>
+                    <br/>
+                    As you start executing actions of any kind, the application gives you a historical trace of activities while limiting them to your last ten. This is followed by your circle - people who follow you and those you have followed. That's column number one. The second column shows your favorite books. Each one has a thumbnail (or a filler picture if none is available), title, author and a short description going for it. Books are followed by a column showing your favorite music. You can play the audio content right there. This completes the scope of a profile page.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc5.jpg"/>
                 </p>
+
+                <hr class="asHr"/>
+
                 <p class="asDocP">
+                    <a name="news"/>
                     <span class="asBoldSpan">News. </span>
-                    The news service is pretty straightforward. You get a current list of headlines from around the world. The list changes (not referring to auto-refresh) with new incoming headlines. A news item includes the title and a short description. When you click on the news item, it takes you to the full story on <span class="asBoldSpan">The New York Times</span> website, which also happens to be the source for all news on my website.
+                    The news service is pretty straightforward. You get a current list of headlines from around the world. The list changes (not referring to auto-refresh) with new incoming headlines. A news item includes the title and a short description. When you click on the news item, it takes you to the full story on <a class="asSectionNavA asRougeSpan" href="http://www.nytimes.com/" target="_blank">The New York Times</a> website, which also happens to be the source for all news on my website.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc7.jpg"/>
                 </p>
+
+                <hr class="asHr"/>
+
                 <p class="asDocP">
+                    <a name="weather"/>
                     <span class="asBoldSpan">Weather. </span>
-                    Weather conditions are given to a user in the news page by making use of a weather card and the <span class="asBoldSpan">Open Weather Map API</span>. The weather card would display weather conditions for your home city by default. The home city is provided by you during registration. You can always query weather for any city in the world by typing its name. The information returned consists of the city name (of course), the current data and time, a one-word summary (e.g., clouds, rain, etc.), the temperature in degrees celsuis, humidity in terms of percentage, pressure in hPa (hectopascal) and wind speed in meters per second. If you are a guest user, the weather card shows no information by default and asks you to give it a go.
+                    Weather conditions are given to a user in the news page by making use of a weather card and the <a class="asSectionNavA asRougeSpan" href="http://openweathermap.org/api" target="_blank">Open Weather Map API</a>. The weather card would display weather conditions for your home city by default. The home city is provided by you during registration. You can always query weather for any city in the world by typing its name. The information returned consists of the city name (of course), the current data and time, a one-word summary (e.g., clouds, rain, etc.), the temperature in degrees celsuis, humidity in terms of percentage, pressure in hPa (hectopascal) and wind speed in meters per second. If you are a guest user, the weather card shows no information by default and asks you to give it a go.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc13.jpg"/>
                 </p>
+
+                <hr class="asHr"/>
+
                 <p class="asDocP">
+                    <a name="books"/>
                     <span class="asBoldSpan">Books. </span>
-                    Books is based on the <span class="asBoldSpan">Google Books API</span>. You are given a search bar and that's the basic premise. You type the partial or full name of a book you want to search for and click on the button next to it. The result consists of a number of book items which match the search query. Each item consists of the book title, a thumbnail preview of the cover, its Google Books URL, author and a short description. You can bookmark any of the items to save it to your reading list available on your bookmarks and profile pages. Switching between tabs does not erase the previous search results. Bookmarking feature is exclusive to registered users.
+                    Books is based on the <a class="asSectionNavA asRougeSpan" href="https://developers.google.com/books/" target="_blank">Google Books API</a>. You are given a search bar and that's the basic premise. You type the partial or full name of a book you want to search for and click on the button next to it. The result consists of a number of book items which match the search query. Each item consists of the book title, a thumbnail preview of the cover, its Google Books URL, author and a short description. One can click on a book's title to read or preview it in Google Books. You can bookmark any of the items to save it to your reading list available on your bookmarks and profile pages. Switching between tabs does not erase the previous search results. Bookmarking feature is exclusive to registered users.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc8.jpg"/>
                 </p>
+
+                <hr class="asHr"/>
+
                 <p class="asDocP">
+                    <a name="music"/>
                     <span class="asBoldSpan">Music. </span>
-                    Music works just like Books. You type the name of a song or artist in the search bar and click on the search button. You results consists of embedded players for matching audio content on <span class="asBoldSpan">SoundCloud</span>. You can play any item within the page and bookmark if you like it. Bookmarked music will constitute a single playlist and become visible on the bookmarks and profile pages. The API-provided player lets you seek the track at any point within its timeline and share it to a variety of social networks. As with books, previous search results persist on tab switching as long as the application isn't refreshed (page reload).
+                    Music works just like Books. You type the name of a song or artist in the search bar and click on the search button. You results consists of embedded players for matching audio content on <a class="asSectionNavA asRougeSpan" href="https://soundcloud.com/" target="_blank">SoundCloud</a>. You can play any item within the page and bookmark if you like it. Bookmarked music will constitute a single playlist and become visible on the bookmarks and profile pages. The API-provided player lets you seek the track at any point within its timeline and share it to a variety of social networks. As with books, previous search results persist on tab switching as long as the application isn't refreshed (page reload).
+                    <br/>
+                    <img class="asDocImg" src="../image/doc9.jpg"/>
                 </p>
+
+                <hr class="asHr"/>
+
                 <p class="asDocP">
+                    <a name="bookmarks"/>
                     <span class="asBoldSpan">Bookmarks. </span>
-                    Bookmarks page shows a user's favorite books and music in the form of a reading list and playlist respectively. You can click on a book's title to read or preview it in Google Books. The list is mutable and you may remove a book from your favorites. The list refreshes immediately to reflect the deleted item. The user's playlist consists of playable tracks previously added to his/her favorites. Individual tracks can be purged from the playlist. Bookmarks are visible on the user's profile page too but without any mutability since the profile page is supposed to be an overview of your likes and favorites. Editing lists should be and is available only on the bookmarks page.
+                    Bookmarks page shows a user's favorite books and music in the form of a reading list and playlist respectively. You can click on a book's title to read or preview it in Google Books. The list is mutable and you may remove a book from your favorites. The list refreshes immediately to reflect a deleted item. The user's playlist consists of playable tracks previously added to his/her favorites. Individual tracks can be purged from the playlist. A user may also comment on his/her favorites' thread for everyone to see. Bookmarks are visible on the user's profile page too but without any mutability since the profile page is supposed to be an overview of your likes and favorites. Editing lists should be and is available only on the bookmarks page.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc6.jpg"/>
                 </p>
+
+                <hr class="asHr"/>
+
                 <p class="asDocP">
+                    <a name="people"/>
                     <span class="asBoldSpan">People. </span>
-                    This feature is meant for registered users who are also signed in. You get a list of all people registered on my web application. However, that's not the best way to find people, which gives way to a search utility. The user gets a search bar one more time which can be used to search registered accounts based on the search query. The search is not limited to user names but all fields used to register a person. The scope of search is therefore broad. It doesn't end there. You can click on any of the names to view that member's favorites (reading list and playlist), or follow them by clicking the follow button. When you follow someone, his/her name is added to the list of people you follow visible on the profile page. Moreover, that person would have you as a follower on their profile page.
+                    This feature is meant for registered users who are also signed in. You get a list of all people registered on my web application.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc10.jpg"/>
+                    <br/>
+                    However, that's not the best way to find people, which gives way to a search utility. The user gets a search bar one more time which can be used to search registered accounts based on the search query. The search is not limited to user names but all fields used to register a person. The scope of search is therefore broad.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc11.jpg"/>
+                    <br/>
+                    It doesn't end there. You can click on any of the names to view that member's favorites (reading list and playlist), or follow them by clicking the follow button. When you follow someone, his/her name is added to the list of people you follow shown on the profile page. Moreover, that person would have you as a follower on their profile page. The idea of social networking in enforced by allowing a user to comment on another's favorites. Comments thread is globally visible and it's another privileged feature for valid and signed in users.
+                    <br/>
+                    <img class="asDocImg" src="../image/doc12.jpg"/>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="fscope"/>
+                <h2 class="asH2 asDocH2">Future scope</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    As with every application, there's room for improvement and feature upgrades. At this point of time, a user cannot upload his/her profile picture or update one's credentials. A member can be followed multiple times and the followers/following list does not link to the corresponding user's favorites. These are areas with space to grow. Furthermore, pagination for search results could minimize the number of search operations executed.
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="support"/>
+                <h2 class="asH2 asDocH2">Support</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    The application has been thoroughly tested and is fully supported on Google Chrome. All the features have also been tested on Mozilla Firefox for desktop and Safari for OS X and iOS. Apart from visual inconsistencies (e.g., modal window on the profile page), things function on these browsers too.
                 </p>
             </div>
 
@@ -165,7 +267,7 @@
                 <hr class="asHr"/>
                 <p class="asDocP">
                     The following technologies have been combined to build this project:
-                    <ul>
+                    <ul class="asDocUl">
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>JavaScript</li>
@@ -185,6 +287,7 @@
                     <ul>
                         <li><a class="asSectionNavA" href="http://www.w3schools.com/" target="_blank">W3Schools</a></li>
                         <li><a class="asSectionNavA" href="https://jsfiddle.net/" target="_blank">JSFiddle</a></li>
+                        <li><a class="asSectionNavA" href="http://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
                         <li><a class="asSectionNavA" href="https://angularjs.org/" target="_blank">AngularJS</a></li>
                         <li><a class="asSectionNavA" href="https://nodejs.org/" target="_blank">Node.js</a></li>
                         <li><a class="asSectionNavA" href="http://expressjs.com/" target="_blank">Express</a></li>
@@ -195,6 +298,7 @@
                         <li><a class="asSectionNavA" href="http://openweathermap.org/api" target="_blank">Open Weather Map</a></li>
                         <li><a class="asSectionNavA" href="https://developers.google.com/books/" target="_blank">Google Books</a></li>
                         <li><a class="asSectionNavA" href="https://developers.soundcloud.com/" target="_blank">SoundCloud Developers</a></li>
+                        <li><a class="asSectionNavA" href="https://www.youtube.com/user/jannunzi/videos" target="_blank">Prof. Jose's lectures</a></li>
                     </ul>
                 </p>
             </div>

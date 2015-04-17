@@ -8,6 +8,12 @@
 <div class="asProfileTitleDiv">
     <header class="asNav">
         <a class="asBanner">> Console</a>
+        <a class="asCreditA" href="http://localhost:3000/html/doc.html#provider"
+           onmouseover="document.getElementById('as-credit').src='image/credits.jpg'"
+           onmouseout="document.getElementById('as-credit').src='image/none.jpg'">
+            Credits
+            <img class="asCreditImg" src="image/none.jpg" id="as-credit"/>
+        </a>
         <a class="asProfileNavA" href="" ng-click="logout()">
             <span ng-show="u">Sign out</span>
             <span ng-show="!u">Sign in</span>

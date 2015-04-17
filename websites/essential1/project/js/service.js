@@ -32,10 +32,11 @@ app.factory("GlobalService", function GlobalService($http)
     };
 
     /* Sign in */
-    var login = function(user, callback)
+    var login = function(user, successCallback, errorCallback)
     {
         $http.post("/api/login", user)
-        .success(callback);
+        .success(successCallback)
+        .error(errorCallback);
     };
 
     /* Sign out */

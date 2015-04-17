@@ -1,0 +1,18 @@
+../story/whatisnext.htm?../project/                    What is Next?
+html/doc.html#intro                                    Introduction
+html/doc.html#flow                                     Page flows
+html/doc.html#detail                                   All pages
+html/doc.html#home                                     Homepage
+html/doc.html#profile                                  Profile page
+html/doc.html#news                                     News page
+html/doc.html#weather                                  Weather card
+html/doc.html#books                                    Books page
+html/doc.html#music                                    Music page
+html/doc.html#bookmarks                                Bookmarks page
+html/doc.html#people                                   People page
+html/doc.html#fscope                                   Future scope
+html/doc.html#support                                  Support
+html/doc.html#source                                   Source
+html/doc.html#tech                                     Technologies used
+html/doc.html#reference                                References
+html/doc.html#provider                                 Content providers

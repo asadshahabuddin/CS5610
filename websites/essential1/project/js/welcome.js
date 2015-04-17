@@ -101,8 +101,11 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
                     user.username + "'",
                     "font-family: Courier New;");
 
-        GlobalService.login(user, function(res)
+        GlobalService.login(user, function(res)    /* Success callback */
         {
+            console.log("%c>Response.",
+                        "font-family: Courier New;");
+            console.log(res);
             console.log("%cSuccess.",
                         "color: green; font-family: Courier New;");
             console.log("%cCurrent user>",
@@ -110,9 +113,11 @@ app.controller("LoginCtrl", function($scope, $location, $anchorScroll, GlobalSer
             console.log(res);
             GlobalService.setUser(res);
             $location.url("/profile");
+        }, function()                              /* Failure callback */
+        {
+            $scope.notif       = 1;  /* 1 represents true */
+            $scope.passwdmatch = 1;  /* 1 represents true */
         });
-        $scope.notif       = 1;  /* 1 represents true */
-        $scope.passwdmatch = 1;  /* 1 represents true */
     };
 
     /* Sign out */
